@@ -1,0 +1,8 @@
+<%= simple_form_for [@category, @recommendation] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :location  %>
+  <br>
+  <!-- submit photo button -->
+  <%= f.submit "Add Recommendation" %>
+  <% end %>
