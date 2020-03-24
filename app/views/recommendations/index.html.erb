@@ -1,0 +1,6 @@
+<ul>
+  <% @recommendations.each do |recommendation| %>
+  <li><%= recommendation.name %></li>
+  <% end %>
+</ul>
+<%= link_to "Add new recommendation", new_category_recommendation_path %>
