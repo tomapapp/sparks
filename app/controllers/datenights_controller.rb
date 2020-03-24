@@ -1,0 +1,2 @@
+class DatenightsController < ApplicationController
+end
