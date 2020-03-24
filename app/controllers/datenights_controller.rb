@@ -13,15 +13,15 @@ class DatenightsController < ApplicationController
   end
 
   def create
-    @datenight = Datenight.new(datenight_params)
-    raise
-    @recommendation = Recommendation.find(params[:id])
+    @datenight = Datenight.new
+    # raise
+    @recommendation = Recommendation.find(params[:recommendation_id])
     @datenight.user = current_user
-    @datenight.recommendation = @recommmendation
+    @datenight.recommendation = @recommendation
     if @datenight.save
-      redirect_to category_recommendation_datenights_path
+      redirect_to datenight_path(@datenight)
     else
-      render :new
+      render "recommendations/show"
     end
   end
 
@@ -31,7 +31,7 @@ class DatenightsController < ApplicationController
   def update
     @datenight = Datenight.update(datenight_params)
     if @datenight.save
-      redirect_to category_recommendation_datenight_path(@datenight)
+      redirect_to datenight_path(@datenight)
     else
       render :edit
     end

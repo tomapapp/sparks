@@ -3,13 +3,13 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :categories, only: [:index, :show] do
-    resources :recommendations, except: [:index, :show]
+    resources :recommendations
   end
 
   resources :recommendations, only: [:index, :show] do
-    resources :datenights, except: [:index, :show]
+    resources :datenights, only: [:create]
   end
 
-  resources :datenights, only: [:index, :show]
+  resources :datenights, only: [:show]
 
 end
