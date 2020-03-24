@@ -10,10 +10,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_23_153340) do
+ActiveRecord::Schema.define(version: 2020_03_24_105627) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "availabilities", force: :cascade do |t|
+    t.datetime "time"
+    t.bigint "recommendation_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recommendation_id"], name: "index_availabilities_on_recommendation_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "datenights", force: :cascade do |t|
+    t.datetime "time"
+    t.bigint "recommendation_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recommendation_id"], name: "index_datenights_on_recommendation_id"
+    t.index ["user_id"], name: "index_datenights_on_user_id"
+  end
+
+  create_table "preferences", force: :cascade do |t|
+    t.bigint "category_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_preferences_on_category_id"
+    t.index ["user_id"], name: "index_preferences_on_user_id"
+  end
+
+  create_table "recommendations", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "location"
+    t.integer "rating"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_recommendations_on_category_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +71,10 @@ ActiveRecord::Schema.define(version: 2020_03_23_153340) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "availabilities", "recommendations"
+  add_foreign_key "datenights", "recommendations"
+  add_foreign_key "datenights", "users"
+  add_foreign_key "preferences", "categories"
+  add_foreign_key "preferences", "users"
+  add_foreign_key "recommendations", "categories"
 end
