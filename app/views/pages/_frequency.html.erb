@@ -1,7 +1,11 @@
-<h1>Regular, amazing date nights for couples made easy.</h1>
-<%= simple_form_for current_user do |f| %>
-  <%= f.input :day, collection: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]%>
-  <%= f.input :date_frequency, collection: [1, 2, 4] %>
-  <%= f.button :submit, class: "btn-primary" %>
-  <%= hidden_field_tag :next_page, "page 2" %>
-<% end %>
+<div class="container">
+  <h1>Regular, amazing <span class="red">date nights</span> for couples made easy.</h1>
+  <div class="d-flex justify-content-center">
+    <%= simple_form_for @user do |f| %>
+    <%= f.input :day, collection: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]%>
+    <%= f.input :date_frequency, collection: [1, 2, 4] %>
+    <%= f.button :submit, class: "main-btn" %>
+    <%= hidden_field_tag :next_page, "page 2" %>
+    <% end %>
+  </div>
+</div>
