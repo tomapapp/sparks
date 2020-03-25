@@ -5,6 +5,7 @@ class RecommendationsController < ApplicationController
 
   def index
     @recommendations = Recommendation.all
+    #   @tailored_recommendation = Recommendation.where()
   end
 
   def show

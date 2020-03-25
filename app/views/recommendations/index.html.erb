@@ -1,6 +1,17 @@
-<ul>
+<div class="container">
   <% @recommendations.each do |recommendation| %>
-  <li><%= link_to "#{recommendation.name}", recommendation_path(recommendation) %></li>
+  <div class="card">
+    <%= image_tag "https://source.unsplash.com/random/400x300", alt: "alttext", class: "w-100" %>
+    <div class="d-flex justify-content-between">
+    <p><em><%= recommendation.location %></em></p>
+    <p><em><#%= recommendation.rating %></em></p>
+
+    </div>
+    <p><%= recommendation.category.name %></p>
+    <h1><%= link_to "#{recommendation.name}", recommendation_path(recommendation) %></h1>
+  </div>
   <% end %>
-</ul>
-<%= link_to "Add new recommendation", new_category_recommendation_path %>
+
+  <%= link_to "Get other choices", category_recommendations_path, class: "btn btn-primary" %>
+  <%= link_to "Add new recommendation", new_category_recommendation_path, class: "btn btn-secondary" %>
+</div>
