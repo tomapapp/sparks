@@ -5,8 +5,7 @@ Rails.application.routes.draw do
   resources :users
 
   get '/edit_preferences', to: "pages#my_preferences"
-  get '/edit_dateinfo', to: "pages#my_dateinfo"
-
+  get '/edit_date_info', to: "pages#my_date_info"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :categories, only: [:index, :show] do

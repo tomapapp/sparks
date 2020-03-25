@@ -1,0 +1,17 @@
+<h2>You’re done! Ready to pick your next date night?</h1>
+<h5>Allow us to see your location to make our recommendations better</h4>
+
+<!-- Think we should have a field next date night & preferred time in user profile? -->
+<%= simple_form_for current_user do |f| %>
+  <%= f.input :location %>
+  <%= f.button :submit, "Surprise us!", class: "btn-primary" %>
+  <%= hidden_field_tag :next_page, "suprise" %>
+<% end %>
+
+
+
+<!-- This is probably non optimal, should we just have a button or the submit button of a form -->
+<%= simple_form_for current_user do |f| %>
+  <%= f.button :submit, "Pick category for your date night!", class: "btn-secondary" %>
+  <%= hidden_field_tag :next_page, "list" %>
+<% end %>
