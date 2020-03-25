@@ -1,6 +1,7 @@
 class RecommendationsController < ApplicationController
 
   before_action :set_recommendation, only: [:show, :edit, :destroy]
+  before_action :set_category, only: [:new, :create, :edit, :update]
 
   def index
     @recommendations = Recommendation.all
@@ -10,12 +11,10 @@ class RecommendationsController < ApplicationController
   end
 
   def new
-    @category = Category.find(params[:category_id])
     @recommendation = Recommendation.new
   end
 
   def create
-    @category = Category.find(params[:category_id])
     @recommendation = Recommendation.new(recommendation_params)
     @recommendation.category = @category
     if @recommendation.save
@@ -29,8 +28,7 @@ class RecommendationsController < ApplicationController
   end
 
   def update
-    @recommendation = Recommendation.update(recommendation_params)
-    if @recommendation.save
+    if @recommendation = Recommendation.update(recommendation_params)
       redirect_to category_recommendation_path(@recommendation)
     else
       render :edit
@@ -43,6 +41,10 @@ class RecommendationsController < ApplicationController
   end
 
   private
+
+  def set_category
+    @category = Category.find(params[:category_id])
+  end
 
   def set_recommendation
     @recommendation = Recommendation.find(params[:id])

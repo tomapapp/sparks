@@ -10,10 +10,12 @@ class DatenightsController < ApplicationController
 
   def new
     @datenight = Datenight.new
+    @recommendation = Recommendation.find(params[:recommendation_id])
   end
 
   def create
-    @datenight = Datenight.new
+    @datenight = Datenight.new(datenight_params)
+    # @datenight.day_of_date = current_user.chosen_date
     @recommendation = Recommendation.find(params[:recommendation_id])
     @datenight.user = current_user
     @datenight.recommendation = @recommendation
@@ -44,7 +46,7 @@ class DatenightsController < ApplicationController
   private
 
   def datenight_params
-    params.require(:datenight).permit(:time)
+    params.require(:datenight).permit(:time, :day_of_date)
   end
 
   def set_datenight

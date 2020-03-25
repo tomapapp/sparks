@@ -2,5 +2,11 @@
 <br>
 <%= @recommendation.category.name %>
 <br>
-<%= link_to "Book date", recommendation_datenights_path(@recommendation), method: :post %>
 
+<%= link_to "Book date", new_recommendation_datenight_path(@recommendation) %>
+<br>
+<%= link_to "Back to list", category_recommendations_path(@recommendation.category) %>
+<br>
+<%= link_to "Edit", edit_category_recommendation_path(@recommendation.category, @recommendation) %>
+<br>
+<%= link_to "Delete", category_recommendation_path(@recommendation.category, @recommendation), method: :delete %>
