@@ -51,6 +51,6 @@ class RecommendationsController < ApplicationController
   end
 
   def recommendation_params
-    params.require(:recommendation).permit(:name, :description, :location)
+    params.require(:recommendation).permit(:name, :description, :location, :photo)
   end
 end
