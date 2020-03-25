@@ -1,12 +1,42 @@
-<%= @recommendation.name %>
-<br>
-<%= @recommendation.category.name %>
-<br>
+<div class="container">
+  <div class="card">
+    <% if @recommendation.photo.attached? %>
+    <%= cl_image_tag @recommendation.photo.key, height: 300, width: 400, crop: :fill %>
+    <% else %>
+    <%= image_tag "https://source.unsplash.com/random/400x300", crop: :fill, class: "pb-3" %>
+    <% end %>
+    <p><%= @recommendation.category.name %></p>
+    <h1><strong><%= @recommendation.name %></strong></h1>
 
-<%= link_to "Book date", new_recommendation_datenight_path(@recommendation) %>
-<br>
-<%= link_to "Back to list", category_recommendations_path(@recommendation.category) %>
-<br>
-<%= link_to "Edit", edit_category_recommendation_path(@recommendation.category, @recommendation) %>
-<br>
-<%= link_to "Delete", category_recommendation_path(@recommendation.category, @recommendation), method: :delete %>
+    <ul>
+      <li>tag</li>
+      <li>tag</li>
+      <li>tag</li>
+    </ul>
+
+    <h3>ABOUT THIS DATE NIGHT</h3>
+    <p><%= @recommendation.description %></p>
+    <a href="">See more about the date</a>
+    <br>
+
+    <h3>LOCATION</h3>
+    <p><%= @recommendation.location %> </p>
+    <br>
+
+    <h3>PRICE</h3>
+    <p><i class="fas fa-dollar-sign"></i> Mucho</p>
+    <br>
+
+    <h3>REVIEWS</h3>
+    <p><%= @recommendation.rating %></p>
+    <br>
+
+    <%= link_to "Book date", new_recommendation_datenight_path(@recommendation), class: "btn btn-primary" %>
+    <br>
+    <%= link_to "Back to list", category_recommendations_path(@recommendation.category), class: "btn btn-secondary" %>
+    <br>
+    <%= link_to "Edit", edit_category_recommendation_path(@recommendation.category, @recommendation), class: "btn btn-secondary" %>
+    <br>
+    <%= link_to "Delete", category_recommendation_path(@recommendation.category, @recommendation), method: :delete, class: "btn btn-secondary" %>
+  </div>
+</div>
