@@ -3,7 +3,7 @@
   <div class="d-flex justify-content-center">
     <%= simple_form_for @user do |f| %>
     <%= f.input :day, label: "PICK A DATE NIGHT", collection: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]%>
-      <%= f.input :date_frequency, label: "CHOOSE FREQUENCY", collection: [1, 2, 4] %>
+      <%= f.input :date_frequency, label: "CHOOSE FREQUENCY", collection: [[1, 'Once a week'], [4, 'Once every month'], [2, 'Once every two weeks']], label_method: :second, value_method: :first %>
     <%= f.button :submit, "Get started", class: "main-btn" %>
     <%= hidden_field_tag :next_page, "page 2" %>
     <% end %>
