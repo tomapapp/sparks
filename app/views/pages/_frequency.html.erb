@@ -2,9 +2,9 @@
   <h1>Regular, amazing <span class="red">date nights</span> for couples made easy.</h1>
   <div class="d-flex justify-content-center">
     <%= simple_form_for @user do |f| %>
-    <%= f.input :day, collection: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]%>
-    <%= f.input :date_frequency, collection: [1, 2, 4] %>
-    <%= f.button :submit, class: "main-btn" %>
+    <%= f.input :day, label: "PICK A DATE NIGHT", collection: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]%>
+      <%= f.input :date_frequency, label: "CHOOSE FREQUENCY", collection: [1, 2, 4] %>
+    <%= f.button :submit, "Get started", class: "main-btn" %>
     <%= hidden_field_tag :next_page, "page 2" %>
     <% end %>
   </div>

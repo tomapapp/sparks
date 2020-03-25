@@ -5,3 +5,9 @@
 <%= @datenight.time.hour %>
 <br>
 <p>hi</p>
+
+<%= link_to "Back to list", category_recommendation_path(@datenight.recommendation.category, @datenight.recommendation) %>
+<br>
+<%= link_to "Edit", edit_recommendation_datenight_path(@datenight.recommendation, @datenight) %>
+<br>
+<%= link_to "Delete", recommendation_datenight_path(@datenight.recommendation, @datenight), method: :delete %>
