@@ -11,6 +11,7 @@ class DatenightsController < ApplicationController
 
   def new
     @datenight = Datenight.new
+    @datenight.day_of_date = current_user.next_date_night
   end
 
   def create
