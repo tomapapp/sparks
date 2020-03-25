@@ -28,9 +28,7 @@ class RecommendationsController < ApplicationController
   end
 
   def update
-    @recommendation = Recommendation.update(recommendation_params)
-    @recommendation.category = @category
-    if @recommendation.save
+    if @recommendation = Recommendation.update(recommendation_params)
       redirect_to category_recommendation_path(@recommendation)
     else
       render :edit
