@@ -9,7 +9,7 @@
 <% end %>
 
 <!-- Display form with categories as category_collection -->
-<%= simple_form_for current_user do |f| %>
+<%= simple_form_for(current_user, method: :post, url: edit_preferences_path) do |f| %>
   <%= f.input :preferences, label: "PICK SOME STUFF YOU LIKE TO DO",
     as: :check_boxes,
     collection: category_collection,
