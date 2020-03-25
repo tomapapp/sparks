@@ -1,5 +1,6 @@
 class DatenightsController < ApplicationController
-  before_action :set_datenight, only: [:show, :edit, :destroy]
+  before_action :set_datenight, only: [:show, :edit, :update, :destroy]
+  before_action :set_recommendation, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @datenights = Datenight.all
@@ -10,13 +11,11 @@ class DatenightsController < ApplicationController
 
   def new
     @datenight = Datenight.new
-    @recommendation = Recommendation.find(params[:recommendation_id])
   end
 
   def create
     @datenight = Datenight.new(datenight_params)
     # @datenight.day_of_date = current_user.chosen_date
-    @recommendation = Recommendation.find(params[:recommendation_id])
     @datenight.user = current_user
     @datenight.recommendation = @recommendation
     if @datenight.save
@@ -30,8 +29,7 @@ class DatenightsController < ApplicationController
   end
 
   def update
-    @datenight = Datenight.update(datenight_params)
-    if @datenight.save
+    if @datenight.update(datenight_params)
       redirect_to datenight_path(@datenight)
     else
       render :edit
@@ -40,7 +38,7 @@ class DatenightsController < ApplicationController
 
   def destroy
     @datenight.destroy
-    redirect_to category_recommendation_datenights_path
+    redirect_to root_path
   end
 
   private
@@ -51,5 +49,9 @@ class DatenightsController < ApplicationController
 
   def set_datenight
     @datenight = Datenight.find(params[:id])
+  end
+
+  def set_recommendation
+    @recommendation = Recommendation.find(params[:recommendation_id])
   end
 end
