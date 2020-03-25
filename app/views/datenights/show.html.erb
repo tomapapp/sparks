@@ -1,13 +1,10 @@
-<%= @datenight.recommendation.name %>
+Booked date: <%= @datenight.recommendation.name %>
 <br>
-<%= @datenight.day_of_date.day %>
+Date: <%= @datenight.day_of_date.month %>/<%= @datenight.day_of_date.day %>
 <br>
-<%= @datenight.time.hour %>
-<br>
-<p>hi</p>
-
-<%= link_to "Back to list", category_recommendation_path(@datenight.recommendation.category, @datenight.recommendation) %>
+Time: <%= @datenight.time.hour %> : <%= @datenight.time.min %>
 <br>
 <%= link_to "Edit", edit_recommendation_datenight_path(@datenight.recommendation, @datenight) %>
-<br>
 <%= link_to "Delete", recommendation_datenight_path(@datenight.recommendation, @datenight), method: :delete %>
+<br>
+<%= link_to "Back to list", category_recommendation_path(@datenight.recommendation.category, @datenight.recommendation) %>

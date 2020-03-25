@@ -1,5 +1,5 @@
 <ul>
 <% @datenights.each do |datenight| %>
-<li><%= datenight.recommendation.name %></li>
+<li><%= datenight.recommendation.name %>[<%= datenight.day_of_date %> / <%= datenight.time %>]</li>
 <% end %>
 </ul>

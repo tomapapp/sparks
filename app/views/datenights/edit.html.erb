@@ -1,6 +1,6 @@
 <%= simple_form_for [@recommendation, @datenight] do |f| %>
-  <%= f.input :time %>
-  <%= f.input :day_of_date %>
+  <%= f.input :day_of_date, as: :date %>
+  <%= f.input :time, as: :time %>
   <br>
   <%= f.submit "Save date" %>
 <% end %>
