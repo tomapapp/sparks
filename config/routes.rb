@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   end
 
   resources :recommendations, only: [:index, :show] do
-    resources :datenights, only: [:create, :new]
+    resources :datenights, only: [:create, :new, :edit, :update, :destroy]
   end
 
   resources :datenights, only: [:show]
