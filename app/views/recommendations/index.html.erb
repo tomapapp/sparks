@@ -1,11 +1,14 @@
 <div class="container">
-  <% @recommendations.each do |recommendation| %>
+  <% @category.recommendations.each do |recommendation| %>
   <div class="card">
-    <%= image_tag "https://source.unsplash.com/random/400x300", alt: "alttext", class: "w-100" %>
+    <% if recommendation.photo.attached? %>
+    <%= cl_image_tag recommendation.photo.key, height: 300, width: 400, crop: :fill %>
+    <% else %>
+    <%= image_tag "https://source.unsplash.com/random/400x300", crop: :fill, class: "pb-3" %>
+    <% end %>
     <div class="d-flex justify-content-between">
-    <p><em><%= recommendation.location %></em></p>
-    <p><em><#%= recommendation.rating %></em></p>
-
+      <p><em><%= recommendation.location %></em></p>
+      <p><em><#%= recommendation.rating %></em></p>
     </div>
     <p><%= recommendation.category.name %></p>
     <h1><%= link_to "#{recommendation.name}", recommendation_path(recommendation) %></h1>
@@ -13,5 +16,7 @@
   <% end %>
 
   <%= link_to "Get other choices", category_recommendations_path, class: "btn btn-primary" %>
+  <%= link_to "Back to categories", categories_path, class: "btn btn-secondary" %>
   <%= link_to "Add new recommendation", new_category_recommendation_path, class: "btn btn-secondary" %>
 </div>
+

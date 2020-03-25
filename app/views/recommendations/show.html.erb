@@ -1,6 +1,10 @@
 <div class="container">
   <div class="card">
-    <%= image_tag "https://source.unsplash.com/random/11d00x800", alt: "alttext", class: "w-100" %>
+    <% if @recommendation.photo.attached? %>
+    <%= cl_image_tag @recommendation.photo.key, height: 300, width: 400, crop: :fill %>
+    <% else %>
+    <%= image_tag "https://source.unsplash.com/random/400x300", crop: :fill, class: "pb-3" %>
+    <% end %>
     <p><%= @recommendation.category.name %></p>
     <h1><strong><%= @recommendation.name %></strong></h1>
 
