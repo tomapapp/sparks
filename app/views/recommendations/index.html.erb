@@ -1,5 +1,5 @@
 <div class="container">
-  <% @recommendations.each do |recommendation| %>
+  <% @category.recommendations.each do |recommendation| %>
   <div class="card">
     <% if recommendation.photo.attached? %>
     <%= cl_image_tag recommendation.photo.key, height: 300, width: 400, crop: :fill %>
@@ -16,4 +16,5 @@
   </div>
   <% end %>
 </ul>
-<%= link_to "Add new recommendation", new_category_recommendation_path %>
+<%= link_to "Add new recommendation", new_category_recommendation_path, class: "btn btn-secondary" %>
+<%= link_to "Back to categories", categories_path, class: "btn btn-secondary" %>
