@@ -15,6 +15,8 @@
     <h1><%= link_to "#{recommendation.name}", recommendation_path(recommendation) %></h1>
   </div>
   <% end %>
-</ul>
-<%= link_to "Add new recommendation", new_category_recommendation_path, class: "btn btn-secondary" %>
-<%= link_to "Back to categories", categories_path, class: "btn btn-secondary" %>
+  <br>
+  <%= link_to "Add new recommendation", new_category_recommendation_path, class: "btn btn-secondary" %>
+  <br>
+  <br>
+  <%= link_to "Back to categories", categories_path, class: "btn btn-secondary" %>
