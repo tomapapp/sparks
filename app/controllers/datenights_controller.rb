@@ -14,7 +14,6 @@ class DatenightsController < ApplicationController
 
   def create
     @datenight = Datenight.new
-    # raise
     @recommendation = Recommendation.find(params[:recommendation_id])
     @datenight.user = current_user
     @datenight.recommendation = @recommendation

@@ -8,4 +8,6 @@ class User < ApplicationRecord
   has_many :recommendations, through: :dates
   has_many :times, through: :recommendations
   has_many :categories, through: :preferences
+  geocoded_by :location
+  after_validation :geocode, if: :will_save_change_to_location?
 end
