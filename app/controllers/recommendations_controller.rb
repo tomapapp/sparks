@@ -1,7 +1,7 @@
 class RecommendationsController < ApplicationController
 
   before_action :set_recommendation, only: [:show, :edit, :update, :destroy]
-  before_action :set_category, only: [:index, :new, :create, :edit, :update]
+  before_action :set_category, only: [:new, :create, :edit, :update]
 
   def index
     @recommendations = Recommendation.all
