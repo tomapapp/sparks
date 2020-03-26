@@ -9,7 +9,8 @@
     label_html: { class: 'font-form-title' },
     as: :check_boxes,
     collection: @categories,
-    wrapper: :vertical_collection_inline
+    wrapper: :vertical_collection_inline,
+    class: "category-choices"
   %>
   <%= f.button :submit, "Next", class: "main-btn" %>
   <%= hidden_field_tag :next_page, "page 3" %>
