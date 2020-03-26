@@ -1,20 +1,29 @@
 .main-btn {
   width: 320px;
-  height: 40px;
+  padding: 10px 0px;
   background-color: #E8545E;
   color: white;
   font-weight: bold;
-  vertical-align: center;
   border-radius: 8px;
 }
 
-.secondary-btn {
+.main:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.secondary {
   width: 320px;
-  height: 40px;
+  padding: 10px 0px;
   background-color: white;
   color: #E8545E;
   font-weight: bold;
-  vertical-align: center;
   border-radius: 8px;
   border: 2px solid #E8545E;
+  text-align: center;
+}
+
+.secondary:hover {
+  text-decoration: none;
+  color: #E8545E;
 }
