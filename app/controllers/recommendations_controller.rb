@@ -9,6 +9,11 @@ class RecommendationsController < ApplicationController
   end
 
   def show
+    @markers =
+      [{
+      lat: @recommendation.latitude,
+      lng: @recommendation.longitude
+      }]
   end
 
   def new

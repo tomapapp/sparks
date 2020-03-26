@@ -1,42 +1,44 @@
 <div class="container">
   <div class="card">
     <% if @recommendation.photo.attached? %>
-    <%= cl_image_tag @recommendation.photo.key, class: "w-100", crop: :fill, position: :center  %>
+      <%= cl_image_tag @recommendation.photo.key, class: "w-100", crop: :fill, position: :center  %>
     <% else %>
-    <%= image_tag "https://source.unsplash.com/random/1100x500", class: "w-100", crop: :fill, position: :center %>
+      <%= image_tag "https://source.unsplash.com/random/1100x500", class: "w-100", crop: :fill, position: :center %>
     <% end %>
-    <p><%= @recommendation.category.name %></p>
-    <h1><strong><%= @recommendation.name %></strong></h1>
+    <br>
+    <h4><strong><%= @recommendation.name %></strong></h4>
 
-    <ul>
-      <li>tag</li>
-      <li>tag</li>
-      <li>tag</li>
+    <ul class="list-inline d-flex justify-content-center border-bottom">
+      <li class="list-inline-item btn btn-outline-danger btn-sm">tag1</li>
+      <li class="list-inline-item btn btn-outline-danger btn-sm">tag2</li>
+      <li class="list-inline-item btn btn-outline-danger btn-sm">tag3</li>
     </ul>
 
-    <h3>ABOUT THIS DATE NIGHT</h3>
-    <p><%= @recommendation.description %></p>
-    <a href="">See more about the date</a>
-    <br>
+    <p><strong>ABOUT THIS DATE NIGHT</strong></p>
+    <p class="border-bottom"><%= @recommendation.description %></p>
 
-    <h3>LOCATION</h3>
+
+    <p><strong>PRICE</strong></p>
+    <p class="border-bottom">About <i class="fas fa-dollar-sign"></i><strong><%= @recommendation.price %></strong> per person</p>
+
+    <p><strong>RATING</strong></p>
+    <p class="border-bottom"><%= @recommendation.rating %></p>
+
+    <p><strong>LOCATION</strong></p>
     <p><%= @recommendation.location %> </p>
+    <div
+      id="map"
+      style="width: 100%;
+      height: 160px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+    ></div>
     <br>
-
-    <h3>PRICE</h3>
-    <p><i class="fas fa-dollar-sign"></i> Mucho</p>
-    <br>
-
-    <h3>REVIEWS</h3>
-    <p><%= @recommendation.rating %></p>
-    <br>
-
-    <%= link_to "Book date", new_recommendation_datenight_path(@recommendation), class: "btn btn-primary" %>
-    <br>
-    <%= link_to "Back to list", category_recommendations_path(@recommendation.category), class: "btn btn-secondary" %>
-    <br>
-    <%= link_to "Edit", edit_category_recommendation_path(@recommendation.category, @recommendation), class: "btn btn-secondary" %>
-    <br>
-    <%= link_to "Delete", category_recommendation_path(@recommendation.category, @recommendation), method: :delete, class: "btn btn-secondary" %>
+    <div class="row d-flex justify-content-center">
+      <%= link_to "Back to list", category_recommendations_path(@recommendation.category), class: "btn btn-secondary w-50" %>
+      <%= link_to "Book date", new_recommendation_datenight_path(@recommendation), class: "btn btn-primary w-50" %>
+      <%#= link_to "Edit", edit_category_recommendation_path(@recommendation.category, @recommendation), class: "btn btn-secondary" %>
+      <%#= link_to "Delete", category_recommendation_path(@recommendation.category, @recommendation), method: :delete, class: "btn btn-secondary" %>
+    </div>
   </div>
 </div>
