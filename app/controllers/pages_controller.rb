@@ -22,4 +22,8 @@ class PagesController < ApplicationController
     @user = current_user
   end
 
+  def pick_a_category
+    @categories = Category.all
+  end
+
 end

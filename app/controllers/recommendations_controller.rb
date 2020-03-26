@@ -10,6 +10,11 @@ class RecommendationsController < ApplicationController
   end
 
   def show
+    @markers =
+      [{
+      lat: @recommendation.latitude,
+      lng: @recommendation.longitude
+      }]
   end
 
   def surprise_me

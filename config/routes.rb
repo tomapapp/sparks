@@ -10,6 +10,9 @@ Rails.application.routes.draw do
 
   get '/edit_date_info', to: "pages#my_date_info"
 
+  # route to pick a category (not surprise us)
+  get '/pick_a_category', to: "pages#pick_a_category"
+
   # Profile routes
   get 'profiles/couple_profile'
 
