@@ -1,5 +1,8 @@
+<%= render 'shared/welcomebanner' %>
 
-<h2>Welcome, <%= current_user.name %>! You have been on <%= @datenights.count %> dates! </h2>
+
+
+<h2>You have been on <%= @datenights.count %> dates! </h2>
 
 <% @datenights.each do |datenight| %>
   <%= datenight.name %>
