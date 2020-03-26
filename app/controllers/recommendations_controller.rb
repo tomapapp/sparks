@@ -4,7 +4,8 @@ class RecommendationsController < ApplicationController
   before_action :set_category, only: [:index, :new, :create, :edit, :update]
 
   def index
-    @recommendations = Recommendation.all
+    @filtered_recommendations = Recommendation.where(category: current_user.preferences.category, location: current_user.location)
+    raise
     #   @tailored_recommendation = Recommendation.where()
   end
 
