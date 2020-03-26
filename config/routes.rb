@@ -20,6 +20,10 @@ Rails.application.routes.draw do
   get '/recommendation/surprise_me', to: "recommendations#surprise_me"
 
 
+  #pick a category
+  get '/recommendation/filtered_index', to: "recommendations#filtered_index"
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :categories, only: [:index, :show] do
     resources :recommendations, except: [:index, :show]

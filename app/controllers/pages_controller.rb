@@ -11,8 +11,9 @@ class PagesController < ApplicationController
   end
 
   def add_preferences
-    params[:user][:preferences].each do |preference|
-      category = Category.find_by(name: preference)
+    new_params = params[:user][:preferences].drop(1)
+    new_params.each do |preference|
+      category = Category.find(preference)
       Preference.create(user: current_user, category: category)
     end
     redirect_to edit_date_info_path

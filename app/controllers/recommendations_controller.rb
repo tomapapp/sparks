@@ -9,6 +9,19 @@ class RecommendationsController < ApplicationController
     @top_recommendations = @recommendations.first(4)
   end
 
+  def filtered_index
+    categories = []
+    new_params = params[:search][:category_ids].drop(1)
+    new_params.each do |id|
+      categories << Category.find(id.to_i)
+    end
+    recommendations = []
+    categories.each do |category|
+      recommendations << Recommendation.where(category: category)
+    end
+    @top_recommendations = recommendations.flatten.sort_by { |ab| -ab[:rating] }.first(4)
+  end
+
   def show
     @markers =
       [{

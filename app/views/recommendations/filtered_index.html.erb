@@ -1,11 +1,12 @@
 <div class="container">
-  <div class="card">
-    <% if @recommendation.photos.attached? %>
+  <% @top_recommendations.each do |recommendation| %>
+  <div class="card mb-3">
+    <% if recommendation.photos.attached? %>
 
     <!-- image carousel -->
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
-        <% @recommendation.photos.each_with_index do |photo, n| %>
+        <% recommendation.photos.each_with_index do |photo, n| %>
           <li data-target="#carouselExampleIndicators" data-slide-to="#{n}" class="#{'active' if n == 0}"></li>
         <% end %>
       </ol>
@@ -13,7 +14,7 @@
         <div class="carousel-item active">
           <%= cl_image_tag @recommendation.photos.first.key, class: "d-block w-100", crop: :fill, position: :center  %>
         </div>
-        <% @recommendation.photos.drop(1).each do |photo| %>
+        <% recommendation.photos.drop(1).each do |photo| %>
         <div class="carousel-item">
           <%= cl_image_tag photo.key,  class: "d-block w-100", crop: :fill, position: :center  %>
         </div>
@@ -33,38 +34,21 @@
     <% end %>
     <!-- image carousel -->
 
-    <p><%= @recommendation.category.name %></p>
-    <h1><strong><%= @recommendation.name %></strong></h1>
+<!--       <% recommendation.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, class: "w-100", crop: :fill, position: :center  %>
+      <% end %> -->
 
-    <ul>
-      <li>tag</li>
-      <li>tag</li>
-      <li>tag</li>
-    </ul>
+    <% else %>
+      <%= image_tag "https://source.unsplash.com/random/1100x500", class: "w-100", crop: :fill, position: :center  %>
+    <% end %>
+    <h4><%= link_to "#{recommendation.name}", recommendation_path(recommendation) %></h4>
+    <div class="d-flex justify-content-between">
+      <p><em><%= recommendation.location %></em></p>
+      <p><i class="fas fa-star"></i><em><%= recommendation.rating %></em></p>
+    </div>
+  <% end %>
 
-    <h3>ABOUT THIS DATE NIGHT</h3>
-    <p><%= @recommendation.description %></p>
-    <a href="">See more about the date</a>
-    <br>
-
-    <h3>LOCATION</h3>
-    <p><%= @recommendation.location %> </p>
-    <br>
-
-    <h3>PRICE</h3>
-    <p><i class="fas fa-dollar-sign"></i> Mucho</p>
-    <br>
-
-    <h3>REVIEWS</h3>
-    <p><%= @recommendation.rating %></p>
-    <br>
-
-    <%= link_to "Book date", new_recommendation_datenight_path(@recommendation), class: "btn btn-primary" %>
-    <br>
-    <%= link_to "Back to list", category_recommendations_path(@recommendation.category), class: "btn btn-secondary" %>
-    <br>
-    <%= link_to "Edit", edit_category_recommendation_path(@recommendation.category, @recommendation), class: "btn btn-secondary" %>
-    <br>
-    <%= link_to "Delete", category_recommendation_path(@recommendation.category, @recommendation), method: :delete, class: "btn btn-secondary" %>
-  </div>
+  <%= link_to "Get other choices", recommendation_filtered_index_path, class: "btn btn-primary" %>
+  <%#= link_to "Back to categories", categories_path, class: "btn btn-secondary" %>
 </div>
+

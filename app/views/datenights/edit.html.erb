@@ -1,6 +1,10 @@
+<div class="container">
+  <div class="card mt-3">
 <%= simple_form_for [@recommendation, @datenight] do |f| %>
-  <%= f.input :day_of_date, as: :date %>
-  <%= f.input :time, as: :time %>
+  <%= f.input :day_of_date, as: :date, html5: true %>
+  <%= f.input :time, as: :time, :minute_step => 15, label: "Time of date" %>
   <br>
-  <%= f.submit "Save date" %>
+  <%= f.submit "Save date", class: "main-btn btn-block" %>
 <% end %>
+</div>
+</div>
