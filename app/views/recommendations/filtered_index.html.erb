@@ -1,6 +1,6 @@
 <div class="container">
   <% @top_recommendations.each do |recommendation| %>
-  <div class="card">
+  <div class="card mb-3">
     <% if recommendation.photos.attached? %>
 
     <!-- image carousel -->
@@ -39,19 +39,16 @@
       <% end %> -->
 
     <% else %>
-    <%= image_tag "https://source.unsplash.com/random/1100x500", class: "w-100", crop: :fill, position: :center  %>
+      <%= image_tag "https://source.unsplash.com/random/1100x500", class: "w-100", crop: :fill, position: :center  %>
     <% end %>
+    <h4><%= link_to "#{recommendation.name}", recommendation_path(recommendation) %></h4>
     <div class="d-flex justify-content-between">
       <p><em><%= recommendation.location %></em></p>
-      <p><em><%= recommendation.rating %></em></p>
+      <p><i class="fas fa-star"></i><em><%= recommendation.rating %></em></p>
     </div>
   <% end %>
 
-  <br>
-
-   <div class="row d-flex justify-content-center">
-    <%= link_to "Get other choices", recommendations_path, class: "secondary" %>
-  </div>
-  <%#= link_to "Add new recommendation", new_category_recommendation_path, class: "btn btn-secondary" %>
+  <%= link_to "Get other choices", recommendation_filtered_index_path, class: "btn btn-primary" %>
+  <%#= link_to "Back to categories", categories_path, class: "btn btn-secondary" %>
 </div>
 
