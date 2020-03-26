@@ -1,0 +1,24 @@
+<div class="container">
+  <% @top_recommendations.each do |recommendation| %>
+  <div class="card">
+    <% if recommendation.photos.attached? %>
+      <% recommendation.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, class: "w-100", crop: :fill, position: :center  %>
+      <% end %>
+    <% else %>
+    <%= image_tag "https://source.unsplash.com/random/1100x500", class: "w-100", crop: :fill, position: :center  %>
+    <% end %>
+    <div class="d-flex justify-content-between">
+      <p><em><%= recommendation.location %></em></p>
+      <p><em><%= recommendation.rating %></em></p>
+    </div>
+    <p><%= recommendation.category.name %></p>
+    <h1><%= link_to "#{recommendation.name}", recommendation_path(recommendation) %></h1>
+  </div>
+  <% end %>
+
+  <%= link_to "Get other choices", recommendations_path, class: "btn btn-primary" %>
+  <%= link_to "Back to categories", categories_path, class: "btn btn-secondary" %>
+  <#%= link_to "Add new recommendation", new_category_recommendation_path, class: "btn btn-secondary" %>
+</div>
+
