@@ -1,10 +1,13 @@
-Booked date: <%= @datenight.recommendation.name %>
-<br>
-Date: <%= @datenight.day_of_date.month %>/<%= @datenight.day_of_date.day %>
-<br>
-Time: <%= @datenight.time.hour %> : <%= @datenight.time.min %>
-<br>
-<%= link_to "Edit", edit_recommendation_datenight_path(@datenight.recommendation, @datenight) %>
-<%= link_to "Delete", recommendation_datenight_path(@datenight.recommendation, @datenight), method: :delete %>
-<br>
-<%= link_to "Back to list", category_recommendation_path(@datenight.recommendation.category, @datenight.recommendation) %>
+<div class="container">
+  <div class="card">
+    <h4>❤️ Date Booked! ❤️</h4>
+    <p>Booked date: <%= @datenight.recommendation.name %></p>
+    <p><em>Date:     </em><%= @datenight.day_of_date.month %>/<%= @datenight.day_of_date.day %></p>
+    <p><em>Time:     </em><%= @datenight.time.hour %>:<%= @datenight.time.min %></p>
+    <br>
+    <%= link_to "Edit date/time", edit_recommendation_datenight_path(@datenight.recommendation, @datenight), class: "secondary btn-sm" %>
+    <%= link_to "Cancel", recommendation_datenight_path(@datenight.recommendation, @datenight), method: :delete, data: { confirm: "Are you sure you want to delete the booked date?" }, class: "secondary btn-sm" %>
+    <br>
+    <%= link_to "Back to list", category_recommendation_path(@datenight.recommendation.category, @datenight.recommendation), class: "main-btn" %>
+  </div>
+</div>
