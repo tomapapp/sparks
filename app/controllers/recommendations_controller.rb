@@ -19,7 +19,8 @@ class RecommendationsController < ApplicationController
     categories.each do |category|
       recommendations << Recommendation.where(category: category)
     end
-    @top_recommendations = recommendations.flatten.sort_by { |a| -a[:rating] }.first(4)
+    raise
+    @top_recommendations = recommendations.flatten.sort_by { |ab| -ab[:rating] }.first(4)
   end
 
   def show
