@@ -1,10 +1,10 @@
 
 <div class="container">
   <div class="category-name">
-    <h3><%= @category.name %></h3>
+    <h3><%#= @category.name %></h3>
 
   </div>
-  <% @category.recommendations.each do |recommendation| %>
+  <% @recommendations.each do |recommendation| %>
   <div class="recommendation-card">
     <% if recommendation.photo.attached? %>
     <%= cl_image_tag recommendation.photo.key, crop: :fill, class: "card-picture" %>
