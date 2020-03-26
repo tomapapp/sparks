@@ -10,21 +10,21 @@
     <br>
     <h4><strong><%= @recommendation.name %></strong></h4>
 
-    <ul class="list-inline d-flex justify-content-center border-bottom">
+    <ul class="list-inline d-flex justify-content-center border-bottom pb-2">
       <li class="list-inline-item btn btn-outline-danger btn-sm"><%= @recommendation.category.name %></li>
       <li class="list-inline-item btn btn-outline-danger btn-sm">Urban</li>
       <li class="list-inline-item btn btn-outline-danger btn-sm">Cheap</li>
     </ul>
 
     <p><strong>ABOUT THIS DATE NIGHT</strong></p>
-    <p class="border-bottom"><%= @recommendation.description %></p>
+    <p class="border-bottom pb-2"><%= @recommendation.description %></p>
 
 
     <p><strong>PRICE</strong></p>
-    <p class="border-bottom">About <i class="fas fa-dollar-sign"></i><strong><%= @recommendation.price %></strong> per person</p>
+    <p class="border-bottom pb-2">About <i class="fas fa-dollar-sign"></i><strong><%= @recommendation.price %></strong> per person</p>
 
     <p><strong>RATING</strong></p>
-    <p class="border-bottom"><%= @recommendation.rating %></p>
+    <p class="border-bottom pb-2"><%= @recommendation.rating %></p>
 
     <p><strong>LOCATION</strong></p>
     <p><%= @recommendation.location %> </p>
@@ -35,12 +35,14 @@
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
     ></div>
-    <br>
-    <div class="row d-flex justify-content-center">
-      <%= link_to "Back to list", category_recommendations_path(@recommendation.category), class: "btn btn-secondary w-50" %>
-      <%= link_to "Book date", new_recommendation_datenight_path(@recommendation), class: "btn btn-primary w-50" %>
+
+  <div class="card">
+    <div class="row d-flex justify-content-center fixed-bottom">
+      <%= link_to "Back to list", category_recommendations_path(@recommendation.category), class: "btn secondary w-50" %>
+      <%= link_to "Book date", new_recommendation_datenight_path(@recommendation), class: "btn main-btn w-50" %>
       <%#= link_to "Edit", edit_category_recommendation_path(@recommendation.category, @recommendation), class: "btn btn-secondary" %>
       <%#= link_to "Delete", category_recommendation_path(@recommendation.category, @recommendation), method: :delete, class: "btn btn-secondary" %>
     </div>
+  </div>
   </div>
 </div>
