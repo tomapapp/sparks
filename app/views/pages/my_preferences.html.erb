@@ -2,18 +2,12 @@
 <h5>You can change these later - we will only use your preferences to make better recommendations!</h4>
 
 
-<!-- Creating empty array with categories -->
-<% category_collection = [] %>
-<% @categories.each do |category| %>
-  <% category_collection << category.name %>
-<% end %>
-
 <!-- Display form with categories as category_collection -->
-<%= simple_form_for current_user do |f| %>
+<%= simple_form_for(current_user, method: :post, url: edit_preferences_path) do |f| %>
   <%= f.input :preferences, label: "PICK SOME STUFF YOU LIKE TO DO",
     as: :check_boxes,
-    collection: category_collection,
+    collection: @categories,
     wrapper: :vertical_collection_inline %>
-  <%= f.button :submit, "Next", class: "btn-primary" %>
+  <%= f.button :submit, "Next", class: "main-btn" %>
   <%= hidden_field_tag :next_page, "page 3" %>
 <% end %>

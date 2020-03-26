@@ -1,0 +1,8 @@
+<h2>Pick a category</h2>
+
+<!-- Creating empty array with categories -->
+<%= simple_form_for :search, url: recommendations_path, method: :get do |f| %>
+  <%= f.collection_check_boxes :category_ids, @categories, :id, :name %>
+  <br>
+  <%= f.button :submit, "Find a date night!", class: "main-btn" %>
+<% end %>

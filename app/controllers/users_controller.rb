@@ -19,6 +19,10 @@ class UsersController < ApplicationController
       redirect_to edit_preferences_path
     elsif params[:next_page] == "page 3"
       redirect_to edit_date_info_path
+    elsif params[:commit] == "Surprise us!"
+      redirect_to recommendation_surprise_me_path
+    elsif params[:commit] == "Pick category for your date night!"
+      redirect_to pick_a_category_path
     end
   end
 end

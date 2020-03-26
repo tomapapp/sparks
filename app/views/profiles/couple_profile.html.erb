@@ -1,0 +1,9 @@
+<%= render 'shared/welcomebanner' %>
+
+
+
+<h2>You have been on <%= @datenights.count %> dates! </h2>
+
+<% @datenights.each do |datenight| %>
+  <%= datenight.name %>
+<% end %>

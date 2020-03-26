@@ -1,0 +1,5 @@
+<%= simple_form_for [@category, @recommendation] do |f| %>
+  <%= f.input :photos, as: :file, multiple: true %>
+  <!-- submit photo button -->
+  <%= f.submit "Add Recommendation" %>
+<% end %>

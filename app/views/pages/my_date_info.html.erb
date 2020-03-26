@@ -3,15 +3,8 @@
 
 <!-- Think we should have a field next date night & preferred time in user profile? -->
 <%= simple_form_for current_user do |f| %>
+  <%= f.input :next_date_night, label: "YOUR NEXT DATE NIGHT IS ON", as: :date, html5: true %>
   <%= f.input :location %>
-  <%= f.button :submit, "Surprise us!", class: "btn-primary" %>
-  <%= hidden_field_tag :next_page, "suprise" %>
-<% end %>
-
-
-
-<!-- This is probably non optimal, should we just have a button or the submit button of a form -->
-<%= simple_form_for current_user do |f| %>
-  <%= f.button :submit, "Pick category for your date night!", class: "btn-secondary" %>
-  <%= hidden_field_tag :next_page, "list" %>
+  <%= f.button :submit, "Surprise us!", class: "main-btn" %>
+  <%= f.button :submit, "Pick category for your date night!", class: "secondary-btn" %>
 <% end %>
