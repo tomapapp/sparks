@@ -2,6 +2,7 @@
   <div class="card">
     <% if @recommendation.photos.attached? %>
 
+    <!-- image carousel -->
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
         <% @recommendation.photos.each_with_index do |photo, n| %>
@@ -27,10 +28,11 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
-
     <% else %>
     <%= image_tag "https://source.unsplash.com/random/1100x500", class: "w-100", crop: :fill, position: :center %>
     <% end %>
+    <!-- image carousel -->
+
     <p><%= @recommendation.category.name %></p>
     <h1><strong><%= @recommendation.name %></strong></h1>
 
