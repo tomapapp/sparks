@@ -1,13 +1,21 @@
 $color-base-grey: #484848;
 
-
-
 .font-title {
   font-family: Roboto;
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
   line-height: 28px;
+  color: $color-base-grey;
+}
+
+.font-subtitle {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  color: $color-base-grey;
 }
 
 .font-form-title {
@@ -16,4 +24,7 @@ $color-base-grey: #484848;
   font-weight: bold;
   font-size: 16px;
   line-height: 14px;
+  color: $color-base-grey
 }
+
+
