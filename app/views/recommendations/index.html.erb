@@ -1,22 +1,28 @@
+
 <div class="container">
+  <div class="category-name">
+    <h3><%= @category.name %></h3>
+
+  </div>
   <% @category.recommendations.each do |recommendation| %>
-  <div class="card">
+  <div class="recommendation-card">
     <% if recommendation.photo.attached? %>
-    <%= cl_image_tag recommendation.photo.key, height: 300, width: 400, crop: :fill %>
+    <%= cl_image_tag recommendation.photo.key, crop: :fill, class: "card-picture" %>
     <% else %>
-    <%= image_tag "https://source.unsplash.com/random/400x300", crop: :fill, class: "pb-3" %>
+    <%= image_tag "https://source.unsplash.com/random/400x300", crop: :fill, class: "card-picture pb-3" %>
     <% end %>
-    <div class="d-flex justify-content-between">
+    <%= link_to recommendation_path(recommendation) do %>
+    <div class="d-flex justify-content-between card-detail">
       <p><em><%= recommendation.location %></em></p>
-      <p><em><#%= recommendation.rating %></em></p>
+      <p><em><i class="fas fa-star rating"></i><%= recommendation.rating %></em></p>
     </div>
-    <p><%= recommendation.category.name %></p>
-    <h1><%= link_to "#{recommendation.name}", recommendation_path(recommendation) %></h1>
+    <h2 class="card-detail"><%= "#{recommendation.name}" %></h2>
+    <% end %>
   </div>
   <% end %>
-
-  <%= link_to "Get other choices", category_recommendations_path, class: "btn btn-primary" %>
-  <%= link_to "Back to categories", categories_path, class: "btn btn-secondary" %>
-  <%= link_to "Add new recommendation", new_category_recommendation_path, class: "btn btn-secondary" %>
+  <div class="row d-flex justify-content-center">
+    <%= link_to "Get other choices", category_recommendations_path, class: "secondary" %>
+  </div>
 </div>
+
 
