@@ -5,14 +5,14 @@
     <%= f.input :day,
       label: "PICK A DATE NIGHT",
       collection: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-      :label_html => { :class => 'font-form-title' }
+      label_html: { class: 'font-form-title' }
     %>
     <%= f.input :date_frequency,
       label: "CHOOSE FREQUENCY",
       collection: [[1, 'Once a week'], [4, 'Once every month'], [2, 'Once every two weeks']],
       label_method: :second,
       value_method: :first,
-      :label_html => { :class => 'font-form-title'}
+      label_html: { class: 'font-form-title'}
     %>
     <%= f.button :submit,
       "Get started",

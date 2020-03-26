@@ -4,11 +4,12 @@
 
 <!-- Display form with categories as category_collection -->
 <%= simple_form_for(current_user, method: :post, url: edit_preferences_path) do |f| %>
-  <%= f.input :preferences, label: "PICK SOME STUFF YOU LIKE TO DO",
+  <%= f.input :preferences,
+    label: "PICK SOME STUFF YOU LIKE TO DO",
+    label_html: { class: 'font-form-title' },
     as: :check_boxes,
     collection: @categories,
-    wrapper: :vertical_collection_inline,
-    :label_html => { :class => 'font-form-title'}
+    wrapper: :vertical_collection_inline
   %>
   <%= f.button :submit, "Next", class: "main-btn" %>
   <%= hidden_field_tag :next_page, "page 3" %>
