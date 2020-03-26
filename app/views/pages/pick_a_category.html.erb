@@ -2,7 +2,7 @@
 
 <!-- Creating empty array with categories -->
 <p class="font-form-title"> PICK SOME THEMES FOR YOUR DATE NIGHT </p>
-  <%= simple_form_for :search, url: recommendations_path, method: :get do |f| %>
+  <%= simple_form_for :search, url: recommendation_filtered_index_path, method: :get do |f| %>
   <%= f.collection_check_boxes :category_ids, @categories, :id, :name %>
 
   <br>
