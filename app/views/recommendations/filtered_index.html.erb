@@ -45,13 +45,13 @@
       <p><em><%= recommendation.location %></em></p>
       <p><em><%= recommendation.rating %></em></p>
     </div>
-    <p><%= recommendation.category.name %></p>
-    <h1><%= link_to "#{recommendation.name}", recommendation_path(recommendation) %></h1>
-  </div>
   <% end %>
 
-  <%= link_to "Get other choices", recommendations_path, class: "btn btn-primary" %>
-  <%= link_to "Back to categories", categories_path, class: "btn btn-secondary" %>
-  <#%= link_to "Add new recommendation", new_category_recommendation_path, class: "btn btn-secondary" %>
+  <br>
+
+   <div class="row d-flex justify-content-center">
+    <%= link_to "Get other choices", recommendations_path, class: "secondary" %>
+  </div>
+  <%#= link_to "Add new recommendation", new_category_recommendation_path, class: "btn btn-secondary" %>
 </div>
 
