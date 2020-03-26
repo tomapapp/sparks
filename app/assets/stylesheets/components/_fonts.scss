@@ -1,12 +1,9 @@
-$color-base-grey: #484848;
-$color-link: rgba(232, 84, 94, 0.72);
-
 .font-title {
   font-family: Roboto;
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
-  color: $color-base-grey;
+  color: $base-grey;
 }
 
 .font-subtitle {
@@ -14,7 +11,7 @@ $color-link: rgba(232, 84, 94, 0.72);
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
-  color: $color-base-grey;
+  color: $base-grey;
 }
 
 .font-form-title {
@@ -22,7 +19,7 @@ $color-link: rgba(232, 84, 94, 0.72);
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
-  color: $color-base-grey
+  color: $base-grey
 }
 
 .reco-title {
@@ -30,7 +27,7 @@ $color-link: rgba(232, 84, 94, 0.72);
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
-  color: $color-base-grey
+  color: $base-grey
 }
 
 .reco-section-title {
@@ -38,7 +35,7 @@ $color-link: rgba(232, 84, 94, 0.72);
   font-style: normal;
   font-weight: bold;
   font-size: 14px;
-  color: $color-base-grey
+  color: $base-grey
 }
 
 .reco-text {
@@ -46,11 +43,11 @@ $color-link: rgba(232, 84, 94, 0.72);
   font-style: normal;
   font-weight: normal;
   font-size: 13px;
-  color: $color-base-grey
+  color: $base-grey
 }
 
 .reco-link {
-  color: $color-link;
+  color: $link;
 }
 
 
