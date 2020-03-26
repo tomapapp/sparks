@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2020_03_25_171906) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.date "day_of_date"
+    t.datetime "day_of_date"
     t.index ["recommendation_id"], name: "index_datenights_on_recommendation_id"
     t.index ["user_id"], name: "index_datenights_on_user_id"
   end

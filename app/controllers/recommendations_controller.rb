@@ -1,6 +1,6 @@
 class RecommendationsController < ApplicationController
 
-  before_action :set_recommendation, only: [:edit, :update, :destroy]
+  before_action :set_recommendation, only: [:show, :edit, :update, :destroy]
   before_action :set_category, only: [:new, :create, :edit, :update]
 
   def index
@@ -10,6 +10,9 @@ class RecommendationsController < ApplicationController
   end
 
   def show
+  end
+
+  def surprise_me
     @recommendations = Recommendation.where(category: current_user.preferences.map(&:category)).order(rating: :desc)
     @recommendation = @recommendations.first
   end
@@ -22,7 +25,7 @@ class RecommendationsController < ApplicationController
     @recommendation = Recommendation.new(recommendation_params)
     @recommendation.category = @category
     if @recommendation.save
-      redirect_to category_recommendation_path(@category, @recommendation)
+      redirect_to recommendation_path(@recommendation)
     else
       render :new
     end
@@ -44,6 +47,10 @@ class RecommendationsController < ApplicationController
     redirect_to category_recommendations_path
   end
 
+  # def add_image
+  #   @recommendation.photos.attach(params[:photos])
+  # end
+
   private
 
   def set_category
@@ -55,6 +62,6 @@ class RecommendationsController < ApplicationController
   end
 
   def recommendation_params
-    params.require(:recommendation).permit(:name, :description, :location, :photo)
+    params.require(:recommendation).permit(:name, :description, :location, photos: [])
   end
 end

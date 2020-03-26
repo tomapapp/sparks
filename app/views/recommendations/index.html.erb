@@ -1,8 +1,10 @@
 <div class="container">
   <% @top_recommendations.each do |recommendation| %>
   <div class="card">
-    <% if recommendation.photo.attached? %>
-    <%= cl_image_tag recommendation.photo.key, class: "w-100", crop: :fill, position: :center  %>
+    <% if recommendation.photos.attached? %>
+      <% recommendation.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, class: "w-100", crop: :fill, position: :center  %>
+      <% end %>
     <% else %>
     <%= image_tag "https://source.unsplash.com/random/1100x500", class: "w-100", crop: :fill, position: :center  %>
     <% end %>
