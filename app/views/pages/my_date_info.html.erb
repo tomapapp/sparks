@@ -9,9 +9,10 @@
   <%= hidden_field_tag :next_page, "suprise" %>
 <% end %>
 
+<br>
 
 <!-- This is probably non optimal, should we just have a button or the submit button of a form -->
 <%= simple_form_for current_user do |f| %>
-  <%= f.button :submit, "Pick category for your date night!", class: "btn-secondary" %>
+  <%= f.button :submit, "Pick category for your date night!", class: "secondary-btn" %>
   <%= hidden_field_tag :next_page, "list" %>
 <% end %>
