@@ -4,10 +4,15 @@ Rails.application.routes.draw do
 
   resources :users
 
+  # Onboarding routes
   get '/edit_preferences', to: "pages#my_preferences"
   post '/edit_preferences', to: "pages#add_preferences"
 
   get '/edit_date_info', to: "pages#my_date_info"
+
+  # Profile routes
+  get 'profiles/couple_profile'
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :categories, only: [:index, :show] do
