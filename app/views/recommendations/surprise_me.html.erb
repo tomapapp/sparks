@@ -3,18 +3,11 @@
     <% if @recommendation.photos.attached? %>
 
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-<!--       <ol class="carousel-indicators">
+      <ol class="carousel-indicators">
         <% @recommendation.photos.each_with_index do |photo, n| %>
           <li data-target="#carouselExampleIndicators" data-slide-to="#{n}" class="#{'active' if n == 0}"></li>
         <% end %>
-      </ol> -->
-
-      <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
       </ol>
-
       <div class="carousel-inner">
         <div class="carousel-item active">
           <%= cl_image_tag @recommendation.photos.first.key, class: "d-block w-100", crop: :fill, position: :center  %>
