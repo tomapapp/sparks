@@ -1,5 +1,5 @@
-<h2>Tell us more about what you and your partner like</h1>
-<h5>You can change these later - we will only use your preferences to make better recommendations!</h4>
+<h2 class="font-title">Tell us more about what you and your partner like</h1>
+<h5 class="font-subtitle">You can change these later - we will only use your preferences to make better recommendations!</h4>
 
 
 <!-- Display form with categories as category_collection -->
@@ -7,7 +7,9 @@
   <%= f.input :preferences, label: "PICK SOME STUFF YOU LIKE TO DO",
     as: :check_boxes,
     collection: @categories,
-    wrapper: :vertical_collection_inline %>
+    wrapper: :vertical_collection_inline,
+    :label_html => { :class => 'font-form-title'}
+  %>
   <%= f.button :submit, "Next", class: "main-btn" %>
   <%= hidden_field_tag :next_page, "page 3" %>
 <% end %>
