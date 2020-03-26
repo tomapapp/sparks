@@ -4,8 +4,9 @@ class RecommendationsController < ApplicationController
   before_action :set_category, only: [:new, :create, :edit, :update]
 
   def index
-    @recommendations = Recommendation.all
-    #   @tailored_recommendation = Recommendation.where()
+    @recommendations = Recommendation.where(category: current_user.preferences.map(&:category)).order(rating: :desc)
+    #location argument to be added
+    @top_recommendations = @recommendations.first(4)
   end
 
   def show
@@ -16,6 +17,11 @@ class RecommendationsController < ApplicationController
       }]
   end
 
+  def surprise_me
+    @recommendations = Recommendation.where(category: current_user.preferences.map(&:category)).order(rating: :desc)
+    @recommendation = @recommendations.first
+  end
+
   def new
     @recommendation = Recommendation.new
   end
@@ -24,7 +30,7 @@ class RecommendationsController < ApplicationController
     @recommendation = Recommendation.new(recommendation_params)
     @recommendation.category = @category
     if @recommendation.save
-      redirect_to category_recommendation_path(@category, @recommendation)
+      redirect_to recommendation_path(@recommendation)
     else
       render :new
     end
@@ -46,6 +52,10 @@ class RecommendationsController < ApplicationController
     redirect_to category_recommendations_path
   end
 
+  # def add_image
+  #   @recommendation.photos.attach(params[:photos])
+  # end
+
   private
 
   def set_category
@@ -57,6 +67,6 @@ class RecommendationsController < ApplicationController
   end
 
   def recommendation_params
-    params.require(:recommendation).permit(:name, :description, :location, :photo)
+    params.require(:recommendation).permit(:name, :description, :location, photos: [])
   end
 end
