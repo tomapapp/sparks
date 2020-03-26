@@ -33,14 +33,7 @@
     <%= image_tag "https://source.unsplash.com/random/1100x500", class: "w-100", crop: :fill, position: :center %>
     <% end %>
     <!-- image carousel -->
-
-<!--       <% recommendation.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, class: "w-100", crop: :fill, position: :center  %>
-      <% end %> -->
-
-    <% else %>
-      <%= image_tag "https://source.unsplash.com/random/1100x500", class: "w-100", crop: :fill, position: :center  %>
-    <% end %>
+    <p><%= recommendation.category.name %> </p>
     <h4><%= link_to "#{recommendation.name}", recommendation_path(recommendation) %></h4>
     <div class="d-flex justify-content-between">
       <p><em><%= recommendation.location %></em></p>
