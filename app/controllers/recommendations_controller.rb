@@ -19,7 +19,6 @@ class RecommendationsController < ApplicationController
     categories.each do |category|
       recommendations << Recommendation.where(category: category)
     end
-    raise
     @top_recommendations = recommendations.flatten.sort_by { |ab| -ab[:rating] }.first(4)
   end
 
