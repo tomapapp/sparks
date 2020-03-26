@@ -1,15 +1,17 @@
 class RecommendationsController < ApplicationController
 
-  before_action :set_recommendation, only: [:show, :edit, :update, :destroy]
-  before_action :set_category, only: [:index, :new, :create, :edit, :update]
+  before_action :set_recommendation, only: [:edit, :update, :destroy]
+  before_action :set_category, only: [:new, :create, :edit, :update]
 
   def index
-    @filtered_recommendations = Recommendation.where(category: current_user.preferences.category, location: current_user.location)
-    raise
-    #   @tailored_recommendation = Recommendation.where()
+    @recommendations = Recommendation.where(category: current_user.preferences.map(&:category)).order(rating: :desc)
+    #location argument to be added
+    @top_recommendations = @recommendations.first(4)
   end
 
   def show
+    @recommendations = Recommendation.where(category: current_user.preferences.map(&:category)).order(rating: :desc)
+    @recommendation = @recommendations.first
   end
 
   def new
