@@ -1,23 +1,22 @@
 <div class="container">
+  <!-- Title & subtitle -->
   <div class="row">
-    <!-- Title & subtitle -->
     <h2 class="font-title text-center">Tell us more about what you and your partner like</h1>
     <h5 class="font-subtitle text-center">You can change these later - we will only use your preferences to make better recommendations!</h4>
-
-    <!-- Checkboxes of category choices -->
-    <div class="d-flex justify-content-center">
-      <%= simple_form_for(current_user, method: :post, url: edit_preferences_path) do |f| %>
-        <%= f.input :preferences,
-          label: "PICK SOME STUFF YOU LIKE TO DO",
-          label_html: { class: 'font-form-title' },
-          as: :check_boxes,
-          collection: @categories,
-          item_wrapper_class: 'category_choice d-flex m-2'
-        %>
-        <%= f.button :submit, "Next", class: "main-btn" %>
-        <%= hidden_field_tag :next_page, "page 3" %>
-      <% end %>
-    </div>
-
+  </div>
+  <!-- Checkboxes of category choices -->
+  <div class="d-flex justify-content-center">
+    <%= simple_form_for(current_user, method: :post, url: edit_preferences_path) do |f| %>
+      <%= f.input :preferences,
+        label: "PICK SOME STUFF YOU LIKE TO DO",
+        label_html: { class: 'font-form-title' },
+        as: :check_boxes,
+        collection: @categories,
+        item_wrapper_class: 'category_choice d-flex m-2'
+      %>
+      <%= f.button :submit, "Next", class: "main-btn" %>
+      <%= hidden_field_tag :next_page, "page 3" %>
+    <% end %>
   </div>
 </div>
+
