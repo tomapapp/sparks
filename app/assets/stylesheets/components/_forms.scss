@@ -17,7 +17,7 @@
   }
 }
 
-.form-input {
+.form-input-checkbox {
   width: 100%;
   margin-bottom: 0px;
   .form-group {
@@ -26,6 +26,10 @@
     flex-wrap: wrap;
     justify-content: center;
   }
+}
+
+.form-input {
+  margin-bottom: 30px;
 }
 
 .col-form-label{

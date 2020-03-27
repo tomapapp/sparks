@@ -7,7 +7,7 @@
   <!-- Checkboxes of category choices -->
   <p class="font-form-title d-flex justify-content-center">PICK SOME STUFF YOU LIKE TO DO</p>
     <%= simple_form_for(current_user, method: :post, url: edit_preferences_path) do |f| %>
-      <div class="form-input">
+      <div class="form-input-checkbox">
         <%= f.input :preferences,
           as: :check_boxes,
           input_html: { class: 'checkboxes' },
