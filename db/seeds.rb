@@ -577,11 +577,11 @@ recommendation_attributes = [
 ]
 Recommendation.create!(recommendation_attributes)
 
-# recommendations = Recommendation.all
-# recommendations.each do |recommendation|
-#   file = URI.open(recommendation.photolink)
-#   recommendation.photo.attach(io: file, filename: "#{recommendation.name}".jpg, content_type: 'image/jpg')
-#   recommendation.save!
-# end
+recommendations = Recommendation.all
+recommendations.each do |recommendation|
+  file = URI.open(recommendation.photolink)
+  recommendation.photos.attach(io: file, filename: "#{recommendation.name}.jpg", content_type: 'image/jpg')
+  recommendation.save!
+end
 
 puts 'Dates created!'
