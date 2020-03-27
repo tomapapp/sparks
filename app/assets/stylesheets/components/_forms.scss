@@ -4,7 +4,7 @@
   border: 2px solid $base-light-grey;
   color: $base-grey !important;
   height: 35px;
-  padding: 2px 10px 0 10px;
+  padding: 4px 10px 0 10px;
   margin: 0 6px 10px 0;
   text-align: center;
   flex: 0 0 30%;
@@ -14,6 +14,7 @@
   }
   &.active {
   background: $sparks-color;
+  color: white !important;
   }
 }
 
@@ -38,9 +39,6 @@
 
 .form-check {
   padding: 0;
-  &.active {
-      font-color: white;
-  }
 }
 
 

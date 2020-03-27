@@ -5,7 +5,12 @@
   color: white;
   font-weight: bold;
   border-radius: 8px;
-  margin-bottom: 17px;
+  text-align: center;
+  margin: 0 4px 16px 4px;
+}
+
+.no-marg {
+  margin-left:0;
 }
 
 .main:hover {
@@ -22,9 +27,18 @@
   border-radius: 8px;
   border: 2px solid #E8545E;
   text-align: center;
+  margin: 0 4px 16px 4px;
 }
 
 .secondary:hover {
   text-decoration: none;
   color: #E8545E;
+}
+
+.split {
+  width: 45vw;
+}
+
+.buttons {
+  border: 0;
 }
