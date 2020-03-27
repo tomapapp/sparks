@@ -1,14 +1,14 @@
 <div class="container">
   <% @top_recommendations.each do |recommendation| %>
   <div class="card mb-3">
-        <%= link_to recommendation_path(recommendation) do %>
+    <%= link_to recommendation_path(recommendation) do %>
     <% if recommendation.photos.attached? %>
 
     <!-- image carousel -->
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
         <% recommendation.photos.each_with_index do |photo, n| %>
-          <li data-target="#carouselExampleIndicators" data-slide-to="#{n}" class="#{'active' if n == 0}"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="#{n}" class="#{'active' if n == 0}"></li>
         <% end %>
       </ol>
       <div class="carousel-inner">
@@ -34,16 +34,16 @@
     <%= image_tag "https://source.unsplash.com/random/1100x500", class: "card-picture", crop: :fill, position: :center %>
     <% end %>
     <!-- image carousel -->
-    <p><%= recommendation.category.name %> </p>
-    <h2 class="card-detail"><%= recommendation.name %></h2>
+    <h4 class="card-detail"><%= recommendation.name %></h4>
     <div class="d-flex justify-content-between card-detail">
       <p><em><%= recommendation.location %></em></p>
       <p><i class="fas fa-star rating"></i><em><%= recommendation.rating %></em></p>
     </div>
     <% end %>
-  <% end %>
-
-  <%= link_to "Get other choices", recommendation_filtered_index_path, class: "btn btn-primary" %>
-  <%#= link_to "Back to categories", categories_path, class: "btn btn-secondary" %>
-</div>
+    <% end %>
+    <div class="row d-flex justify-content-center">
+      <%= link_to "Get other choices", recommendation_filtered_index_path, class: "btn main-btn btn-block" %>
+      <%#= link_to "Back to categories", categories_path, class: "btn btn-secondary" %>
+    </div>
+  </div>
 
