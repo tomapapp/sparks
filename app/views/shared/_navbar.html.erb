@@ -1,8 +1,11 @@
 <div class="navbar navbar-expand-xl navbar-light navbar-lewagon">
-  <%= link_to "/", class: "navbar-brand" do %>
-  <%= image_tag "image.png" %>
+  <div class="row d-flex">
+    <%= link_to "/", class: "navbar-brand" do %>
+    <div><%= image_tag "image.png" %></div>
+   <!--  <div><p class="sparks-brand">Sparks</p></div> -->
+    <% end %>
+  </div>
 
-  <% end %>
 
  <div class="dropdown">
   <div id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
