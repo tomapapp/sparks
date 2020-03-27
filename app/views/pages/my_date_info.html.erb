@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
-    <h2 class="font-title text-center">You’re done! Ready to pick your next date night?</h1>
+    <h2 class="font-title text-center">You’re done! Ready to pick your next date night?</h2>
     <h5 class="font-subtitle text-center">Allow us to see your location to make our recommendations better</h4>
-
+  </div>
     <!-- Think we should have a field next date night & preferred time in user profile? -->
     <div class="d-flex justify-content-center">
       <%= simple_form_for current_user do |f| %>
@@ -12,11 +12,13 @@
           as: :date,
           html5: true
         %>
-        <%= f.input :location %>
+        <%= f.input :location,
+          label: "LOCATION",
+          label_html: { class: 'font-form-title' }
+        %>
         <%= f.button :submit, "Surprise us!", class: "main-btn" %>
         <br>
         <%= f.button :submit, "Pick category for your date night!", class: "secondary" %>
       <% end %>
     </div>
-  </div>
 </div>
