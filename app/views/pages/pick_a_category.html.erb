@@ -1,10 +1,23 @@
-<h2 class="font-title">Pick a category</h2>
+<div class="container">
+  <div class="tagline-pref ">
+    <h2 class="font-title text-center">Pick a category</h2>
+  </div>
 
-<!-- Creating empty array with categories -->
-<p class="font-form-title"> PICK SOME THEMES FOR YOUR DATE NIGHT </p>
-  <%= simple_form_for :search, url: recommendation_filtered_index_path, method: :get do |f| %>
-  <%= f.collection_check_boxes :category_ids, @categories, :id, :name %>
+  <!-- Creating empty array with categories -->
+  <p class="font-form-title text-center"> PICK SOME THEMES FOR YOUR DATE NIGHT </p>
 
-  <br>
-  <%= f.button :submit, "Find a date night!", class: "main-btn" %>
-<% end %>
+    <%= simple_form_for :search, url: recommendation_filtered_index_path, method: :get do |f| %>
+    <div class="form-input-checkbox">
+      <%= f.input :category_ids,
+        as: :check_boxes,
+        input_html: { class: 'checkboxes' },
+        collection: @categories
+      %>
+    </div>
+
+    <br>
+    <%= f.button :submit, "Find a date night!", class: "main-btn" %>
+  <% end %>
+</div>
+
+
