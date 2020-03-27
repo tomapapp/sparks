@@ -5,6 +5,7 @@
     <h5 class="font-subtitle text-center">You can change these later - we will only use your preferences to make better recommendations!</h4>
   </div>
   <!-- Checkboxes of category choices -->
+  <p class="font-form-title d-flex justify-content-center">PICK SOME STUFF YOU LIKE TO DO</p>
     <%= simple_form_for(current_user, method: :post, url: edit_preferences_path) do |f| %>
       <div class="form-input">
         <%= f.input :preferences,

@@ -10,14 +10,10 @@
   flex: 0 0 30%;
   font-size: 15px;
   &:hover {
-    opacity: 0.8;
     cursor: pointer;
   }
   &.active {
   background: $sparks-color;
-  opacity: 0.4;
-  font-color: white;
-  opacity: 1;
   }
 }
 
@@ -28,7 +24,7 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    text-align: center;
+    justify-content: center;
   }
 }
 
@@ -38,6 +34,9 @@
 
 .form-check {
   padding: 0;
+  &.active {
+      font-color: white;
+  }
 }
 
 
