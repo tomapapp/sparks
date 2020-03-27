@@ -49,9 +49,9 @@
   <!-- text -->
 
   <!-- button -->
-  <div class="row d-flex justify-content-between">
-    <%= link_to "Get other choices", recommendation_filtered_index_path(categories: @categories, next: true), class: "btn main-btn btn-block" %>
-    <%#= link_to "Back to categories", categories_path, class: "btn btn-secondary" %>
+  <div class="row d-flex justify-content-center">
+    <%= link_to "Get other choices", recommendation_preference_index_path(next: true), class: "btn main-btn" %>
+    <%= link_to "Pick another category for your date night!", pick_a_category_path, class: "secondary" %>
   </div>
   <!-- button -->
 </div>

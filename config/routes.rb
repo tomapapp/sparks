@@ -19,9 +19,11 @@ Rails.application.routes.draw do
   #surpise me button show page route
   get '/recommendation/surprise_me', to: "recommendations#surprise_me"
 
-
   #pick a category
   get '/recommendation/filtered_index', to: "recommendations#filtered_index"
+
+    #get other choices for surprise me
+  get '/recommendation/preference_index', to: "recommendations#preference_index"
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
