@@ -1,17 +1,29 @@
+<%= render 'shared/welcomebanner' %>
+
 <div class="container">
-  <div class="card">
-    <div class="col-sm-12 text-center">
-      <h4>❤️ Date Booked! ❤️</h4>
-      <p><%= @datenight.recommendation.name %></p>
-      <p><em>Date:  </em><%= @datenight.day_of_date.month %>/<%= @datenight.day_of_date.day %></p>
-      <p><em>Time:  </em><%= @datenight.time.hour %>:<%= @datenight.time.min %></p>
-    </div>
-    <div class="row d-flex justify-content-center mb-2">
-      <%= link_to "Edit date/time", edit_recommendation_datenight_path(@datenight.recommendation, @datenight), class: "secondary btn-sm w-25 mr-1" %>
-      <%= link_to "Cancel", recommendation_datenight_path(@datenight.recommendation, @datenight), method: :delete, data: { confirm: "Are you sure you want to delete the booked date?" }, class: "secondary btn-sm w-25 ml-1" %>
-    </div>
-    <div class="row d-flex justify-content-center mb-2">
-      <%= link_to "Book another date", edit_date_info_path, class: "btn main-btn w-50" %>
-    </div>
+  <div class="tagline-pref">
+    <h4 class="font-title text-center">Your date is booked!</h4>
   </div>
+  <h1>HERE WE SHOULD ADD THE DATE NIGHT CARD</h1>
+  <p class="font-form-title">DETAILS</p>
+    <h5><%= @datenight.recommendation.name %></h5>
+    <p><em>Date:  </em><%= @datenight.day_of_date.month %>/<%= @datenight.day_of_date.day %></p>
+    <p><em>Time:  </em><%= @datenight.time.hour %>:<%= @datenight.time.min %></p>
+
+  <!-- IRRELEVANT FORM JUST FOR DEMO PURPOSES -->
+  <%= simple_form_for current_user do |f| %>
+    <%= f.button :submit, "Share date night", class: "secondary" %>
+    <%= f.button :submit, "Add to calendar", class: "main-btn" %>
+  <% end %>
 </div>
+
+
+
+
+<!-- <div class="row d-flex justify-content-center mb-2">
+  <%#= link_to "Edit date/time", edit_recommendation_datenight_path(@datenight.recommendation, @datenight), class: "secondary btn-sm w-25 mr-1" %>
+  <%#= link_to "Cancel", recommendation_datenight_path(@datenight.recommendation, @datenight), method: :delete, data: { confirm: "Are you sure you want to delete the booked date?" }, class: "secondary btn-sm w-25 ml-1" %>
+</div>
+<div class="row d-flex justify-content-center mb-2">
+  <%#= link_to "Book another date", edit_date_info_path, class: "btn main-btn w-50" %>
+</div> -->
