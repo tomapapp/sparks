@@ -10,24 +10,38 @@ class RecommendationsController < ApplicationController
   end
 
   def filtered_index
-    categories = []
-    new_params = params[:search][:category_ids].drop(1)
-    new_params.each do |id|
-      categories << Category.find(id.to_i)
+    @categories = []
+    if params[:next]
+      new_params = params[:categories]
+      new_params.each do |id|
+        @categories << Category.find(id.to_i)
+      end
+      recommendations = []
+      @categories.each do |category|
+        # outstanding: add location into algorithm
+        recommendations << Recommendation.where(category: category)
+      end
+      @top_recommendations = recommendations.flatten.sort_by { |ab| -ab[:rating] }.drop(4).first(4)
+    else
+      new_params = params[:search][:category_ids].drop(1)
+      new_params.each do |id|
+        @categories << Category.find(id.to_i)
+      end
+      recommendations = []
+      @categories.each do |category|
+        # outstanding: add location into algorithm
+        recommendations << Recommendation.where(category: category)
+      end
+      @top_recommendations = recommendations.flatten.sort_by { |ab| -ab[:rating] }.first(4)
     end
-    recommendations = []
-    categories.each do |category|
-      recommendations << Recommendation.where(category: category)
-    end
-    @top_recommendations = recommendations.flatten.sort_by { |ab| -ab[:rating] }.first(4)
   end
 
   def show
     @markers =
-      [{
+    [{
       lat: @recommendation.latitude,
       lng: @recommendation.longitude
-      }]
+    }]
   end
 
   def surprise_me
