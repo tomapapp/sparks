@@ -1,19 +1,32 @@
-.category_choice {
-  background-color: white;
-  padding: 20px;
-  text-align: center;
+.collection_check_boxes {
+  background: white;
+  border-radius: 16px;
+  border: 2px solid $base-grey;
   color: $base-grey;
-  border: 1px solid #D2D2D2;
-  box-sizing: border-box;
-  border-radius: 20px;
-  align-items: center;
-  width: 100%;
-  display: flex;
-  justify-content: center
+  height: 35px;
+  padding: 10px;
+  text-align: center;
+  flex: 0 0 30%;
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+  &.active {
+  background: $base-grey;
+  color: red;
+  opacity: 1;
+  }
 }
 
 .form-input {
   width: 100%;
-  justify-content: center;
-  margin-bottom: 30px;
+  margin-bottom: 0px;
+  .form-group {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
+
+
+
