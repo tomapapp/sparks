@@ -36,6 +36,14 @@ class RecommendationsController < ApplicationController
     end
   end
 
+  def preference_index
+    if params[:next]
+      @top_recommendations = Recommendation.where(category: current_user.preferences.map(&:category)).order(rating: :desc).drop(4).first(4)
+    else
+      @top_recommendations = Recommendation.where(category: current_user.preferences.map(&:category)).order(rating: :desc).first(4)
+    end
+  end
+
   def show
     @markers =
     [{

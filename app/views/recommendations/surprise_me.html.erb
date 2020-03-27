@@ -42,8 +42,8 @@
 <div class="container fixed-bottom">
   <div class="card">
     <div class="row d-flex justify-content-center">
-      <%= link_to "Back to list", category_recommendations_path(@recommendation.category), class: "btn secondary w-50" %>
       <%= link_to "Book date", new_recommendation_datenight_path(@recommendation), class: "btn main-btn w-50" %>
+      <%= link_to "Get other choices", recommendation_preference_index_path, class: "btn secondary w-50" %>
       <%#= link_to "Edit", edit_category_recommendation_path(@recommendation.category, @recommendation), class: "btn btn-secondary" %>
       <%#= link_to "Delete", category_recommendation_path(@recommendation.category, @recommendation), method: :delete, class: "btn btn-secondary" %>
     </div>
