@@ -33,6 +33,11 @@ class RecommendationsController < ApplicationController
   def surprise_me
     @recommendations = Recommendation.where(category: current_user.preferences.map(&:category)).order(rating: :desc)
     @recommendation = @recommendations.first
+    @markers =
+      [{
+      lat: @recommendation.latitude,
+      lng: @recommendation.longitude
+      }]
   end
 
   def new
