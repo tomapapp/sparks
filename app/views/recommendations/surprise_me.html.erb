@@ -24,8 +24,7 @@
     <p class="border-bottom pb-2">About <i class="fas fa-dollar-sign"></i><strong><%= @recommendation.price %></strong> per person</p>
 
     <p><strong>RATING</strong></p>
-    <p class="border-bottom pb-2"><i class="fas fa-star rating"></i><%= @recommendation.rating %></p>
-
+    <p class="border-bottom pb-2"><i class="fas fa-star rating"></i><%= @recommendation.rating %> (<%= @recommendation.reviewcount %>)</p>
     <p><strong>LOCATION</strong></p>
     <p><%= @recommendation.location %> </p>
     <div
