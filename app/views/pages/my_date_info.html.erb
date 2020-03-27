@@ -1,24 +1,29 @@
 <div class="container">
-  <div class="row">
+  <div class="tagline-pref">
     <h2 class="font-title text-center">You’re done! Ready to pick your next date night?</h2>
     <h5 class="font-subtitle text-center">Allow us to see your location to make our recommendations better</h4>
   </div>
-    <!-- Think we should have a field next date night & preferred time in user profile? -->
-    <div>
-      <%= simple_form_for current_user do |f| %>
-        <%= f.input :next_date_night,
-          label: "YOUR NEXT DATE NIGHT IS ON",
-          label_html: { class: 'font-form-title' },
-          as: :date,
-          html5: true
-        %>
-        <%= f.input :location,
-          label: "LOCATION",
-          label_html: { class: 'font-form-title' }
-        %>
-        <%= f.button :submit, "Surprise us!", class: "main-btn" %>
-        <br>
-        <%= f.button :submit, "Pick category for your date night!", class: "secondary" %>
-      <% end %>
+
+  <!-- Think we should have a field next date night & preferred time in user profile? -->
+  <div class="d-flex justify-content-center">
+    <%= simple_form_for current_user do |f| %>
+    <div class="form-input">
+      <%= f.input :next_date_night,
+        label: "YOUR NEXT DATE NIGHT IS ON",
+        label_html: { class: 'font-form-title' },
+        as: :date,
+        html5: true
+      %>
     </div>
+    <div class="form-input">
+      <%= f.input :location,
+        label: "LOCATION",
+        label_html: { class: 'font-form-title' }
+      %>
+    </div>
+      <%= f.button :submit, "Surprise us!", class: "main-btn" %>
+      <br>
+      <%= f.button :submit, "Pick category for your date night!", class: "secondary" %>
+    <% end %>
+  </div>
 </div>

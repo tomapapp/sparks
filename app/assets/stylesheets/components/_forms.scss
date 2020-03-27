@@ -1,13 +1,47 @@
-.category_choice {
-  background-color: white;
-  padding: 20px;
+.collection_check_boxes {
+  background: white;
+  border-radius: 16px;
+  border: 2px solid $base-light-grey;
+  color: $base-grey !important;
+  height: 35px;
+  padding: 2px 10px 0 10px;
+  margin: 0 6px 10px 0;
   text-align: center;
-  color: $base-grey;
-  border: 1px solid #D2D2D2;
-  box-sizing: border-box;
-  border-radius: 20px;
-  align-items: center;
-  width: 100%;
-  display: flex;
-  justify-content: center
+  flex: 0 0 30%;
+  font-size: 15px;
+  &:hover {
+    cursor: pointer;
+  }
+  &.active {
+  background: $sparks-color;
+  }
 }
+
+.form-input-checkbox {
+  width: 100%;
+  margin-bottom: 0px;
+  .form-group {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+.form-input {
+  margin-bottom: 30px;
+}
+
+.col-form-label{
+  display: none;
+}
+
+.form-check {
+  padding: 0;
+  &.active {
+      font-color: white;
+  }
+}
+
+
+

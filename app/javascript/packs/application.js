@@ -8,3 +8,9 @@ import 'mapbox-gl/dist/mapbox-gl.css'; // <-- you need to uncomment the styleshe
 import { initMapbox } from '../plugins/init_mapbox';
 
 initMapbox();
+
+$(document).ready(function(){
+  $(".collection_check_boxes").click(function(){
+    $(this).toggleClass("active");
+  });
+});
