@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @user = current_user || User.new
+    @datenights = Datenight.all
   end
 
   def my_preferences
