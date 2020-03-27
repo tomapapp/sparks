@@ -8,25 +8,30 @@
     <br>
 <div class="container mb-5 mt-2">
   <div class="card show-card">
-    <h4><strong><%= @recommendation.name %></strong></h4>
+    <h4 class="reco-title"><strong><%= @recommendation.name %></strong></h4>
 
     <ul class="list-inline d-flex justify-content-center pb-2">
       <li class="list-inline-item btn btn-outline-danger btn-sm"><%= @recommendation.category.name %></li>
       <li class="list-inline-item btn btn-outline-danger btn-sm">Urban</li>
       <li class="list-inline-item btn btn-outline-danger btn-sm">Cheap</li>
     </ul>
+<div class="bottom-border">
+    <p class="reco-section-title"><strong>ABOUT THIS DATE NIGHT</strong></p>
+    <p class="reco-text pb-2"><%= @recommendation.description %></p>
+  </div>
 
-    <p><strong>ABOUT THIS DATE NIGHT</strong></p>
-    <p class="pb-2"><%= @recommendation.description %></p>
-
-
-    <p><strong>PRICE</strong></p>
-    <p class="pb-2">About <i class="fas fa-dollar-sign"></i><strong><%= @recommendation.price %></strong> per person</p>
-
-    <p><strong>RATING</strong></p>
-    <p class="pb-2"><i class="fas fa-star rating"></i><%= @recommendation.rating %> (<%= @recommendation.reviewcount %>)</p>
-    <p><strong>LOCATION</strong></p>
+<div class="bottom-border">
+    <p class="reco-section-title"><strong>PRICE</strong></p>
+    <p class="reco-text pb-2">About <i class="fas fa-dollar-sign"></i><strong><%= @recommendation.price %></strong> per person</p>
+  </div>
+<div class="bottom-border">
+    <p class="reco-section-title"><strong>RATING</strong></p>
+    <p class="reco-text pb-2"><i class="fas fa-star rating"></i><%= @recommendation.rating %> (<%= @recommendation.reviewcount %>)</p>
+</div>
+    <div class="bottom-border">
+    <p class="reco-section-title"><strong>LOCATION</strong></p>
     <p><%= @recommendation.location %> </p>
+  </div>
     <div
       id="map"
       style="width: 100%;
