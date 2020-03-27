@@ -13,7 +13,7 @@
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <%= cl_image_tag @recommendation.photos.first.key, class: "d-block card-picture", crop: :fill, position: :center  %>
+          <%= cl_image_tag recommendation.photos.first.key, class: "d-block card-picture", crop: :fill, position: :center  %>
         </div>
         <% recommendation.photos.drop(1).each do |photo| %>
         <div class="carousel-item">
