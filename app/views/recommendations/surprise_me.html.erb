@@ -1,55 +1,55 @@
     <% if @recommendation.photos.attached? %>
-      <% @recommendation.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, class: "w-100", crop: :fill, position: :center  %>
-      <% end %>
+    <% @recommendation.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, class: "w-100", crop: :fill, position: :center  %>
+    <% end %>
     <% else %>
-      <%= image_tag "https://source.unsplash.com/random/1100x500", class: "w-100", crop: :fill, position: :center %>
+    <%= image_tag "https://source.unsplash.com/random/1100x500", class: "w-100", crop: :fill, position: :center %>
     <% end %>
     <br>
-<div class="container mb-5 mt-2">
-  <div class="card show-card">
-    <h4 class="reco-title"><strong><%= @recommendation.name %></strong></h4>
+    <div class="container mb-5">
+      <div class="card show-card">
+        <h4 class="reco-title mt-3"><strong><%= @recommendation.name %></strong></h4>
 
-    <ul class="list-inline d-flex justify-content-center pb-2">
-      <li class="list-inline-item btn btn-outline-danger btn-sm"><%= @recommendation.category.name %></li>
-      <li class="list-inline-item btn btn-outline-danger btn-sm">Urban</li>
-      <li class="list-inline-item btn btn-outline-danger btn-sm">Cheap</li>
-    </ul>
-<div class="bottom-border">
-    <p class="reco-section-title"><strong>ABOUT THIS DATE NIGHT</strong></p>
-    <p class="reco-text pb-2"><%= @recommendation.description %></p>
-  </div>
+        <ul class="list-inline d-flex justify-content-center pb-2">
+          <li class="list-inline-item btn btn-outline-danger btn-sm"><%= @recommendation.category.name %></li>
+          <li class="list-inline-item btn btn-outline-danger btn-sm">Urban</li>
+          <li class="list-inline-item btn btn-outline-danger btn-sm">Cheap</li>
+        </ul>
+        <div class="bottom-border">
+          <p class="reco-section-title"><strong>ABOUT THIS DATE NIGHT</strong></p>
+          <p class="reco-text pb-2"><%= @recommendation.description %></p>
+        </div>
 
-<div class="bottom-border">
-    <p class="reco-section-title"><strong>PRICE</strong></p>
-    <p class="reco-text pb-2">About <i class="fas fa-dollar-sign"></i><strong><%= @recommendation.price %></strong> per person</p>
-  </div>
-<div class="bottom-border">
-    <p class="reco-section-title"><strong>RATING</strong></p>
-    <p class="reco-text pb-2"><i class="fas fa-star rating"></i><%= @recommendation.rating %> (<%= @recommendation.reviewcount %>)</p>
-</div>
-    <div class="bottom-border">
-    <p class="reco-section-title"><strong>LOCATION</strong></p>
-    <p><%= @recommendation.location %> </p>
-  </div>
-    <div
-      id="map"
-      style="width: 100%;
-      height: 240px;"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>";
-      class="mb-4";
-    ></div>
-  </div>
-</div>
-
-<div class="container fixed-bottom">
-  <div class="card buttons">
-    <div class="row d-flex justify-content-center">
-      <%= link_to "Get other choices", recommendation_preference_index_path, class: "btn secondary split" %>
-      <%= link_to "Book date", new_recommendation_datenight_path(@recommendation), class: "btn main-btn split" %>
-      <%#= link_to "Edit", edit_category_recommendation_path(@recommendation.category, @recommendation), class: "btn btn-secondary" %>
-      <%#= link_to "Delete", category_recommendation_path(@recommendation.category, @recommendation), method: :delete, class: "btn btn-secondary" %>
+        <div class="bottom-border">
+          <p class="reco-section-title"><strong>PRICE</strong></p>
+          <p class="reco-text pb-2">About <i class="fas fa-dollar-sign"></i><strong><%= @recommendation.price %></strong> per person</p>
+        </div>
+        <div class="bottom-border">
+          <p class="reco-section-title"><strong>RATING</strong></p>
+          <p class="reco-text pb-2"><i class="fas fa-star rating"></i><%= @recommendation.rating %> (<%= @recommendation.reviewcount %>)</p>
+        </div>
+        <div class="bottom-border">
+          <p class="reco-section-title"><strong>LOCATION</strong></p>
+          <p class="reco-text pb-2"><%= @recommendation.location %> </p>
+        </div>
+        <div
+        id="map"
+        style="width: 100%;
+        height: 240px;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>";
+        class="mb-4";
+        ></div>
+      </div>
     </div>
-  </div>
-</div>
+
+    <div class="container fixed-bottom">
+      <div class="card buttons">
+        <div class="row d-flex justify-content-center">
+          <%= link_to "Get other choices", recommendation_preference_index_path, class: "btn secondary split" %>
+          <%= link_to "Book date", new_recommendation_datenight_path(@recommendation), class: "btn main-btn split" %>
+          <%#= link_to "Edit", edit_category_recommendation_path(@recommendation.category, @recommendation), class: "btn btn-secondary" %>
+          <%#= link_to "Delete", category_recommendation_path(@recommendation.category, @recommendation), method: :delete, class: "btn btn-secondary" %>
+        </div>
+      </div>
+    </div>
