@@ -4,6 +4,15 @@ class PagesController < ApplicationController
   def home
     @user = current_user || User.new
     @datenights = Datenight.all
+    # getting the date id to redirect to the correct page
+    date_id = current_user.datenights.last.id
+    if params.nil?
+      # params will be nil if the user hasn't gone through date night booking
+      redirect_to root_path
+    else
+      # passing date night id, redirecting to show page
+      redirect_to datenight_path(date_id)
+    end
   end
 
   def my_preferences
