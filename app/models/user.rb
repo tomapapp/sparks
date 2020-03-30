@@ -21,7 +21,7 @@ class User < ApplicationRecord
     return next_date if next_date > Date.today
   end
   # if future next date night
-  return Date.today.next_occurring(day.downcase.to_sym)
+  # return Date.today.next_occurring(day.downcase.to_sym)
   # if not pick next days.
   end
 

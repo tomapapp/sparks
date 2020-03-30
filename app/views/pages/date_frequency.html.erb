@@ -7,7 +7,7 @@
     <p class="font-form-title">PICK A DATE NIGHT</p>
       <%= simple_form_for @user do |f| %>
       <div class="form-input-checkbox">
-        <%= f.input :preferences,
+        <%= f.input :day,
           as: :check_boxes,
           input_html: { class: 'checkboxes' },
           collection: [
@@ -27,7 +27,7 @@
     <!-- Choose your date night frequency - Still need to make it non-checkboxes -->
     <p class="font-form-title">CHOOSE YOUR DATE NIGHT FREQUENCY</p>
       <div class="form-input-checkbox">
-      <%= f.input :preferences,
+      <%= f.input :date_frequency,
         as: :check_boxes,
         input_html: { class: 'checkboxes' },
         collection: [
