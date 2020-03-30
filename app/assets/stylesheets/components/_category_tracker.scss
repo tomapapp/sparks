@@ -5,10 +5,21 @@
   align-items: center;
 }
 
+.category-selection-text {
+  color: rgba(0,0,0,0.7);
+
+}
+
+.category-selection-text p {
+  font-size: 14px;
+  margin: 0 8px;
+}
+
 .category-selection-button {
   color: rgba(0,0,0,0.7);
   font-weight: bold;
-  margin-right: 16px;
+  font-size: 14px;
+  margin: 0 8px;
   &:hover{
     color: rgba(0,0,0,1.0);
   }
@@ -16,7 +27,6 @@
 
 .selected-categories {
   margin-top: 16px;
-  margin-left: 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
