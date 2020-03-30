@@ -37,4 +37,5 @@ class PagesController < ApplicationController
     @categories = Category.all
   end
 
+
 end
