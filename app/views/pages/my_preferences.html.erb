@@ -1,22 +1,27 @@
 <div class="container">
-  <!-- Title & subtitle -->
   <div class="d-flex justify-content-center">
+  <!-- Bubble -->
     <div class="bubble d-flex justify-content-center">
-      <p class="bubble-font">1</p>
+      <p>1</p>
     </div>
-    <div class="bubble-line"></div>
+  <!-- line -->
+    <hr class="bubble-line">
+  <!-- Bubble -->
     <div class="bubble d-flex justify-content-center">
-      <p class="bubble-font">2</p>
+      <p>2</p>
     </div>
-    <div class="bubble d-flex justify-content-center">
-      <p class="bubble-font">3</p>
+  <!-- line -->
+    <hr class="bubble-line">
+  <!-- Bubble incomplete -->
+    <div class="bubble d-flex justify-content-center incomplete">
+      <p>3</p>
     </div>
   </div>
 
 
   <div class="tagline-pref">
     <h2 class="font-title text-center">Tell us more about what you and your partner like</h1>
-    <h5 class="font-subtitle text-center">You can change these later - we will only use your preferences to make better recommendations!</h4>
+    <h5 class="font-subtitle text-center">We will use your preferences to make better recommendations!</h4>
   </div>
   <!-- Checkboxes of category choices -->
   <p class="font-form-title d-flex justify-content-center">PICK SOME STUFF YOU LIKE TO DO</p>
@@ -24,7 +29,7 @@
       <div class="form-input-checkbox">
         <%= f.input :preferences,
           as: :check_boxes,
-          input_html: { class: 'checkboxes' },
+          input_html: { class: 'displaynone' },
           collection: @categories
         %>
       </div>
@@ -33,4 +38,3 @@
     <% end %>
 
 </div>
-
