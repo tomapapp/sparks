@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :categories, through: :preferences
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
+  after_create :send_welcome_email
 
   def next_date_night
   # check when last date night was
@@ -22,5 +23,11 @@ class User < ApplicationRecord
   # if future next date night
   return Date.today.next_occurring(day.downcase.to_sym)
   # if not pick next days.
+  end
+
+  private
+
+  def send_welcome_email
+    UserMailer.with(user: self).welcome.deliver_now
   end
 end
