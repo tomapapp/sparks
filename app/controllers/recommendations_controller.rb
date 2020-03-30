@@ -19,7 +19,7 @@ class RecommendationsController < ApplicationController
       recommendations = []
       @categories.each do |category|
         # outstanding: add location into algorithm
-        recommendations << Recommendation.where(category: category)
+        recommendations << Recommendation.where(category: category).near(current_user.location, 10)
       end
       @top_recommendations = recommendations.flatten.sort_by { |ab| -ab[:rating] }.drop(4).first(4)
     else
@@ -30,7 +30,7 @@ class RecommendationsController < ApplicationController
       recommendations = []
       @categories.each do |category|
         # outstanding: add location into algorithm
-        recommendations << Recommendation.where(category: category)
+        recommendations << Recommendation.where(category: category).near(current_user.location, 10)
       end
       @top_recommendations = recommendations.flatten.sort_by { |ab| -ab[:rating] }.first(4)
     end
@@ -38,9 +38,11 @@ class RecommendationsController < ApplicationController
 
   def preference_index
     if params[:next]
-      @top_recommendations = Recommendation.where(category: current_user.preferences.map(&:category)).order(rating: :desc).drop(4).first(4)
+      recommendations = Recommendation.where(category: current_user.preferences.map(&:category)).near(current_user.location, 10)
+      @top_recommendations = recommendations.order(rating: :desc).drop(4).first(4)
     else
-      @top_recommendations = Recommendation.where(category: current_user.preferences.map(&:category)).order(rating: :desc).first(4)
+      recommendations = Recommendation.where(category: current_user.preferences.map(&:category)).near(current_user.location, 10)
+      @top_recommendations = recommendations.order(rating: :desc).first(4)
     end
   end
 
@@ -53,8 +55,9 @@ class RecommendationsController < ApplicationController
   end
 
   def surprise_me
-    @recommendations = Recommendation.where(category: current_user.preferences.map(&:category)).order(rating: :desc)
-    @recommendation = @recommendations.first
+    recommendations = Recommendation.where(category: current_user.preferences.map(&:category)).near(current_user.location, 10)
+    @top_recommendations = recommendations.order(rating: :desc)
+    @recommendation = @top_recommendations.first
     @markers =
       [{
       lat: @recommendation.latitude,

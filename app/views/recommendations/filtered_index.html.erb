@@ -38,7 +38,7 @@
     <!-- text -->
     <div class="card-text">
       <div class="d-flex justify-content-between card-detail">
-        <p><em><%= recommendation.location.split(",")[1] %></em></p>
+        <p><em><%= recommendation.location.split(",")[1] %></em> (<%= recommendation.distance_from([current_user.latitude,current_user.longitude]).round(2) %> kms away)</p>
         <p><i class="fas fa-star rating"></i><em><%= recommendation.rating %></em></p>
       </div>
       <h5 class="text-break"><strong><%= recommendation.name %></strong></h5>
