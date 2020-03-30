@@ -5,15 +5,18 @@ class PagesController < ApplicationController
     # @user = current_user || User.new
     # @datenights = Datenight.all
     # getting the date id to redirect to the correct page
-    if current_user.id
-      if current_user.datenights.last
-        date_id = current_user.datenights.last.id
+    @user = current_user
+    if @user
+      if @user.datenights.last
+        date_id = @user.datenights.last.id
         redirect_to datenight_path(date_id)
-      else
+      elsif @user.preferences.last
         redirect_to edit_date_info_path
+      else
+        redirect_to edit_preferences_path
       end
     else
-      redirect_to new_user_path
+      redirect_to new_user_registration_path
     end
 
     # if params.nil?

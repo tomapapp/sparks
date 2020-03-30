@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'toma.papp92@gmail.com'
+  default from: 'sparks.app.contact@gmail.com'
   layout 'mailer'
 end
