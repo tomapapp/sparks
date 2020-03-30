@@ -4,6 +4,8 @@ class PagesController < ApplicationController
   def home
     @user = current_user || User.new
     @datenights = Datenight.all
+    # @datenight = Datenight.new(params)
+    # raise
   end
 
   def my_preferences
@@ -27,5 +29,6 @@ class PagesController < ApplicationController
   def pick_a_category
     @categories = Category.all
   end
+
 
 end
