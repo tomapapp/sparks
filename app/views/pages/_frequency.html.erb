@@ -2,6 +2,8 @@
   <div class="tagline">
     <h2 class="font-title">Regular, amazing <span class="red">date nights</span> for couples made easy</h2>
   </div>
+
+    <!-- Pick date night - Still need to make it non-checkboxes -->
     <p class="font-form-title">PICK A DATE NIGHT</p>
       <%= simple_form_for @user do |f| %>
       <div class="form-input-checkbox">
@@ -21,6 +23,8 @@
           value_method: :first
         %>
       </div>
+
+    <!-- Choose your date night frequency - Still need to make it non-checkboxes -->
     <p class="font-form-title">CHOOSE YOUR DATE NIGHT FREQUENCY</p>
       <div class="form-input-checkbox">
       <%= f.input :preferences,
@@ -35,11 +39,12 @@
         value_method: :first
       %>
       </div>
+
+      <!-- Button -->
         <%= f.button :submit, "Get started", class: "main-btn" %>
         <%= hidden_field_tag :next_page, "page 2" %>
       <% end %>
-    </div>
- </div>
+  </div>
 
 
  <!-- PREVIOUS CODE IN CASE WE WANT TO REVERT -->
