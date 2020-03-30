@@ -20,7 +20,8 @@ class DatenightsController < ApplicationController
     @datenight.user = current_user
     @datenight.recommendation = @recommendation
     if @datenight.save
-      redirect_to datenight_path(@datenight)
+      # redirect is now to root path, then redirect in pages controller
+      redirect_to root_path(datenight_params)
     else
       render "recommendations/show"
     end
