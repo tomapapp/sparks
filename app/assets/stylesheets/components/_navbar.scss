@@ -20,3 +20,19 @@
 .sparks-brand img {
   font-family: 'Bitter', serif;
 }
+
+.navbar-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+.navbar .dropdown {
+  display: flex;
+  align-items: center;
+
+}
+
+.nav-dropdown {
+  min-width: 5rem;
+}

@@ -16,7 +16,7 @@ class DatenightsController < ApplicationController
 
   def create
     @datenight = Datenight.new(datenight_params)
-    # @datenight.day_of_date = current_user.chosen_date
+    #@datenight.day_of_date = current_user.chosen_date
     @datenight.user = current_user
     @datenight.recommendation = @recommendation
     if @datenight.save
