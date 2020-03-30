@@ -1,17 +1,26 @@
 .bubble {
-  width: 22px;
-  height: 22px;
+  width: 23px;
+  height: 23px;
   border-radius: 50%;
   background: $sparks-color;
+  color: white;
+  font-size: 15px;
+  &.incomplete {
+    background: white;
+    color: $sparks-color;
+    border: 2px solid $sparks-color;
+  }
 }
 
-.bubble-font {
-  color: white;
-  font-size: 14px;
+
+
+.bubble > p {
+  margin: 0;
 }
 
 .bubble-line {
-  border-top: 2px solid #E8545E;
-  display: inline-block;
-
+  width: 50px;
+  border: 1px solid $sparks-color;
+  margin: 11px 0 11px 0;
 }
+
