@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :users
 
   # Onboarding routes
+
+  get '/date_frequency', to: "pages#date_frequency"
   get '/edit_preferences', to: "pages#my_preferences"
   post '/edit_preferences', to: "pages#add_preferences"
 

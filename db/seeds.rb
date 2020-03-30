@@ -575,12 +575,25 @@ recommendation_attributes = [
     reviewcount: rand(50..500)
   }
 ]
+
+recommendation_attributes.each do |h|
+  h[:photolink_2] = recommendation_attributes.sample[:photolink]
+  h[:photolink_3] = recommendation_attributes.sample[:photolink]
+  h[:photolink_4] = recommendation_attributes.sample[:photolink]
+end
+
 Recommendation.create!(recommendation_attributes)
 
 recommendations = Recommendation.all
 recommendations.each do |recommendation|
   file = URI.open(recommendation.photolink)
-  recommendation.photos.attach(io: file, filename: "#{recommendation.name}.jpg", content_type: 'image/jpg')
+  recommendation.photos.attach(io: file, filename: "#{recommendation.name}1.jpg", content_type: 'image/jpg')
+  file_2 = URI.open(recommendation.photolink_2)
+  recommendation.photos.attach(io: file_2, filename: "#{recommendation.name}2.jpg", content_type: 'image/jpg')
+  file_3 = URI.open(recommendation.photolink_3)
+  recommendation.photos.attach(io: file_3, filename: "#{recommendation.name}3.jpg", content_type: 'image/jpg')
+  file_4 = URI.open(recommendation.photolink_4)
+  recommendation.photos.attach(io: file_4, filename: "#{recommendation.name}4.jpg", content_type: 'image/jpg')
   recommendation.save!
 end
 
