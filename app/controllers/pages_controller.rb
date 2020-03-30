@@ -2,17 +2,27 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
 
   def home
-    @user = current_user || User.new
-    @datenights = Datenight.all
+    # @user = current_user || User.new
+    # @datenights = Datenight.all
     # getting the date id to redirect to the correct page
-    date_id = current_user.datenights.last.id
-    if params.nil?
-      # params will be nil if the user hasn't gone through date night booking
-      redirect_to root_path
+    if current_user.id
+      if current_user.datenights.last
+        date_id = current_user.datenights.last.id
+        redirect_to datenight_path(date_id)
+      else
+        redirect_to edit_date_info_path
+      end
     else
-      # passing date night id, redirecting to show page
-      redirect_to datenight_path(date_id)
+      redirect_to new_user_path
     end
+
+    # if params.nil?
+    #   # params will be nil if the user hasn't gone through date night booking
+    #   redirect_to root_path
+    # else
+    #   # passing date night id, redirecting to show page
+    #   redirect_to datenight_path(date_id)
+    # end
   end
 
   def my_preferences
