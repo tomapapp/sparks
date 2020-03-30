@@ -12,8 +12,10 @@ class PagesController < ApplicationController
         redirect_to datenight_path(date_id)
       elsif @user.preferences.last
         redirect_to edit_date_info_path
-      else
+      elsif @user.date_frequency
         redirect_to edit_preferences_path
+      else
+        redirect_to date_frequency_path
       end
     else
       redirect_to new_user_registration_path
@@ -26,6 +28,10 @@ class PagesController < ApplicationController
     #   # passing date night id, redirecting to show page
     #   redirect_to datenight_path(date_id)
     # end
+  end
+
+  def date_frequency
+    @user = current_user
   end
 
   def my_preferences
