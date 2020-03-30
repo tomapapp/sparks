@@ -22,7 +22,6 @@ class RecommendationsController < ApplicationController
         recommendations << Recommendation.where(category: category).near(current_user.location, 10)
       end
       @top_recommendations = recommendations.flatten.sort_by { |ab| -ab[:rating] }.drop(4).first(4)
-      raise
     else
       new_params = params[:search][:category_ids].drop(1)
       new_params.each do |id|
