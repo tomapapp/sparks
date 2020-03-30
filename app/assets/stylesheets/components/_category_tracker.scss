@@ -1,0 +1,27 @@
+.category-selection-bar {
+  background: rgba(230,230,230,1.0);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.category-selection-button {
+  color: rgba(0,0,0,0.7);
+  font-weight: bold;
+  margin-right: 16px;
+  &:hover{
+    color: rgba(0,0,0,1.0);
+  }
+}
+
+.selected-categories {
+  margin-top: 16px;
+  margin-left: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.selected-category {
+  margin-left: 8px;
+}

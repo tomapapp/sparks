@@ -30,7 +30,7 @@
         </div>
         <div class="bottom-border">
           <p class="reco-section-title"><strong>LOCATION</strong></p>
-          <p class="reco-text pb-2"><%= @recommendation.location %> </p>
+          <p class="reco-text pb-2"><%= @recommendation.location %> (<%= @recommendation.distance_from([current_user.latitude,current_user.longitude]).round(2) %> kms away) </p>
         </div>
         <div
         id="map"

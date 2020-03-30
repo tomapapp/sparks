@@ -1,0 +1,9 @@
+  <div class="category-selection-bar">
+    <div class="selected-categories">
+      <p>Selected categories: </p>
+      <% current_user.preferences.each do |preference| %>
+        <p class="selected-category"> <%= preference.category.name %></p>
+      <% end %>
+    </div>
+    <%= link_to "Pick other categories", pick_a_category_path, class: "category-selection-button" %>
+  </div>
