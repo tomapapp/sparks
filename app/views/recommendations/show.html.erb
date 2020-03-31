@@ -26,6 +26,7 @@
     <div class="bottom-border">
     <p class="reco-section-title"><strong>RATING</strong></p>
     <p class="reco-text pb-2"><i class="fas fa-star rating"></i><%= @recommendation.rating %> (<%= @recommendation.reviewcount %>)</p>
+    <%= render 'shared/reviews' %>
     </div>
     <div class="bottom-border">
     <p class="reco-section-title"><strong>LOCATION</strong></p>

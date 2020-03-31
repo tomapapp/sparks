@@ -1,0 +1,18 @@
+<% @recommendation.datenights.each do |datenight| %>
+  <% datenight.reviews.each do |review| %>
+  <div class="review">
+  <div class="review-top">
+      <div class="avatar">
+        <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar">
+      </div>
+      <div class="user-info">
+        <p class="review-title"><%= review.user.name %></p>
+        <p class="review-subtitle"><%= review.datenight.time %></p>
+      </div>
+    </div>
+    <div class="content">
+      <p class="reco-text review-text"><%= review.content %></p>
+    </div>
+ </div>
+  <% end %>
+<% end %>

@@ -13,7 +13,6 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to recommendation_path(@recommendation)
     else
-      raise
       render :new
     end
   end
