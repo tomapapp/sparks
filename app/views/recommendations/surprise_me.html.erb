@@ -25,8 +25,11 @@
       <p class="reco-text pb-2">About <i class="fas fa-dollar-sign"></i><strong><%= @recommendation.price %></strong> per person</p>
     </div>
     <div class="bottom-border">
-      <p class="reco-section-title"><strong>RATING</strong></p>
-      <p class="reco-text pb-2"><i class="fas fa-star rating"></i><%= @recommendation.rating %> (<%= @recommendation.reviewcount %>)</p>
+      <div class="d-flex justify-content-between">
+        <p class="reco-section-title"><strong>REVIEWS</strong></p>
+        <p class="reco-text pb-2"><i class="fas fa-star rating"></i><%= @recommendation.rating %> (<%= @recommendation.reviewcount %>)</p>
+      </div>
+      <%= render 'shared/reviews' %>
     </div>
     <div class="bottom-border">
       <p class="reco-section-title"><strong>LOCATION</strong></p>
