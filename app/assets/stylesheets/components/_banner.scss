@@ -28,3 +28,30 @@
   margin: 16px 0;
   font-size: 24px;
 }
+
+.value-proposition {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  padding: 48px 0;
+  height: 100vh;
+  overflow: hidden;
+  background-color: rgb(236,126,132);
+}
+
+.value-proposition p {
+  padding: 0 16px 16px 16px;
+  font-size: 24px;
+  color: white;
+  opacity: .8;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.value-proposition i {
+  margin-right: 8px;
+}
+
+.value-proposition .main-btn {
+  margin: 16px 0;
+  font-size: 24px;
+}
