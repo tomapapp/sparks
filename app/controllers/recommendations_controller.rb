@@ -39,7 +39,7 @@ class RecommendationsController < ApplicationController
   def preference_index
     @categories = []
     current_user.preferences.each do |preference|
-      @categories << preference.category.name
+      @categories << preference.category
     end
     if params[:next]
       recommendations = Recommendation.where(category: current_user.preferences.map(&:category)).near(current_user.location, 10)
