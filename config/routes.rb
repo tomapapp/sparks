@@ -41,5 +41,8 @@ Rails.application.routes.draw do
     resources :datenights, except: [:index, :show]
   end
 
-  resources :datenights, only: [:show]
+  resources :datenights, only: [:show] do
+    resources :reviews, only: [:new, :create]
+  end
+
 end
