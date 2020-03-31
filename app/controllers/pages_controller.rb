@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
+  before_action :set_user, only: [:date_frequency, :my_date_info]
 
   def home
     # @user = current_user || User.new
@@ -13,6 +14,7 @@ class PagesController < ApplicationController
       elsif @user.preferences.last
         redirect_to edit_date_info_path
       elsif @user.date_frequency
+        raise
         redirect_to edit_preferences_path
       else
         redirect_to date_frequency_path
@@ -31,7 +33,6 @@ class PagesController < ApplicationController
   end
 
   def date_frequency
-    @user = current_user
   end
 
   def my_preferences
@@ -41,20 +42,46 @@ class PagesController < ApplicationController
 
   def add_preferences
     new_params = params[:user][:preferences].drop(1)
-    new_params.each do |preference|
-      category = Category.find(preference)
-      Preference.create(user: current_user, category: category)
+    if new_params.empty?
+      redirect_to edit_preferences_path, flash: { alert: "You need to select at least one preference" }
+    else
+      new_params.each do |preference|
+        category = Category.find(preference)
+        Preference.create(user: current_user, category: category)
+      end
+      redirect_to edit_date_info_path
     end
-    redirect_to edit_date_info_path
+  end
+
+  def edit_preferences
+    @categories = Category.all
+    @preferences = current_user.preferences
+  end
+
+  def update_preferences
+    current_user.preferences.destroy_all
+    new_params = params[:user][:preferences].drop(1)
+    if new_params.empty?
+      redirect_to update_preferences_path, flash: { alert: "You need to select at least one preference" }
+    else
+      new_params.each do |preference|
+        category = Category.find(preference)
+        Preference.create(user: current_user, category: category)
+      end
+      redirect_to edit_date_info_path
+    end
   end
 
   def my_date_info
-    @user = current_user
   end
 
   def pick_a_category
     @categories = Category.all
   end
 
+  private
 
+  def set_user
+    @user = current_user
+  end
 end
