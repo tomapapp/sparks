@@ -1,50 +1,26 @@
 <div class="container">
   <% @top_recommendations.each do |recommendation| %>
-    <div class="card index-card">
-      <%= link_to recommendation_path(recommendation) do %>
-        <% if recommendation.photos.attached? %>
+  <div class="card index-card">
+    <%= link_to recommendation_path(recommendation) do %>
+    <% if recommendation.photos.attached? %>
 
-        <!-- image carousel -->
-          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-              <% recommendation.photos.each_with_index do |photo, n| %>
-                <li data-target="#carouselExampleIndicators" data-slide-to="#{n}" class="#{'active' if n == 0}"></li>
-              <% end %>
-            </ol>
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <%= cl_image_tag recommendation.photos.first.key, class: "d-block card-picture", crop: :fill, position: :center  %>
-              </div>
-              <% recommendation.photos.drop(1).each do |photo| %>
-                <div class="carousel-item">
-                  <%= cl_image_tag photo.key, class: "d-block card-picture", crop: :fill, position: :center  %>
-                </div>
-              <% end %>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
-        <% else %>
-          <%= image_tag "https://source.unsplash.com/random/1100x500", class: "card-picture", crop: :fill, position: :center %>
-        <% end %>
-        <!-- image carousel -->
+    <!-- image carousel -->
+    <%= render 'shared/carousel', recommendation: recommendation %>
+    <!-- image carousel -->
+    <% else %>
+    <%= image_tag "https://source.unsplash.com/random/1100x500", class: "card-picture", crop: :fill, position: :center %>
+    <% end %>
 
-        <!-- text -->
-        <div class="card-text">
-          <div class="d-flex justify-content-between card-detail">
-            <p><em><%= recommendation.location.split(",")[1] %></em> (<%= recommendation.distance_from([current_user.latitude,current_user.longitude]).round(2) %> kms away)</p>
-            <p><i class="fas fa-star rating"></i><em><%= recommendation.rating %></em></p>
-          </div>
-          <h5 class="text-break"><strong><%= recommendation.name %></strong></h5>
-        </div>
-      <% end %>
+    <!-- text -->
+    <div class="card-text">
+      <div class="d-flex justify-content-between card-detail">
+        <p><em><%= recommendation.location.split(",")[1] %></em> (<%= recommendation.distance_from([current_user.latitude,current_user.longitude]).round(2) %> kms away)</p>
+        <p><i class="fas fa-star rating"></i><em><%= recommendation.rating %></em></p>
+      </div>
+      <h5 class="text-break"><strong><%= recommendation.name %></strong></h5>
     </div>
+    <% end %>
+  </div>
   <% end %>
   <!-- text -->
 
