@@ -14,6 +14,7 @@ class PagesController < ApplicationController
       elsif @user.preferences.last
         redirect_to edit_date_info_path
       elsif @user.date_frequency
+        raise
         redirect_to edit_preferences_path
       else
         redirect_to date_frequency_path
@@ -41,11 +42,15 @@ class PagesController < ApplicationController
 
   def add_preferences
     new_params = params[:user][:preferences].drop(1)
-    new_params.each do |preference|
-      category = Category.find(preference)
-      Preference.create(user: current_user, category: category)
+    if new_params.empty?
+      redirect_to edit_preferences_path, flash: { alert: "You need to select at least one preference" }
+    else
+      new_params.each do |preference|
+        category = Category.find(preference)
+        Preference.create(user: current_user, category: category)
+      end
+      redirect_to edit_date_info_path
     end
-    redirect_to edit_date_info_path
   end
 
   def edit_preferences
@@ -56,11 +61,15 @@ class PagesController < ApplicationController
   def update_preferences
     current_user.preferences.destroy_all
     new_params = params[:user][:preferences].drop(1)
-    new_params.each do |preference|
-      category = Category.find(preference)
-      Preference.create(user: current_user, category: category)
+    if new_params.empty?
+      redirect_to update_preferences_path, flash: { alert: "You need to select at least one preference" }
+    else
+      new_params.each do |preference|
+        category = Category.find(preference)
+        Preference.create(user: current_user, category: category)
+      end
+      redirect_to edit_date_info_path
     end
-    redirect_to edit_date_info_path
   end
 
   def my_date_info
