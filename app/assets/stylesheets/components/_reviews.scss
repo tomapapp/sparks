@@ -11,3 +11,38 @@
   margin: 1px 10px 1px 10px;
 }
 
+
+.add-review {
+  background: #FFFFFF;
+  border: 2px solid rgba(109, 197, 174, 0.38);
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding: 8px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.plus-review {
+  background: #6DC5AE;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+}
+
+.add-review-text {
+  width: 80%;
+  margin: 0 0 0 20px;
+  font-size: 14px;
+    color: #6DC5AE;
+
+}
+
+.add-review-text-top {
+  color: #6DC5AE;
+}

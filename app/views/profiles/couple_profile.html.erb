@@ -40,7 +40,7 @@
 
 
     <% else %>
-    <%= image_tag "https://source.unsplash.com/random/1100x500", class: "card-picture", crop: :fill, position: :center %>
+      <%= image_tag "https://source.unsplash.com/random/1100x500", class: "card-picture", crop: :fill, position: :center %>
     <% end %>
 
     <div class="card-text">
@@ -51,7 +51,12 @@
       <h5 class="text-break"><strong><%= datenight.recommendation.name %></strong></h5>
     </div>
   </div>
-    <% end %>
+
+  <div class="review-profile">
+    <%= render 'shared/add_review', datenight: datenight, id: datenight.id %>
+  </div>
+
+  <% end %>
 </div>
 
 

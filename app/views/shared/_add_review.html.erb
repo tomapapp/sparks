@@ -1,0 +1,14 @@
+
+<%# if current_user.id == booking.user_id && booking.status == "accept" %>
+          <!-- <div class="card-product-link">
+            <button><%#= link_to "Add review", new_booking_review_path(booking), id: "add-review" %></button>
+          </div> -->
+
+<a href="../datenights/<%=id%>/reviews/new">
+  <div class="add-review">
+    <div class="plus-review">+</div>
+    <div class="add-review-text">Review '<%= datenight.recommendation.name %>'</div>
+  </div>
+</a>
+
+
