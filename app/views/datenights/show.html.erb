@@ -62,6 +62,7 @@
   <!-- text -->
 
 <!-- IRRELEVANT FORM JUST FOR DEMO PURPOSES -->
+<%= link_to "Book another date night", edit_date_info_path, class: "btn secondary" %>
 <%= simple_form_for current_user do |f| %>
 <%= f.button :submit, "Share date night", class: "secondary" %>
 <%= f.button :submit, "Add to calendar", class: "main-btn" %>
