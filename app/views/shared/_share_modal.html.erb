@@ -1,0 +1,18 @@
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title justify-content-center" id="shareBtnModal">Share this date night with your partner</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= social_share_button_tag(@datenight.datenight_info_string, class: "share-btn",  :url => datenight_url(@datenight)) %>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="secondary justify-content-center" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

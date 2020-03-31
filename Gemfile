@@ -23,6 +23,8 @@ gem 'webpacker'
 
 gem 'geocoder'
 
+gem 'social-share-button'
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'
