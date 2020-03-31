@@ -2,6 +2,7 @@ class RecommendationsController < ApplicationController
 
   before_action :set_recommendation, only: [:show, :edit, :update, :destroy]
   before_action :set_category, only: [:new, :create, :edit, :update]
+  before_action :signup_redirection
 
   def index
     @recommendations = Recommendation.where(category: current_user.preferences.map(&:category)).order(rating: :desc)
@@ -115,5 +116,19 @@ class RecommendationsController < ApplicationController
 
   def recommendation_params
     params.require(:recommendation).permit(:name, :description, :location, photos: [])
+  end
+
+  def signup_redirection
+    if current_user == nil
+      redirect_to root_path
+    else
+      if current_user.date_frequency == nil
+        redirect_to date_frequency_path
+      elsif current_user.preferences.empty?
+        redirect_to edit_preferences_path
+      elsif current_user.location == nil
+        redirect_to edit_date_info_path
+      end
+    end
   end
 end
