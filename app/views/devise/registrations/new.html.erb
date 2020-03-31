@@ -7,7 +7,7 @@
     <%= f.input :name,
                 required: true,
                 autofocus: true,
-                label: "couple name",
+                label: "Couple name",
                 input_html: { autocomplete: "name" }%>
     <%= f.input :email,
                 required: true,
@@ -21,6 +21,8 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.input :avatar,
+                as: :file %>
   </div>
 
   <div class="form-actions">
