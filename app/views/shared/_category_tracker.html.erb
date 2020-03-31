@@ -2,7 +2,7 @@
     <div class="category-selection-text">
     <p>Selected categories: </p>
     <div class="selected-categories">
-      <% current_user.preferences.each do |preference| %>
+      <% @categories.each do |category| %>
         <p class="selected-category"> <%= preference.category.name %></p>
       <% end %>
     </div>
