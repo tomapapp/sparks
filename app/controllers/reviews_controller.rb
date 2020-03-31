@@ -7,6 +7,15 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
+    @recommendation = @datenight.recommendation
+    @review.datenight = @datenight
+    @review.user = current_user
+    if @review.save
+      redirect_to recommendation_path(@recommendation)
+    else
+      raise
+      render :new
+    end
   end
 
   private
@@ -18,6 +27,4 @@ class ReviewsController < ApplicationController
   def review_params
     params.require(:review).permit(:content, :date_rating)
   end
-
-
 end
