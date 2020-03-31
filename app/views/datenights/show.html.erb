@@ -63,18 +63,12 @@
 
 <!-- IRRELEVANT FORM JUST FOR DEMO PURPOSES -->
 
-<%= link_to "Share date night", '#', class: "btn main-btn", data: { toggle: "modal", target: "#staticBackdrop" } %>
+<%= render 'shared/add_calendar_button' %>
+<%= link_to "Share date night", '#', class: "btn secondary", data: { toggle: "modal", target: "#staticBackdrop" } %>
 <%= link_to "Book another date night", edit_date_info_path, class: "btn secondary" %>
 
-<%= render 'shared/add_calendar_button' %>
-  
-<%= simple_form_for current_user do |f| %>
-<%= f.button :submit, "Add to calendar", class: "main-btn" %>
-<% end %>
-</div>
-
 <div class="modal-datenight">
-<%= render 'shared/share_modal' %>
+  <%= render 'shared/share_modal' %>
 </div>
 
 
