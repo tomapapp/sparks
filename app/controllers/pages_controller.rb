@@ -19,8 +19,6 @@ class PagesController < ApplicationController
       else
         redirect_to date_frequency_path
       end
-    else
-      redirect_to new_user_registration_path
     end
 
     # if params.nil?
