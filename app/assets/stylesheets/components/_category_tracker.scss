@@ -1,8 +1,7 @@
 .category-selection-bar {
-  background: rgba(230,230,230,1.0);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+  padding-top: 0.5rem;
 }
 
 .category-selection-text {
@@ -10,28 +9,32 @@
 
 }
 
-.category-selection-text p {
+.category-selection-title {
   font-size: 14px;
   margin: 0 8px;
+  text-transform: uppercase;
+  font-weight: 100;
+  letter-spacing: 0.05em;
 }
 
 .category-selection-button {
-  color: rgba(0,0,0,0.7);
-  font-weight: bold;
+  color: $red;
+  opacity: 0.7;
+  font-weight: 300;
   font-size: 14px;
   margin: 0 8px;
-  &:hover{
-    color: rgba(0,0,0,1.0);
-  }
+  display: block;
 }
 
 .selected-categories {
   margin-top: 16px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
 }
 
 .selected-category {
   margin-left: 8px;
+  margin-bottom: 8px;
 }
