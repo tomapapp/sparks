@@ -1,0 +1,14 @@
+<!-- These get the start date, time -->
+<% start_date = @datenight.day_of_date.strftime("%Y-%d-%m").to_s.tr("-", "") %>
+<% start_time = @datenight.time.strftime("%H:%M:%S").to_s.tr(":", "") %>
+<% end_time = (@datenight.time + 7200).strftime("%H:%M:%S").to_s.tr(":", "") %>
+
+<% primary_email = current_user.email %>
+<% secondary_email = current_user.secondary_email %>
+
+<!-- PLEASE LEAVE THIS ON ONE LINE! IT DOESN'T WORK IF YOU DON'T ;) -->
+
+<div class="d-flex justify-content-center">
+  <a class="main-btn" target="_blank" href="https://calendar.google.com/calendar/r/eventedit?dates=<%=start_date%>T<%=start_time%>Z/<%=start_date%>T<%=end_time%>Z&text=Date night - <%= @datenight.recommendation.name %>&location=<%= @datenight.recommendation.location %>&details=<%= @datenight.recommendation.description %>&add=<%=secondary_email%>&add=<%=primary_email%>&sf=true">Add to my calendar
+  </a>
+</div>
