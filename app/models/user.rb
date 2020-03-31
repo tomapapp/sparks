@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :recommendations, through: :datenights
   has_many :times, through: :recommendations
   has_many :categories, through: :preferences
+  has_one_attached :avatar
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
   after_create :send_welcome_email
@@ -21,7 +22,7 @@ class User < ApplicationRecord
     return next_date if next_date > Date.today
   end
   # if future next date night
-  # return Date.today.next_occurring(day.downcase.to_sym)
+  return Date.today.next_occurring(self.day.downcase.to_sym)
   # if not pick next days.
   end
 
