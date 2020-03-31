@@ -12,7 +12,7 @@ class User < ApplicationRecord
   has_one_attached :avatar
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
-  after_create :send_welcome_email
+  # after_create :send_welcome_email
 
   def next_date_night
   # check when last date night was
