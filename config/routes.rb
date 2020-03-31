@@ -9,8 +9,10 @@ Rails.application.routes.draw do
   get '/date_frequency', to: "pages#date_frequency"
   get '/edit_preferences', to: "pages#my_preferences"
   post '/edit_preferences', to: "pages#add_preferences"
-
+  get '/update_preferences', to: "pages#edit_preferences"
+  post '/update_preferences', to: "pages#update_preferences"
   get '/edit_date_info', to: "pages#my_date_info"
+
 
   # route to pick a category (not surprise us)
   get '/pick_a_category', to: "pages#pick_a_category"
