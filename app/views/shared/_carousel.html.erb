@@ -1,4 +1,4 @@
-<div id="carousel-<%= recommendation.id %>" class="carousel slide" data-ride="carousel">
+<div id="carousel-<%= recommendation.id %>" class="carousel slide" data-interval="false" data-ride="carousel">
 
   <ol class="carousel-indicators">
     <% recommendation.photos.each_with_index do |photo, n| %>
@@ -8,11 +8,11 @@
 
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <%= cl_image_tag recommendation.photos.first.key, class: "d-block card-picture", crop: :fill, position: :center  %>
+      <%= cl_image_tag recommendation.photos.first.key, class: "d-block card-picture", position: :center  %>
     </div>
     <% recommendation.photos.drop(1).each do |photo| %>
     <div class="carousel-item">
-      <%= cl_image_tag photo.key,  class: "d-block  card-picture", crop: :fill, position: :center  %>
+      <%= cl_image_tag photo.key, class: "d-block card-picture", position: :center  %>
     </div>
     <% end %>
   </div>
