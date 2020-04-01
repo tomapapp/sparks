@@ -1,5 +1,7 @@
 <%= render 'shared/welcomebanner' %>
-<%= render 'shared/badge_earned' %>
+<%= render 'shared/badge_earned', badge: @user_badge %>
+
+<%#= render 'shared/badge_earned' %>
 
 <div class="container">
   <h2 class="welcome-title">Welcome, <%= current_user.name %> !</h2>

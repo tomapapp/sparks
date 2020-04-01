@@ -1,5 +1,9 @@
 <%= render 'shared/welcomebanner' %>
 
+<%= render 'shared/badge_earned', badge: @user_badge %>
+<%= render 'shared/badge_next', badge: @user_badge %>
+
+
 <div class="container">
   <h2 class="profile-title text-center">You have been on <strong class="red"><%= @datenights.count %></strong>  dates! </h2>
   <% @datenights.each do |datenight| %>

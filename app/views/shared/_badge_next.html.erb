@@ -1,0 +1,8 @@
+<!-- displaying array position 0 for css class & array position 1 for the name -->
+<div class="badge">
+  <% if badge[2] == "badge-shaolin" %>
+    You are almost <span class="<%=badge[2]%>"> <%= badge[3] %> </span>
+  <% else %>
+    2 dates away from <span class="<%=badge[2]%>"> <%= badge[3] %> </span> badge!
+  <% end %>
+</div>
