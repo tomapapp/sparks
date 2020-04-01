@@ -40,9 +40,9 @@
 <!-- IRRELEVANT FORM JUST FOR DEMO PURPOSES -->
 
 <%= render 'shared/add_calendar_button' %>
+<a class="btn secondary" href="https://m.uber.com/ul/?client_id=<CLIENT_ID>&action=setPickup&pickup[latitude]=<%= current_user.latitude %>&pickup[longitude]=<%= current_user.longitude %>[formatted_address]=<%= current_user.location %>&dropoff[latitude]=<%= @datenight.recommendation.latitude %>&dropoff[longitude]=<%= @datenight.recommendation.longitude %>&dropoff[formatted_address]=<%= @datenight.recommendation.location %>">Call an Uber to your home</a>
 <%= link_to "Share date night", '#', class: "btn secondary", data: { toggle: "modal", target: "#staticBackdrop" } %>
 <%= link_to "Book another date night", edit_date_info_path, class: "btn secondary" %>
-<a class="btn secondary" href="https://m.uber.com/ul/?client_id=<CLIENT_ID>&action=setPickup&pickup[latitude]=<%= current_user.latitude %>&pickup[longitude]=<%= current_user.longitude %>[formatted_address]=<%= current_user.location %>&dropoff[latitude]=<%= @datenight.recommendation.latitude %>&dropoff[longitude]=<%= @datenight.recommendation.longitude %>&dropoff[formatted_address]=<%= @datenight.recommendation.location %>">Call an Uber to your home</a>
 <div class="modal-datenight">
   <%= render 'shared/share_modal' %>
 </div>
