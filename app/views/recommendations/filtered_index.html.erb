@@ -5,11 +5,13 @@
     <div class="card index-card">
       <%= link_to recommendation_path(recommendation) do %>
         <% if recommendation.photos.attached? %>
-        <!-- image carousel -->
-        <%= render 'shared/carousel', recommendation: recommendation %>
-        <!-- image carousel -->
+          <!-- image carousel -->
+          <div id="carousel-<%= recommendation.id %>" class="carousel slide" data-interval="false" data-ride="carousel">
+            <%= render 'shared/carousel', recommendation: recommendation %>
+          </div>
+          <!-- image carousel -->
         <% else %>
-        <%= image_tag "https://source.unsplash.com/random/1100x500", class: "card-picture", crop: :fill, position: :center %>
+          <%= image_tag "https://source.unsplash.com/random/1100x500", class: "card-picture", crop: :fill, position: :center %>
         <% end %>
 
         <!-- text -->
@@ -28,7 +30,6 @@
   <!-- button -->
   <div class="row d-flex justify-content-center">
     <%= link_to "Get other choices", recommendation_filtered_index_path(categories: @categories, next: true), class: "btn main-btn" %>
-    <%#= link_to "Back to categories", categories_path, class: "btn btn-secondary" %>
   </div>
   <!-- button -->
 </div>
