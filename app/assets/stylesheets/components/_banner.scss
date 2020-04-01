@@ -36,7 +36,7 @@
   padding: 48px 0;
   height: 100vh;
   overflow: hidden;
-  background-color: rgb(236,126,132);
+  background-color: rgba(236,126,132, 0.75);
 }
 
 .value-proposition p {
@@ -54,4 +54,9 @@
 .value-proposition .main-btn {
   margin: 16px 0;
   font-size: 24px;
+}
+
+.sparks-logo-text {
+  font-size: 32px;
+  color: #E8535E;
 }
