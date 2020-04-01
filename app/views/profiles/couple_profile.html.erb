@@ -1,10 +1,9 @@
 <%= render 'shared/welcomebanner' %>
 
-
 <div class="container">
-  <h2>You have been on <strong class="red"><%= @datenights.count %></strong>  dates! </h2>
+  <h2 class="profile-title text-center">You have been on <strong class="red"><%= @datenights.count %></strong>  dates! </h2>
   <% @datenights.each do |datenight| %>
-  <div class="card index-card">
+  <div class="index-card-no-shadow">
     <% if datenight.recommendation.photos.attached? %>
 
     <!-- image carousel -->
@@ -17,11 +16,11 @@
 
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <%= cl_image_tag datenight.recommendation.photos.first.key, class: "d-block card-picture", crop: :fill, position: :center  %>
+          <%= cl_image_tag datenight.recommendation.photos.first.key, class: "d-block card-picture-no-shadow", crop: :fill, position: :center  %>
         </div>
         <% datenight.recommendation.photos.drop(1).each do |photo| %>
         <div class="carousel-item">
-          <%= cl_image_tag photo.key,  class: "d-block  card-picture", crop: :fill, position: :center  %>
+          <%= cl_image_tag photo.key,  class: "d-block  card-picture-no-shadow", crop: :fill, position: :center  %>
         </div>
         <% end %>
       </div>
@@ -40,13 +39,13 @@
 
 
     <% else %>
-      <%= image_tag "https://source.unsplash.com/random/1100x500", class: "card-picture", crop: :fill, position: :center %>
+      <%= image_tag "https://source.unsplash.com/random/1100x500", class: "card-picture-no-shadow", crop: :fill, position: :center %>
     <% end %>
 
-    <div class="card-text">
+    <div class="card-text-no-shadow">
       <div class="d-flex justify-content-between card-detail">
-        <p><em><%= datenight.recommendation.location.split(",")[1] %></em></p>
-        <p><i class="fas fa-star rating"></i><em><%= datenight.recommendation.rating %></em></p>
+        <p><%= datenight.recommendation.location.split(",")[1] %></p>
+        <p><i class="fas fa-star rating"></i><%= datenight.recommendation.rating %></p>
       </div>
       <h5 class="text-break"><strong><%= datenight.recommendation.name %></strong></h5>
     </div>
