@@ -1,0 +1,46 @@
+#map {
+  display: none;
+}
+
+#map.toggled {
+  display: block;
+}
+
+#recommendation-index.hidden {
+  display: none;
+}
+
+.mapboxgl-popup {
+  max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.pos-relative {
+  // position: relative;
+}
+
+.map-icon {
+  margin: auto auto;
+  height: 40px;
+  width: 40px;
+}
+
+#map-icon-container {
+  position: sticky;
+  left: 80vw;
+  bottom: 3vw;
+  z-index: 3;
+  background-color: white;
+  border: 3px solid #E8545E;
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
+}
