@@ -13,36 +13,34 @@ import { initToggleMap } from '../components/map';
 initToggleMap();
 
 // Functions for checkboxes to become active
-$(document).ready(function(){
-  $(".collection_check_boxes").click(function(){
-    $(this).toggleClass("active");
+  $(document).ready(function(){
+    $(".collection_check_boxes").click(function(){
+      $(this).toggleClass("active");
+    });
   });
-});
 
 // Functions for first part of radio buttons form in _frequency
 
-$(document).ready(function(){
-  $(".first-form .collection_radio_buttons").click(toggleActive);
-});
+  $(document).ready(function(){
+    $(".first-form .collection_radio_buttons").click(toggleActive);
+  });
 
-function toggleActive() {
-  $(".first-form .collection_radio_buttons").each(function (){
-    $(this).toggleClass("active", false);
-  })
-  $(this).toggleClass("active");
-}
-
+  function toggleActive() {
+    $(".first-form .collection_radio_buttons").each(function (){
+      $(this).toggleClass("active", false);
+    })
+    $(this).toggleClass("active");
+  }
 
 // Functions for second part of radio buttons form in _frequency
 
-$(document).ready(function(){
-  $(".second-form .collection_radio_buttons ").click(toggleActiveSecond);
-});
+  $(document).ready(function(){
+    $(".second-form .collection_radio_buttons ").click(toggleActiveSecond);
+  });
 
-
-function toggleActiveSecond() {
-  $(".second-form .collection_radio_buttons").each(function (){
-    $(this).toggleClass("active", false);
-  })
-  $(this).toggleClass("active");
-}
+  function toggleActiveSecond() {
+    $(".second-form .collection_radio_buttons").each(function (){
+      $(this).toggleClass("active", false);
+    })
+    $(this).toggleClass("active");
+  }
