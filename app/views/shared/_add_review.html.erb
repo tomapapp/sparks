@@ -1,0 +1,24 @@
+
+<% user_ids = [] %>
+<% reviews.each do |review| %>
+  <% user_ids << review.user_id %>
+<% end %>
+
+
+
+<% if user_ids.include?(current_user.id) %>
+  <div class="show-review">
+    <div class="show-review-banner">You went on <%= datenight.recommendation.name %> in <%= datenight.time.strftime("%B %Y") %></div>
+    <div class="review-element datenight-rating"><strong>Your rating:</strong><i class="fas fa-star rating"></i><i class="fas fa-star rating"></i><i class="fas fa-star rating"></i><i class="fas fa-star rating"></i><i class="fas fa-star rating"></i></div>
+    <div class="review-element content"><strong>Your review:</strong> Placeholder text wow this was an amazing experience!</div>
+  </div>
+<% else %>
+  <a href="../datenights/<%=id%>/reviews/new">
+    <div class="add-review">
+      <div class="plus-review">+</div>
+      <div class="add-review-text">Review '<%= datenight.recommendation.name %>'</div>
+    </div>
+  </a>
+<% end %>
+
+

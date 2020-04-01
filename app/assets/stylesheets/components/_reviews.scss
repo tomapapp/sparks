@@ -11,3 +11,71 @@
   margin: 1px 10px 1px 10px;
 }
 
+
+.add-review {
+  background: #FFFFFF;
+  border: 2px solid rgba(109, 197, 174, 0.38);
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding: 8px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.plus-review {
+  background: #6DC5AE;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+}
+
+.add-review-text {
+  width: 80%;
+  margin: 0 0 0 20px;
+  font-size: 14px;
+  color: #6DC5AE;
+}
+
+.add-review-text-top {
+  color: #6DC5AE;
+}
+
+.show-review {
+  background: #FFFFFF;
+  border: 2px solid rgba(109, 197, 174, 0.38);
+  box-sizing: border-box;
+  border-radius: 5px;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.show-review-banner {
+  background: rgba(109, 197, 174, 0.24);
+  border-radius: 4px 4px 0px 0px;
+  padding: 6px;
+  color: $base-light-grey;
+  font-size: 12px;
+  text-align:center;
+}
+
+.review-element {
+  padding: 10px 20px 10px 20px;
+  color: $base-grey;
+  font-size: 14px;
+}
+
+
+
+
+
+
+
+
+
+
