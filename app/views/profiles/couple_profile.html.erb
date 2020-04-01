@@ -16,11 +16,11 @@
 
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <%= cl_image_tag datenight.recommendation.photos.first.key, class: "d-block card-picture-no-shadow", crop: :fill, position: :center  %>
+          <%= cl_image_tag datenight.recommendation.photos.first.key, class: "d-block card-picture", crop: :fill, position: :center  %>
         </div>
         <% datenight.recommendation.photos.drop(1).each do |photo| %>
         <div class="carousel-item">
-          <%= cl_image_tag photo.key,  class: "d-block  card-picture-no-shadow", crop: :fill, position: :center  %>
+          <%= cl_image_tag photo.key,  class: "d-block  card-picture", crop: :fill, position: :center  %>
         </div>
         <% end %>
       </div>
@@ -39,13 +39,13 @@
 
 
     <% else %>
-      <%= image_tag "https://source.unsplash.com/random/1100x500", class: "card-picture-no-shadow", crop: :fill, position: :center %>
+      <%= image_tag "https://source.unsplash.com/random/1100x500", class: "card-picture", crop: :fill, position: :center %>
     <% end %>
 
     <div class="card-text-no-shadow">
       <div class="d-flex justify-content-between card-detail">
         <p><%= datenight.recommendation.location.split(",")[1] %></p>
-        <p><i class="fas fa-star rating"></i><%= datenight.recommendation.rating %></p>
+        <p class="card-rating-no-shadow"><i class="fas fa-star rating card-rating-no-shadow"></i><%= datenight.recommendation.rating %></p>
       </div>
       <h5 class="text-break"><strong><%= datenight.recommendation.name %></strong></h5>
     </div>
