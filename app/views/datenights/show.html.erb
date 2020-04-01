@@ -1,60 +1,71 @@
 <%= render 'shared/welcomebanner' %>
+<%= render 'shared/badge_earned' %>
+
 
 <div class="container">
-  <div class="mt-4 mb-3">
-    <h4 class="font-title text-center">Your date is booked!</h4>
+  <div class="welcome">
+    <h2 class="profile-title text-center">Welcome, <%= current_user.name %> !
   </div>
 
-  <!-- recommendation card placeholder -->
- <div class="d-flex justify-content-around">
-  <div class="d-flex">
-    <em><i class="fas fa-table mr-1"></i></em><h5>  <%= @datenight.day_of_date.month %>/<%= @datenight.day_of_date.day %></h5>
-  </div>
-  <div class="d-flex">
-    <em><i class="far fa-clock mr-1"></i></em><h5>  <%= @datenight.time.hour %>:<%= @datenight.time.min %></h5>
-  </div>
+  <div class="tagline-pref">
+    <h2 class="profile-title text-center">Your next date night is in <strong class="red"> 3 </strong> days! </h2>
   </div>
 
-
-  <div class="card index-card">
-    <% if @datenight.recommendation.photos.attached? %>
-
-    <!-- image carousel -->
-    <%= render 'shared/carousel', recommendation: @datenight.recommendation %>
-    <% else %>
-    <%= image_tag "https://source.unsplash.com/random/1100x500", class: "card-picture", crop: :fill, position: :center %>
-    <% end %>
-    <!-- image carousel -->
-
-    <!-- text -->
-    <div class="card-text">
-      <div class="d-flex justify-content-between card-detail">
-        <p><em><%= @datenight.recommendation.location.split(",")[1] %></em> (<%= @datenight.recommendation.distance_from([current_user.latitude,current_user.longitude]).round(2) %> mi)</p>
-        <p><i class="fas fa-star rating"></i><em><%= @datenight.recommendation.rating %></em></p>
+  <div class="booking-conf-box">
+    <div class="booking-conf-title">
+      Booking confirmation
+    </div>
+    <div class="booking-details-box">
+      <div class="booking-details d-flex">
+          <%= image_tag "image.png", class: "booking-icon" %>
+        <h5 class="booking-title"><%= @datenight.recommendation.name %></h5>
       </div>
-      <h5 class="text-break"><strong><%= @datenight.recommendation.name %></strong></h5>
+      <div class="booking-details d-flex">
+        <div class="booking-icon d-flex justify-content-center">
+          <i class="fas fa-table booking-icon-other"></i>
+        </div>
+        <h5 class="booking-text"><%= @datenight.day_of_date.month %>/<%= @datenight.day_of_date.day %></h5>
+      </div>
+      <div class="booking-details d-flex">
+        <div class="booking-icon d-flex justify-content-center">
+          <i class="far fa-clock booking-icon-other"></i>
+        </div>
+        <h5 class="booking-text"><%= @datenight.time.hour %>:<%= @datenight.time.min %></h5>
+      </div>
+      <div class="booking-details d-flex">
+        <div class="booking-icon d-flex justify-content-center">
+          <i class="fas fa-map-pin booking-icon-other"></i>
+        </div>
+        <h5 class="booking-text"><%= @datenight.recommendation.location %></h5>
+      </div>
+      <div class="reco-link text-center">
+        See more information
+      </div>
     </div>
   </div>
-  <!-- text -->
+</div>
 
-<!-- IRRELEVANT FORM JUST FOR DEMO PURPOSES -->
 
-<%= render 'shared/add_calendar_button' %>
-<a class="btn secondary" href="https://m.uber.com/ul/?client_id=<CLIENT_ID>&action=setPickup&pickup[latitude]=<%= current_user.latitude %>&pickup[longitude]=<%= current_user.longitude %>[formatted_address]=<%= current_user.location %>&dropoff[latitude]=<%= @datenight.recommendation.latitude %>&dropoff[longitude]=<%= @datenight.recommendation.longitude %>&dropoff[formatted_address]=<%= @datenight.recommendation.location %>">Call an Uber to your home</a>
-<%= link_to "Share date night", '#', class: "btn secondary", data: { toggle: "modal", target: "#staticBackdrop" } %>
-<%= link_to "Book another date night", edit_date_info_path, class: "btn secondary" %>
+
+
+
+<!-- Add a calendar -->
+  <%= render 'shared/add_calendar_button' %>
+<!-- Add a calendar -->
+
+
+<!-- Uber -->
+  <a class="btn secondary" href="https://m.uber.com/ul/?client_id=<CLIENT_ID>&action=setPickup&pickup[latitude]=<%= current_user.latitude %>&pickup[longitude]=<%= current_user.longitude %>[formatted_address]=<%= current_user.location %>&dropoff[latitude]=<%= @datenight.recommendation.latitude %>&dropoff[longitude]=<%= @datenight.recommendation.longitude %>&dropoff[formatted_address]=<%= @datenight.recommendation.location %>">Call an Uber to your home</a>
+<!-- Uber -->
+
+<!-- Share -->
+  <%= link_to "Share date night", '#', class: "btn secondary", data: { toggle: "modal", target: "#staticBackdrop" } %>
+<!-- Share -->
+
+<!-- Book another -->
+  <%= link_to "Book another date night", edit_date_info_path, class: "btn secondary" %>
+<!-- Book another -->
+
 <div class="modal-datenight">
   <%= render 'shared/share_modal' %>
 </div>
-
-<%=  %> <!-- #&product_id=a1111c8c-c720-46c3-8534-2fcdd730040d" -->
-
-
-
-<!-- <div class="row d-flex justify-content-center mb-2">
-  <%#= link_to "Edit date/time", edit_recommendation_datenight_path(@datenight.recommendation, @datenight), class: "secondary btn-sm w-25 mr-1" %>
-  <%#= link_to "Cancel", recommendation_datenight_path(@datenight.recommendation, @datenight), method: :delete, data: { confirm: "Are you sure you want to delete the booked date?"  %>, class: "secondary btn-sm w-25 ml-1" %>
-</div>
-<div class="row d-flex justify-content-center mb-2">
-  <%#= link_to "Book another date", edit_date_info_path, class: "btn main-btn w-50" %>
-</div> -->

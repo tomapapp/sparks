@@ -1,0 +1,58 @@
+.booking-conf-box {
+  border: 1px solid #D2D2D2;
+  border-radius: 4px;
+  border-shadow: 1px;
+}
+
+.booking-conf-title {
+  background: rgba(196, 196, 196, 0.27);
+  border-radius: 4px 4px 0px 0px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  color: $base-grey;
+  text-align: center;
+  padding: 4px;
+}
+
+.booking-details-box {
+  padding: 5px 15px 15px 15px;
+}
+
+.booking-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.booking-icon-other {
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.booking-icon {
+  text-align: center;
+}
+
+.booking-details {
+  color: $base-grey;
+  margin: 10px 0px 10px 0px;
+}
+
+.booking-text {
+  margin: 0 0 0 10px;
+  font-size: 16px;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.booking-title {
+  font-weight: bold;
+  margin: 0 0 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
