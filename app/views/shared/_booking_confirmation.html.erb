@@ -1,0 +1,32 @@
+<div class="booking-conf-box">
+    <div class="booking-conf-title">
+      Booking confirmation
+    </div>
+    <div class="booking-details-box">
+      <div class="booking-details d-flex">
+          <%= image_tag "image.png", class: "booking-icon" %>
+        <h5 class="booking-title"><%= @datenight.recommendation.name %></h5>
+      </div>
+      <div class="booking-details d-flex">
+        <div class="booking-icon d-flex justify-content-center">
+          <i class="fas fa-table booking-icon-other"></i>
+        </div>
+        <h5 class="booking-text"><%= @datenight.day_of_date.month %>/<%= @datenight.day_of_date.day %></h5>
+      </div>
+      <div class="booking-details d-flex">
+        <div class="booking-icon d-flex justify-content-center">
+          <i class="far fa-clock booking-icon-other"></i>
+        </div>
+        <h5 class="booking-text"><%= @datenight.time.hour %>:<%= @datenight.time.min %></h5>
+      </div>
+      <div class="booking-details d-flex">
+        <div class="booking-icon d-flex justify-content-center">
+          <i class="fas fa-map-pin booking-icon-other"></i>
+        </div>
+        <h5 class="booking-text"><%= @datenight.recommendation.location %></h5>
+      </div>
+      <div class="reco-link text-center">
+        See more information
+      </div>
+    </div>
+  </div>

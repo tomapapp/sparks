@@ -1,7 +1,27 @@
+.welcome-title {
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $base-grey;
+  margin: 25px;
+}
+
+.welcome-subtitle {
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $base-grey;
+  margin: 25px;
+}
+
 .booking-conf-box {
   border: 1px solid #D2D2D2;
   border-radius: 4px;
   border-shadow: 1px;
+  margin-bottom: 30px;
 }
 
 .booking-conf-title {

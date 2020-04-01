@@ -8,8 +8,8 @@ class DatenightsController < ApplicationController
   end
 
   def show
-    today = Date.today
-    date_night = @datenight.day_of_date.to_i
+    # today = Date.today
+    # date_night = @datenight.day_of_date.to_i
   end
 
   def new
