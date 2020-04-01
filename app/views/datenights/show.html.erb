@@ -16,7 +16,7 @@
   </div>
 
 
-  <div class="card index-card">
+  <div class="index-card-no-shadow">
     <% if @datenight.recommendation.photos.attached? %>
 
     <!-- image carousel -->
@@ -27,10 +27,10 @@
     <!-- image carousel -->
 
     <!-- text -->
-    <div class="card-text">
+    <div class="card-text-no-shadow">
       <div class="d-flex justify-content-between card-detail">
-        <p><em><%= @datenight.recommendation.location.split(",")[1] %></em> (<%= @datenight.recommendation.distance_from([current_user.latitude,current_user.longitude]).round(2) %> mi)</p>
-        <p><i class="fas fa-star rating"></i><em><%= @datenight.recommendation.rating %></em></p>
+        <p><%= @datenight.recommendation.location.split(",")[1] %> (<%= @datenight.recommendation.distance_from([current_user.latitude,current_user.longitude]).round(2) %> mi)</p>
+        <p class="card-rating-no-shadow"><i class="fas fa-star rating card-rating-no-shadow "></i><%= @datenight.recommendation.rating %></p>
       </div>
       <h5 class="text-break"><strong><%= @datenight.recommendation.name %></strong></h5>
     </div>
