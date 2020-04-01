@@ -53,7 +53,7 @@
     <!-- text -->
     <div class="card-text">
       <div class="d-flex justify-content-between card-detail">
-        <p><em><%= @datenight.recommendation.location.split(",")[1] %></em></p>
+        <p><em><%= @datenight.recommendation.location.split(",")[1] %></em> (<%= @datenight.recommendation.distance_from([current_user.latitude,current_user.longitude]).round(2) %> mi)</p>
         <p><i class="fas fa-star rating"></i><em><%= @datenight.recommendation.rating %></em></p>
       </div>
       <h5 class="text-break"><strong><%= @datenight.recommendation.name %></strong></h5>
