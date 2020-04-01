@@ -1,5 +1,5 @@
 <!-- These get the start date, time -->
-<% start_date = @datenight.day_of_date.strftime("%Y-%d-%m").to_s.tr("-", "") %>
+<% start_date = @datenight.day_of_date.strftime("%Y-%m-%d").to_s.tr("-", "") %>
 <% start_time = @datenight.time.strftime("%H:%M:%S").to_s.tr(":", "") %>
 <% end_time = (@datenight.time + 7200).strftime("%H:%M:%S").to_s.tr(":", "") %>
 
