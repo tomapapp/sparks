@@ -3,11 +3,13 @@
   <div class="review">
     <div class="review-top">
       <div class="avatar">
-        <% if current_user && current_user.avatar.attached? %>
-          <%= cl_image_tag current_user.avatar.key, class: "avatar" %>
-        <% else %>
-          <%= image_tag "empty_avatar.png", class: "avatar" %>
-        <% end %>
+        <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-bordered" />
+        <!-- Currently avatar issues, when fixed change to this -->
+        <%# if current_user && current_user.avatar.attached? %>
+          <%#= cl_image_tag current_user.avatar.key, class: "avatar" %>
+        <%# else %>
+          <%#= image_tag "empty_avatar.png", class: "avatar" %>
+        <%# end %>
       </div>
       <div class="user-info">
         <p class="review-title"><%= review.user.name %></p>
