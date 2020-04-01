@@ -1,9 +1,9 @@
 <div class="card index-card">
   <%= link_to recommendation_path(recommendation) do %>
   <% if recommendation.photos.attached? %>
-
+      <%= cl_image_tag recommendation.photos.first.key, class: "d-block card-picture", position: :center  %>
   <!-- image carousel -->
-  <%= render 'shared/carousel', recommendation: recommendation %>
+  <%#= render 'shared/carousel', recommendation: recommendation %>
   <!-- image carousel -->
 
   <% else %>
