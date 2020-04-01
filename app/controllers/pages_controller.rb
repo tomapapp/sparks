@@ -14,7 +14,6 @@ class PagesController < ApplicationController
       elsif @user.preferences.last
         redirect_to edit_date_info_path
       elsif @user.date_frequency
-        raise
         redirect_to edit_preferences_path
       else
         redirect_to date_frequency_path
@@ -31,9 +30,17 @@ class PagesController < ApplicationController
   end
 
   def date_frequency
+    if current_user == nil
+      redirect_to root_path
+    end
   end
 
   def my_preferences
+    if current_user == nil
+      redirect_to root_path
+    elsif current_user.date_frequency == nil
+      redirect_to date_frequency_path
+    end
     # getting all the categories to display them in the form
     @categories = Category.all
   end
@@ -71,6 +78,13 @@ class PagesController < ApplicationController
   end
 
   def my_date_info
+    if current_user == nil
+      redirect_to root_path
+    elsif current_user.date_frequency == nil
+      redirect_to date_frequency_path
+    elsif current_user.preferences.empty?
+        redirect_to edit_preferences_path
+    end
   end
 
   def pick_a_category

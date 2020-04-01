@@ -1,6 +1,7 @@
 class DatenightsController < ApplicationController
   before_action :set_datenight, only: [:show, :edit, :update, :destroy]
   before_action :set_recommendation, only: [:new, :create, :edit, :update, :destroy]
+  before_action :signup_redirection
 
   def index
     @datenights = Datenight.all
@@ -55,5 +56,19 @@ class DatenightsController < ApplicationController
 
   def set_recommendation
     @recommendation = Recommendation.find(params[:recommendation_id])
+  end
+
+  def signup_redirection
+    if current_user == nil
+      redirect_to root_path
+    else
+      if current_user.date_frequency == nil
+        redirect_to date_frequency_path
+      elsif current_user.preferences.empty?
+        redirect_to edit_preferences_path
+      elsif current_user.location == nil
+        redirect_to edit_date_info_path
+      end
+    end
   end
 end
