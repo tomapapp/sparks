@@ -1,5 +1,10 @@
 #map {
   display: none;
+  margin-bottom: 24px !important;
+}
+
+#map.show-map {
+  display: block;
 }
 
 #map.toggled {
