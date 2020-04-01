@@ -3,7 +3,7 @@
     <h2 class="font-title text-center">How was your date night? </h1>
     <h4 class="text-center"><strong class="red"><%= @datenight.recommendation.name %></strong></h4>
   </div>
-  <%= simple_form_for [@datenight, @review] do |f|%>
+  <%= simple_form_for ([@datenight, @review], remote: true) do |f|%>
   <div class="form-input-checkbox">
     <%= f.label "Date night rating" %>
     <%= f.input :date_rating,

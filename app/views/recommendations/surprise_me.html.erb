@@ -35,6 +35,10 @@
       <p class="reco-section-title"><strong>LOCATION</strong></p>
       <p class="reco-text pb-2"><%= @recommendation.location %> (<%= @recommendation.distance_from([current_user.latitude,current_user.longitude]).round(2) %> mi) </p>
     </div>
+    <% if current_user.datenights.any? { |datenight| datenight.recommendation.id == @recommendation.id } %>
+      <%= render 'reviews/form', datenight: @datenight, review: @review %>
+    <% end %>
+    <%= render 'reviews' %>
     <div
     id="map"
     style="width: 100%;
