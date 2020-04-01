@@ -3,7 +3,7 @@
 <div class="container">
   <h2 class="profile-title text-center">You have been on <strong class="red"><%= @datenights.count %></strong>  dates! </h2>
   <% @datenights.each do |datenight| %>
-  <div class="card index-card">
+  <div class="index-card-no-shadow">
     <% if datenight.recommendation.photos.attached? %>
 
     <!-- image carousel -->
@@ -42,10 +42,10 @@
       <%= image_tag "https://source.unsplash.com/random/1100x500", class: "card-picture", crop: :fill, position: :center %>
     <% end %>
 
-    <div class="card-text">
+    <div class="card-text-no-shadow">
       <div class="d-flex justify-content-between card-detail">
-        <p><em><%= datenight.recommendation.location.split(",")[1] %></em></p>
-        <p><i class="fas fa-star rating"></i><em><%= datenight.recommendation.rating %></em></p>
+        <p><%= datenight.recommendation.location.split(",")[1] %></p>
+        <p><i class="fas fa-star rating"></i><%= datenight.recommendation.rating %></p>
       </div>
       <h5 class="text-break"><strong><%= datenight.recommendation.name %></strong></h5>
     </div>

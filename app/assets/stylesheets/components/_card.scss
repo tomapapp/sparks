@@ -52,6 +52,7 @@
   text-overflow: ellipsis;
   word-break: break-all;
   white-space: nowrap;
+  color: $base-grey;
 }
 
 .datenight-card {
@@ -64,4 +65,15 @@
   padding: 0;
 }
 
+// with the no shadow experiment on the profile page
+
+.index-card-no-shadow {
+  margin: 16px 0;
+}
+
+.card-text-no-shadow {
+  padding: 1px 1px 4px 1px;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 1.0);
+}
 
