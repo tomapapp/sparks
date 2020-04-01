@@ -1,8 +1,7 @@
 <%= render 'shared/welcomebanner' %>
 
-
 <div class="container">
-  <h2>You have been on <strong class="red"><%= @datenights.count %></strong>  dates! </h2>
+  <h2 class="profile-title text-center">You have been on <strong class="red"><%= @datenights.count %></strong>  dates! </h2>
   <% @datenights.each do |datenight| %>
   <div class="card index-card">
     <% if datenight.recommendation.photos.attached? %>
