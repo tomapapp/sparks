@@ -35,6 +35,7 @@ class RecommendationsController < ApplicationController
       end
       @top_recommendations = recommendations.flatten.sort_by { |ab| -ab[:rating] }.first(4)
     end
+      set_markers
   end
 
   def preference_index
@@ -49,6 +50,7 @@ class RecommendationsController < ApplicationController
       recommendations = Recommendation.where(category: current_user.preferences.map(&:category)).near(current_user.location, 10)
       @top_recommendations = recommendations.order(rating: :desc).first(4)
     end
+    set_markers
   end
 
   def show
@@ -129,6 +131,18 @@ class RecommendationsController < ApplicationController
       elsif current_user.location == nil
         redirect_to edit_date_info_path
       end
+    end
+  end
+
+  def set_markers
+    @top_recommendations = Recommendation.where(id: @top_recommendations.map(&:id))
+    @recommendations = @top_recommendations.geocoded #returns flats with coordinates
+    @markers = @recommendations.map do |recommendation|
+      {
+        lat: recommendation.latitude,
+        lng: recommendation.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { recommendation: recommendation })
+      }
     end
   end
 end
