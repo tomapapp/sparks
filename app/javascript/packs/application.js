@@ -9,7 +9,6 @@ import { initMapbox } from '../plugins/init_mapbox';
 
 initMapbox();
 
-
 import { initToggleMap } from '../components/map';
 initToggleMap();
 
@@ -47,8 +46,3 @@ function toggleActiveSecond() {
   })
   $(this).toggleClass("active");
 }
-
-
-// toggle map from icon
-
-
