@@ -1,11 +1,10 @@
-
-
 <!-- <div class="new-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.metadata.sky.com/pd-image/79f9c43a-f43f-4ee0-bed0-77fa8e6218e5/16-9)"> -->
-<div class="new-banner">
 
-  <% if current_user && current_user.avatar.attached? %>
-    <%= cl_image_tag current_user.avatar.key, gravity: :face, class: "avatar-banner" %>
-  <% else %>
-    <%= image_tag "empty_avatar.png", class: "avatar-banner" %>
-  <% end %>
-</div>
+  <%# if current_user && current_user.avatar.attached? %>
+  <div class="avatar-banner">
+    <img src="https://static01.nyt.com/images/2010/04/09/movies/09datespan-1/09datespan-1-articleLarge.jpg?quality=75&auto=webp&disable=upscale" alt="">
+    <%#= cl_image_tag current_user.avatar.key, gravity: :face %>
+  </div>
+  <%# else %>
+    <%#= image_tag "empty_avatar.png", class: "avatar-banner" %>
+  <%# end %>

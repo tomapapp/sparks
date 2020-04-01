@@ -21,7 +21,13 @@
 }
 
 
-.avatar-banner {
+img {
   height: 120px;
-  background-size: cover;
 }
+
+.avatar-banner {
+  width: 100%;
+  object-fit: none;
+}
+
+
