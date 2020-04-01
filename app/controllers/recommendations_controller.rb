@@ -3,6 +3,7 @@ class RecommendationsController < ApplicationController
   before_action :set_recommendation, only: [:show, :edit, :update, :destroy]
   before_action :set_category, only: [:new, :create, :edit, :update]
   before_action :signup_redirection
+  before_action :set_new_review, only: [:show, :surprise_me]
 
   def index
     @recommendations = Recommendation.where(category: current_user.preferences.map(&:category)).order(rating: :desc)
@@ -54,14 +55,19 @@ class RecommendationsController < ApplicationController
   end
 
   def show
+    @review = Review.new
+    @review.user = current_user
     @markers =
     [{
       lat: @recommendation.latitude,
       lng: @recommendation.longitude
     }]
+    load_reviews
   end
 
   def surprise_me
+    @review = Review.new
+    @review.user = current_user
     recommendations = Recommendation.where(category: current_user.preferences.map(&:category)).near(current_user.location, 10)
     @top_recommendations = recommendations.order(rating: :desc)
     @recommendation = @top_recommendations.first
@@ -70,6 +76,7 @@ class RecommendationsController < ApplicationController
       lat: @recommendation.latitude,
       lng: @recommendation.longitude
       }]
+    load_reviews
   end
 
   def new
@@ -144,5 +151,14 @@ class RecommendationsController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { recommendation: recommendation })
       }
     end
+  end
+
+  def set_new_review
+    @review = Review.new
+  end
+
+  def load_reviews
+    @datenight = @recommendation.datenights.where(user: current_user).last
+    @reviews = Review.where(datenight: @recommendation.datenights)
   end
 end

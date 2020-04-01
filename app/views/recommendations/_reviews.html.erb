@@ -1,0 +1,13 @@
+<h2>
+  <%= pluralize @reviews.size, "review" %>
+</h2>
+
+<div id="reviews">
+  <% if @reviews.empty? %>
+      <p>No reviews yet</p>
+  <% else %>
+    <% @reviews.each do |review| %>
+      <%= render 'reviews/show', review: review %>
+    <% end %>
+  <% end %>
+</div>

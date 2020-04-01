@@ -3,7 +3,7 @@
 <%= render 'shared/carousel', recommendation: @recommendation %>
 <!-- image carousel -->
 <% else %>
-  <%= image_tag "https://source.unsplash.com/random/1100x500", class: "w-100", crop: :fill, position: :center %>
+<%= image_tag "https://source.unsplash.com/random/1100x500", class: "w-100", crop: :fill, position: :center %>
 <% end %>
 
 <div class="container mb-5 mt-3">
@@ -28,30 +28,38 @@
         <p class="reco-section-title"><strong>REVIEWS</strong></p>
         <p class="reco-text pb-2"><i class="fas fa-star rating"></i><%= @recommendation.rating %> (<%= @recommendation.reviewcount %>)</p>
       </div>
-      <%= render 'shared/reviews' %>
-    </div>
-    <div class="bottom-border">
-      <p class="reco-section-title"><strong>LOCATION</strong></p>
-      <p class="reco-text pb-2"><%= @recommendation.location %> (<%= @recommendation.distance_from([current_user.latitude,current_user.longitude]).round(2) %> mi)</p>
-    </div>
-    <div
+      <% if current_user.datenights.any? { |datenight| datenight.recommendation.id == @recommendation.id } %>
+        <div class="container">
+          <div class="tagline-pref">
+            <h2 class="font-title text-center">How was your date night? </h1>
+              <%= render 'reviews/form', datenight: @datenight, review: @review %>
+            </div>
+          </div>
+        <% end %>
+        <%= render 'shared/reviews' %>
+      </div>
+      <div class="bottom-border">
+        <p class="reco-section-title"><strong>LOCATION</strong></p>
+        <p class="reco-text pb-2"><%= @recommendation.location %> (<%= @recommendation.distance_from([current_user.latitude,current_user.longitude]).round(2) %> mi)</p>
+      </div>
+      <div
       id="map"
       style="width: 100%;
       height: 240px;"
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>";
       class="mb-4";
-    ></div>
-  </div>
-</div>
-
-<div class="container fixed-bottom">
-  <div class="card buttons">
-    <div class="row d-flex justify-content-center">
-      <%= link_to "Get other choices", recommendation_preference_index_path, class: "btn secondary split" %>
-      <%= link_to "Book date", new_recommendation_datenight_path(@recommendation), class: "btn main-btn split" %>
-      <%#= link_to "Edit", edit_category_recommendation_path(@recommendation.category, @recommendation), class: "btn btn-secondary" %>
-      <%#= link_to "Delete", category_recommendation_path(@recommendation.category, @recommendation), method: :delete, class: "btn btn-secondary" %>
+      ></div>
     </div>
   </div>
-</div>
+
+  <div class="container fixed-bottom">
+    <div class="card buttons">
+      <div class="row d-flex justify-content-center">
+        <%= link_to "Get other choices", recommendation_preference_index_path, class: "btn secondary split" %>
+        <%= link_to "Book date", new_recommendation_datenight_path(@recommendation), class: "btn main-btn split" %>
+        <%#= link_to "Edit", edit_category_recommendation_path(@recommendation.category, @recommendation), class: "btn btn-secondary" %>
+        <%#= link_to "Delete", category_recommendation_path(@recommendation.category, @recommendation), method: :delete, class: "btn btn-secondary" %>
+      </div>
+    </div>
+  </div>
