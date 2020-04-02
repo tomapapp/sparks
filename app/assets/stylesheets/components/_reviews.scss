@@ -1,7 +1,17 @@
 .review {
-  margin: 5px 0px 20px 0px;
+  margin: 5px 0px;
 }
 
+.review-content {
+  margin-top: 8px;
+  margin-left: 4px;
+}
+
+.review-rating {
+  font-size:13px;
+  color: #484848;
+  font-family: Roboto;
+}
 
 .review-top {
   display: flex;

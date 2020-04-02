@@ -1,7 +1,7 @@
-  <div id="reviews" class="review">
+  <div id="reviews" class="review p-2 border">
     <div class="review-top">
       <div>
-        <% if current_user && current_user.avatar.attached? %>
+        <% if review.user && review.user.avatar.attached? %>
         <%= cl_image_tag review.user.avatar.key, width: 50, height: 50, crop: :thumb, gravity: :face, class: "avatar-bordered" %>
         <% else %>
         <%= image_tag "empty_avatar.png", width: 50, height: 50, class: "avatar-bordered" %>
@@ -13,17 +13,17 @@
         <%#= image_tag "empty_avatar.png", class: "avatar" %>
         <%# end %>
       </div>
-      <div class="d-flex justify-content-between">
+      <div class="d-flex justify-content-between w-100">
       <div class="user-info">
         <p class="review-title"><%= review.user.name %></p>
         <p class="review-subtitle"><%= review.datenight.time.strftime("%B %Y") %></p>
       </div>
       <div>
-      <p><i class="fas fa-star rating"></i><em><%= review.date_rating %></em></p>
+        <p class="card-rating-no-shadow review-rating"><i class="fas fa-star rating card-rating-no-shadow"></i><%= review.date_rating %>.0</p>
       </div>
       </div>
     </div>
-    <div class="content">
+    <div class="review-content">
       <p class="reco-text review-text"><%= review.content %></p>
     </div>
   </div>
