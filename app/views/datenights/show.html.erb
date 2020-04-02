@@ -4,7 +4,7 @@
 
 <div class="container">
   <h2 class="welcome-title">Welcome, <%= current_user.name %> !</h2>
-  
+
   <!-- Adding for the case where there is only 1 day -->
     <% if @date_diff == 1%>
       <h2 class="profile-title text-center">Your next date night is in <strong class="red"><%= @date_diff %></strong>  day! </h2>
@@ -23,7 +23,7 @@
     <!-- Share -->
 
     <!-- Uber -->
-      <a class="secondary" href="https://m.uber.com/ul/?client_id=<CLIENT_ID>&action=setPickup&pickup[latitude]=<%= current_user.latitude %>&pickup[longitude]=<%= current_user.longitude %>[formatted_address]=<%= current_user.location %>&dropoff[latitude]=<%= @datenight.recommendation.latitude %>&dropoff[longitude]=<%= @datenight.recommendation.longitude %>&dropoff[formatted_address]=<%= @datenight.recommendation.location %>">Get an Uber</a>
+      <a class="secondary" target="_blank" href="https://m.uber.com/ul/?client_id=<CLIENT_ID>&action=setPickup&pickup[latitude]=<%= current_user.latitude %>&pickup[longitude]=<%= current_user.longitude %>[formatted_address]=<%= current_user.location %>&dropoff[latitude]=<%= @datenight.recommendation.latitude %>&dropoff[longitude]=<%= @datenight.recommendation.longitude %>&dropoff[formatted_address]=<%= @datenight.recommendation.location %>">Get an Uber</a>
     <!-- Uber -->
   </div>
 

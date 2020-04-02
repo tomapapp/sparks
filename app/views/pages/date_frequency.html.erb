@@ -24,7 +24,7 @@
   </div>
 
     <!-- Pick date night - Still need to make it non-checkboxes -->
-    <p class="font-form-title">PICK A DATE NIGHT</p>
+    <p class="font-form-title text-center">PICK A DATE NIGHT</p>
       <%= simple_form_for @user do |f| %>
       <div class="form-input-checkbox">
         <%= f.input :day,
@@ -46,7 +46,7 @@
       </div>
 
     <!-- Choose your date night frequency - Still need to make it non-checkboxes -->
-    <p class="font-form-title">CHOOSE YOUR DATE NIGHT FREQUENCY</p>
+    <p class="font-form-title text-center">CHOOSE YOUR DATE NIGHT FREQUENCY</p>
       <div class="form-input-checkbox">
           <%= f.input :date_frequency,
             as: :radio_buttons,

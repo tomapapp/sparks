@@ -4,15 +4,14 @@
   border-radius: 50%;
   background: $sparks-color;
   color: white;
-  font-size: 15px;
+  font-size: 14px;
+  border: 2px solid $sparks-color;
   &.incomplete {
     background: white;
     color: $sparks-color;
     border: 2px solid $sparks-color;
   }
 }
-
-
 
 .bubble > p {
   margin: 0;
