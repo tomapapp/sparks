@@ -6,12 +6,6 @@
         <% else %>
         <%= image_tag "empty_avatar.png", width: 50, height: 50, class: "avatar-bordered" %>
         <% end %>
-        <!-- Currently avatar issues, when fixed change to this -->
-        <%# if current_user && current_user.avatar.attached? %>
-        <%#= cl_image_tag current_user.avatar.key, class: "avatar" %>
-        <%# else %>
-        <%#= image_tag "empty_avatar.png", class: "avatar" %>
-        <%# end %>
       </div>
       <div class="d-flex justify-content-between w-100">
       <div class="user-info">
