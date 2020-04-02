@@ -1,16 +1,21 @@
 <%= render 'shared/welcomebanner' %>
 <%= render 'shared/badge_earned', badge: @user_badge %>
 
-<%#= render 'shared/badge_earned' %>
 
 <div class="container">
   <h2 class="welcome-title">Welcome, <%= current_user.name %> !</h2>
-  <h2 class="welcome-subtitle">Your next date night is in XXX days! </h2>
+  <!-- Adding for the case where there is only 1 day -->
+    <% if @date_diff == 1%>
+      <h2 class="profile-title text-center">Your next date night is in <strong class="red"><%= @date_diff %></strong>  day! </h2>
+    <% else %>
+      <h2 class="profile-title text-center">Your next date night is in <strong class="red"><%= @date_diff %></strong>  days! </h2>
+    <% end %>
+   <!-- Adding for the case where there is only 1 day -->
 
   <!-- Booking confirmation box -->
-  <a href="../recommendations/<%=@datenight.recommendation.id%>">
-    <%= render 'shared/booking_confirmation' %>
-  </a>
+    <a href="../recommendations/<%=@datenight.recommendation.id%>">
+      <%= render 'shared/booking_confirmation' %>
+    </a>
   <!-- Booking confirmation box -->
 
   <div class="d-flex justify-content-even">
