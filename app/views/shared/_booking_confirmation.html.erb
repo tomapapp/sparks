@@ -25,8 +25,10 @@
         </div>
         <h5 class="booking-text"><%= @datenight.recommendation.location %></h5>
       </div>
-      <div class="reco-link text-center">
-        See more information
-      </div>
+      <a href="../recommendations/<%=@datenight.recommendation.id%>">
+        <div class="reco-link text-center">
+          See more information
+        </div>
+      </a>
     </div>
   </div>
