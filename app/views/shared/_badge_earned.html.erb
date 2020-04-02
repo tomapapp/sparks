@@ -3,7 +3,6 @@
   <% if current_user.datenights.count == 0 %>
     You have no badges yet! Book a date night!
   <% else %>
-  <%= current_user.datenights.count %>
     You earned the <span class="<%=badge[0]%>"> <%= badge[1] %> </span> badge!
   <% end %>
 </div>

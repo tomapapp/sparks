@@ -8,11 +8,8 @@
   <% elsif badge[2] == "badge-shaolin" %>
     You are almost <span class="<%=badge[2]%>"> <%= badge[3] %> </span>
 
-  <!--  -->
-  <% elsif current_user.datenights.odd? %>
-    2 dates away from <span class="<%=badge[2]%>"> <%= badge[3] %> </span> badge!
-
+  <!-- Final case - solving logic currently -->
   <% else %>
-    1 dates away from <span class="<%=badge[2]%>"> <%= badge[3] %> </span> badge!
+    2 dates away from <span class="<%=badge[2]%>"> <%= badge[3] %> </span> badge!
   <% end %>
 </div>
