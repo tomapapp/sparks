@@ -52,7 +52,7 @@
               <% if @recommendation.datenights.any? && @reviews.any? %>
                 <%= render 'shared/reviews' %>
               <% else %>
-                <p>There and no reviews on this datenight yet</p>
+                <p id="no-reviews">There and no reviews on this datenight yet</p>
               <% end %>
           </div>
         </div>

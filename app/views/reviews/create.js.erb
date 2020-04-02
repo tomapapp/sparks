@@ -6,6 +6,8 @@ function refreshForm(innerHTML) {
 function addReview(reviewHTML) {
   const reviews = document.getElementById('reviews');
   reviews.insertAdjacentHTML('beforebegin', reviewHTML);
+  const noReviews = document.getElementById('no-reviews');
+  noReviews.classList.add("no-disp")
 }
 
 <% if @review.errors.any? %>
