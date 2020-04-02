@@ -17,7 +17,7 @@
         <div class="booking-icon d-flex justify-content-center">
           <i class="far fa-clock booking-icon-other"></i>
         </div>
-        <h5 class="booking-text"><%= @datenight.time.strftime("%r") %></h5>
+        <h5 class="booking-text"><%= @datenight.time.strftime("%I.%m %P") %></h5>
       </div>
       <div class="booking-details d-flex">
         <div class="booking-icon d-flex justify-content-center">
@@ -25,8 +25,14 @@
         </div>
         <h5 class="booking-text"><%= @datenight.recommendation.location %></h5>
       </div>
-      <div class="reco-link text-center">
-        See more information
-      </div>
+
+      <!-- Link -->
+      <a href="../recommendations/<%=@datenight.recommendation.id%>">
+        <div class="reco-link text-center">
+          See more information
+        </div>
+      </a>
+      <!-- Link -->
+
     </div>
   </div>
