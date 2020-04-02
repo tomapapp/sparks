@@ -1,6 +1,10 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="container">
+   <div class="d-flex justify-content-around">
+     <h3 class="profile-title" >Edit <%= resource_name.to_s.humanize %></h3>
+  </div>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "grey-form" }) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
@@ -22,16 +26,24 @@
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
     <%= f.input :avatar,
-                as: :file %>
+                as: :file,
+                input_html: { class: 'd-none js-avatar' },
+                label_html: { class: 'upload-photo avatar-label'},
+                label: 'Upload a photo'%>
+    <div class="file-title">
+
+    </div>
   </div>
 
-  <div class="form-actions">
+  <div class="form-actions btn secondary">
     <%= f.button :submit, "Update" %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
 
 <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-<%= link_to "Back", :back %>
+<%= link_to :back, class: "reco-link back-link" do %>
+  <i class="far fa-arrow-alt-circle-left"></i>
+  <% end %>
+</div>
