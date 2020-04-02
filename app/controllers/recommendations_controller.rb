@@ -159,6 +159,8 @@ class RecommendationsController < ApplicationController
 
   def load_reviews
     @datenight = @recommendation.datenights.where(user: current_user).last
-    @reviews = Review.where(datenight: @recommendation.datenights)
+    # @reviews = Review.where(datenight: @recommendation.datenights)
+    # @reviews = Review.where(datenight: @recommendation.datenights).order_by { |datenight| datenight.created_at}
+    @reviews = Review.where(datenight: @recommendation.datenights).order(created_at: :desc)
   end
 end
