@@ -1,5 +1,6 @@
 .value-prop-element {
   display: flex;
+  margin: 20px 2px;
 }
 
 .value-prop-icon {
@@ -7,13 +8,22 @@
   font-size: 30px;
 }
 
+.value-prop-content {
+  padding: 15px 2px 2px 30px;
+}
+
 .value-prop-title {
   font-size: 18px;
-  font-weight: bold;
+  font-weight: normal;
+  color: $base-grey;
+  margin: 0px;
 }
 
 .value-prop-subtitle {
   font-size: 14px;
+  font-weight: lighter;
+  margin: 0px;
+  color: $base-light-grey;
   font-weight: lighter;
 }
 
