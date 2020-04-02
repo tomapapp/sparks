@@ -1,7 +1,10 @@
 .navbar-lewagon {
   background: white;
-  justify-content: space-between;
+  justify-content: space-between;;
+  .navbar-brand {
+    margin-right: 0;
   }
+}
 
 .logo-text {
   font-size: 24px;
