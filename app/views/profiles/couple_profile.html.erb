@@ -5,7 +5,15 @@
 
 
 <div class="container">
-  <h2 class="profile-title text-center">You have been on <strong class="red"><%= @datenights.count %></strong>  dates! </h2>
+
+  <!-- Title - should add an S to dateS if count is not 1 -->
+  <% if @datenights.count == 1 %>
+    <h2 class="profile-title text-center">You have been on <strong class="red"><%= @datenights.count %></strong>  date! </h2>
+  <% else %>
+    <h2 class="profile-title text-center">You have been on <strong class="red"><%= @datenights.count %></strong>  dates! </h2>
+  <% end %>
+  <!-- Title - should add an S to dateS if count is not 1 -->
+
   <% @datenights.each do |datenight| %>
 
 <!-- Adding links to recommendation page -->

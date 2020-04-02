@@ -58,6 +58,7 @@
   }
 }
 
+
 .reco-link {
   font-family: Roboto;
   font-style: normal;
@@ -85,7 +86,7 @@
   font-weight: 500;
   font-size: 15px;
   color: $base-grey;
-  margin-bottom: 2px;
+  margin: 4px 0;
 }
 
 .review-subtitle {
@@ -106,7 +107,11 @@
   margin: 20px;
 }
 
-
+#new_user {
+  .form-check {
+    padding-left: 1.25rem;
+  }
+}
 
 
 

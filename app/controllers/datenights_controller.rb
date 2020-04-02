@@ -11,6 +11,7 @@ class DatenightsController < ApplicationController
     @date_diff = (@datenight.day_of_date.to_i - DateTime.now.to_i) / 86400
     @user_badge = user_badge
     @review = Review.new
+    today = DateTime.now
   end
 
   def new

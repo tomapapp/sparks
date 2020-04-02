@@ -6,17 +6,17 @@ function refreshForm(innerHTML) {
 function addReview(reviewHTML) {
   const reviews = document.getElementById('reviews');
   reviews.insertAdjacentHTML('beforebegin', reviewHTML);
-  const noReviews = document.getElementById('no-reviews');
-  noReviews.classList.add("no-disp")
   const addReview = document.getElementById('add-review');
   addReview.classList.add("no-disp")
   const reviewForm = document.getElementById('review-form');
-  reviews.insertAdjacentHTML('beforebegin', '<p>You have already commented on this datenight</p>');
+  reviewForm.insertAdjacentHTML('beforebegin', '<p>You have already commented on this datenight</p>');
+  const noReviews = document.getElementById('no-reviews');
+  noReviews.classList.add("no-disp")
 }
 
 <% if @review.errors.any? %>
   refreshForm('<%= j render "reviews/form", datenight: @datenight, review: @review %>');
 <% else %>
   addReview('<%= j render "reviews/show", review: @review %>');
-  refreshForm('<%= j render "reviews/form", datenight: @datenight, review: Review.new %>');
+  // refreshForm('<%= j render "reviews/form", datenight: @datenight, review: Review.new %>');
 <% end %>
