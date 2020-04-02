@@ -10,10 +10,10 @@
   <div class="card show-card">
     <h4 class="reco-title"><strong><%= @recommendation.name %></strong></h4>
 
-    <ul class="list-inline d-flex justify-content-left pt-2 pb-3">
-      <li class="list-inline-item btn btn-outline-danger btn-sm"><%= @recommendation.category.name %></li>
-      <li class="list-inline-item btn btn-outline-danger btn-sm">Urban</li>
-      <li class="list-inline-item btn btn-outline-danger btn-sm">Cheap</li>
+    <ul class="list-inline d-flex justify-content-left pt-2 pb-3 mb-10">
+      <li class="selected-category btn btn-categories btn-sm"><%= @recommendation.category.name %></li>
+      <li class="selected-category btn btn-categories btn-sm">Urban</li>
+      <li class="selected-category btn btn-categories btn-sm">Cheap</li>
     </ul>
     <div class="bottom-border">
       <p class="reco-section-title"><strong>ABOUT THIS DATE NIGHT</strong></p>
