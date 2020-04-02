@@ -76,11 +76,13 @@ class DatenightsController < ApplicationController
   end
 
   def user_badge
-    if current_user.datenights.count <= 2
+    if current_user.datenights.count == 0
+      user_badge = ["no-badge", "no-badge", "badge-beginner", "Date Night Beginners"]
+    elsif current_user.datenights.count < 1
       user_badge = ["badge-beginner", "Date Night Beginners", "badge-pro", "Date Night Pros"]
-    elsif current_user.datenights.count <= 4
+    elsif current_user.datenights.count < 3
       user_badge = ["badge-pro", "Date Night Pros", "badge-expert", "Date Night Experts"]
-    elsif current_user.datenights.count > 6
+    elsif current_user.datenights.count > 5
       user_badge = ["badge-expert", "Date Night Experts", "badge-shaolin", "Date Night Shaolins"]
     end
   end
