@@ -3,7 +3,7 @@
 <div class="container">
   <div id="recommendation-index">
     <% @top_recommendations.each do |recommendation| %>
-    <div class="card index-card">
+    <div class="index-card">
       <%= link_to recommendation_path(recommendation) do %>
       <% if recommendation.photos.attached? %>
       <!-- image carousel -->
@@ -16,8 +16,8 @@
       <!-- text -->
       <div class="card-text">
         <div class="d-flex justify-content-between card-detail">
-          <p><em><%= recommendation.location.split(",")[1] %></em> (<%= recommendation.distance_from([current_user.latitude,current_user.longitude]).round(2) %> mi)</p>
-          <p><i class="fas fa-star rating"></i><em><%= recommendation.rating %></em></p>
+          <p><%= recommendation.location.split(",")[1] %> (<%= recommendation.distance_from([current_user.latitude,current_user.longitude]).round(2) %> mi)</p>
+          <p class="card-rating-no-shadow"><i class="fas fa-star rating card-rating-no-shadow"></i><%= recommendation.rating %></p>
         </div>
         <h5 class="text-break"><strong><%= recommendation.name %></strong></h5>
       </div>
@@ -30,6 +30,7 @@
   <!-- map -->
   <div
   id="map"
+  class="index-map"
   style="width: 100%;
   height: 1000px"
   data-markers="<%= @markers.to_json %>"

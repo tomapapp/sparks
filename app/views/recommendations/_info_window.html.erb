@@ -1,20 +1,20 @@
-<div class="card index-card">
+<div class="card index-card-no-shadow">
   <%= link_to recommendation_path(recommendation) do %>
   <% if recommendation.photos.attached? %>
-      <%= cl_image_tag recommendation.photos.first.key, class: "d-block card-picture", position: :center  %>
+      <%= cl_image_tag recommendation.photos.first.key, class: "d-block card-picture-no-shadow", position: :center  %>
   <!-- image carousel -->
   <%#= render 'shared/carousel', recommendation: recommendation %>
   <!-- image carousel -->
 
   <% else %>
-  <%= image_tag "https://source.unsplash.com/random/1100x500", class: "card-picture", crop: :fill, position: :center %>
+  <%= image_tag "https://source.unsplash.com/random/1100x500", class: "card-picture-no-shadow", crop: :fill, position: :center %>
   <% end %>
 
   <!-- text -->
   <div class="card-text">
     <div class="d-flex justify-content-between card-detail">
-      <p><em><%= recommendation.location.split(",")[1] %></em> (<%= recommendation.distance_from([current_user.latitude,current_user.longitude]).round(2) %> mi) </p>
-      <p><i class="fas fa-star rating"></i><em><%= recommendation.rating %></em></p>
+      <p><%= recommendation.location.split(",")[1] %> (<%= recommendation.distance_from([current_user.latitude,current_user.longitude]).round(2) %> mi) </p>
+      <p class="card-rating-no-shadow"><i class="fas fa-star rating card-rating-no-shadow"></i><%= recommendation.rating %></p>
     </div>
     <h5 class="text-break"><strong><%= recommendation.name %></strong></h5>
   </div>

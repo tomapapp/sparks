@@ -11,9 +11,15 @@ class ReviewsController < ApplicationController
     @review.datenight = @datenight
     @review.user = current_user
     if @review.save
-      redirect_to recommendation_path(@recommendation)
+      respond_to do |format|
+        format.html { redirect_to recommendation_path(@recommendation) }
+        format.js  # <-- will render `app/views/reviews/create.js.erb
+      end
     else
-      render :new
+      respond_to do |format|
+        format.html { render :new }
+        format.js  # <-- idem
+      end
     end
   end
 

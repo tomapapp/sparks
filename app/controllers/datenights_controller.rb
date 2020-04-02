@@ -9,8 +9,7 @@ class DatenightsController < ApplicationController
 
   def show
     @user_badge = user_badge
-    # today = Date.today
-    # date_night = @datenight.day_of_date.to_i
+    @review = Review.new
   end
 
   def new

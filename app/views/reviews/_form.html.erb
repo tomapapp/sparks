@@ -1,0 +1,13 @@
+
+<%= simple_form_for([ datenight , review ], remote: true) do |f|%>
+<%= f.label "Date night rating" %>
+<%= f.input :date_rating,
+as: :radio_buttons,
+collection: 1..5,
+input_html: { class: 'displaynone' },
+wrapper_html: { class: 'first-form' }
+%>
+<%= f.input :content, label: "Review & tips" %>
+<%= f.button :submit, "Add review", class: "main-btn" %>
+<% end %>
+
