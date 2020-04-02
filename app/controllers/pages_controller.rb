@@ -83,7 +83,7 @@ class PagesController < ApplicationController
     elsif current_user.date_frequency == nil
       redirect_to date_frequency_path
     elsif current_user.preferences.empty?
-        redirect_to edit_preferences_path
+      redirect_to edit_preferences_path
     end
   end
 
