@@ -1,2 +1,5 @@
-<div class="new-banner" style="background-image: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url(https://images.metadata.sky.com/pd-image/79f9c43a-f43f-4ee0-bed0-77fa8e6218e5/16-9)">
-</div>
+<% if current_user.avatar.attached? %>
+  <div class="new-banner" style="background-image: url(<%= cl_image_path current_user.avatar&.key, gravity: :faces %>)"></div>
+<% else %>
+    <div class="new-banner" style="background-image: url(https://images.metadata.sky.com/pd-image/79f9c43a-f43f-4ee0-bed0-77fa8e6218e5/16-9)"></div>
+<% end %>
