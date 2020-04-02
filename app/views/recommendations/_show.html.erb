@@ -34,14 +34,20 @@
       <!-- form input -->
       <div class="container">
         <div class="tagline-pref">
+          <div id="review-form">
           <% if current_user.datenights.any? { |datenight| datenight.recommendation.id == @recommendation.id }  %>
             <% if @reviews.any? { |review| review.user == current_user} %>
-              <p>You have already commented on this datenight</p>
+              <div id="already-commented">
+                <p>You have already commented on this datenight</p>
+              </div>
             <% else %>
-              <p class="font-title text-center">How was your date night? </p>
-              <%= render 'reviews/form', datenight: @datenight, review: @review %>
+              <div id="add-review">
+                <p class="font-title text-center">How was your date night? </p>
+                <%= render 'reviews/form', datenight: @datenight, review: @review %>
+              </div>
             <% end %>
           <% end %>
+          </div>
         </div>
       </div>
         <!-- form input -->

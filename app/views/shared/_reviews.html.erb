@@ -1,5 +1,3 @@
-<% @recommendation.datenights.each do |datenight| %>
-<% datenight.reviews.each do |review| %>
+<% @reviews.each do |review| %>
 <%= render 'reviews/show', review: review %>
-<% end %>
 <% end %>
