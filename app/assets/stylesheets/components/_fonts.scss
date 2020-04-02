@@ -49,6 +49,7 @@
   }
 }
 
+
 .reco-link {
   font-family: Roboto;
   font-style: normal;
@@ -97,7 +98,11 @@
   margin: 20px;
 }
 
-
+#new_user {
+  .form-check {
+    padding-left: 1.25rem;
+  }
+}
 
 
 
