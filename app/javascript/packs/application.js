@@ -12,6 +12,7 @@ initMapbox();
 import { initToggleMap } from '../components/map';
 initToggleMap();
 
+import { avatarUpload } from "../components/upload_avatar"
 // Functions for checkboxes to become active
   $(document).ready(function(){
     $(".collection_check_boxes").click(function(){
@@ -44,3 +45,5 @@ initToggleMap();
     })
     $(this).toggleClass("active");
   }
+
+  avatarUpload()
