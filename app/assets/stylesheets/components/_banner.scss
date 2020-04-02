@@ -6,6 +6,12 @@
 .value-prop-icon {
   width: 50px;
   font-size: 30px;
+  &.special {
+    object-fit: scale-down;
+    align-items: center;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  }
 }
 
 .value-prop-content {
