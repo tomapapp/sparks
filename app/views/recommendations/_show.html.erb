@@ -23,21 +23,44 @@
       <p class="reco-section-title"><strong>PRICE</strong></p>
       <p class="reco-text pb-2">About <i class="fas fa-dollar-sign"></i><strong><%= @recommendation.price %></strong> per person</p>
     </div>
+
+    <!-- reviews -->
     <div class="bottom-border">
       <div class="d-flex justify-content-between">
         <p class="reco-section-title"><strong>REVIEWS</strong></p>
         <p class="reco-text pb-2"><i class="fas fa-star rating"></i><%= @recommendation.rating %> (<%= @recommendation.reviewcount %>)</p>
       </div>
-      <% if current_user.datenights.any? { |datenight| datenight.recommendation.id == @recommendation.id } %>
+
+      <!-- form input -->
       <div class="container">
         <div class="tagline-pref">
-          <h2 class="font-title text-center">How was your date night? </h1>
-            <%= render 'reviews/form', datenight: @datenight, review: @review %>
+          <% if current_user.datenights.any? { |datenight| datenight.recommendation.id == @recommendation.id }  %>
+            <% if @reviews.any? { |review| review.user == current_user} %>
+              <p>You have already commented on this datenight</p>
+            <% else %>
+              <p class="font-title text-center">How was your date night? </p>
+              <%= render 'reviews/form', datenight: @datenight, review: @review %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+        <!-- form input -->
+
+        <!-- Reviews show -->
+        <div id="reviews" class="review">
+          <div class="content">
+              <% if @recommendation.datenights.any? && @reviews.any? %>
+                <%= render 'shared/reviews' %>
+              <% else %>
+                <p>There and no reviews on this datenight yet</p>
+              <% end %>
           </div>
         </div>
-        <% end %>
-        <%= render 'shared/reviews' %>
+        <!-- Reviews show -->
+
       </div>
+      <!-- reviews -->
+
       <div class="bottom-border">
         <p class="reco-section-title"><strong>LOCATION</strong></p>
         <p class="reco-text pb-2"><%= @recommendation.location %> (<%= @recommendation.distance_from([current_user.latitude,current_user.longitude]).round(2) %> mi)</p>
