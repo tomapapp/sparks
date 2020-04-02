@@ -1,11 +1,11 @@
   <div class="category-selection-bar">
     <div class="category-selection-text">
-    <h4 class="category-selection-title">What you're interested in:</h4>
+    <h4 class="category-selection-title">Your selected categories</h4>
     <div class="d-flex selected-categories">
       <% @categories.each do |category| %>
-        <span class="selected-category btn btn-outline-danger btn-sm"> <%= category.name %></span>
+        <span class="selected-category btn btn-categories btn-sm"> <%= category.name %></span>
       <% end %>
-      <%= link_to "Pick more", pick_a_category_path, class: "category-selection-button" %>
+      <%= link_to "Pick more categories", pick_a_category_path, class: "category-selection-button" %>
     </div>
   </div>
 </div>

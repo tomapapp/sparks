@@ -1,0 +1,18 @@
+<!-- displaying array position 0 for css class & array position 1 for the name -->
+<div class="badge">
+  <!-- Case where date nights = 0 -->
+  <% if current_user.datenights.count == 0 %>
+    1 date away from <span class="<%=badge[2]%>"> <%= badge[3] %> </span> badge!
+
+  <!-- Illimited - never updates -->
+  <% elsif badge[2] == "badge-shaolin" %>
+    You are almost <span class="<%=badge[2]%>"> <%= badge[3] %> </span>
+
+  <!--  -->
+  <% elsif current_user.datenights.odd? %>
+    2 dates away from <span class="<%=badge[2]%>"> <%= badge[3] %> </span> badge!
+
+  <% else %>
+    1 dates away from <span class="<%=badge[2]%>"> <%= badge[3] %> </span> badge!
+  <% end %>
+</div>

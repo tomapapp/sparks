@@ -1,0 +1,53 @@
+.badge {
+  background: rgba(109, 197, 174, 0.24);
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $base-grey;
+  font-size: 14px;
+}
+
+.badge-beginner {
+  background: #6DC5AE;
+  border: 1px solid #6DC5AE;
+  box-sizing: border-box;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  padding: 2px 8px 2px 8px;
+  margin: 4px;
+}
+
+.badge-pro {
+  background: #F2C173;
+  border: 1px solid #F2C173;
+  box-sizing: border-box;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  padding: 2px 8px 2px 8px;
+  margin: 4px;
+}
+
+.badge-expert {
+  background: #CC545C;
+  border: 1px solid #CC545C;
+  box-sizing: border-box;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  padding: 2px 8px 2px 8px;
+  margin: 4px;
+}
+
+.badge-shaolin {
+  background: #CC545C;
+  border: 1px solid #CC545C;
+  box-sizing: border-box;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  padding: 2px 8px 2px 8px;
+  margin: 4px;
+}

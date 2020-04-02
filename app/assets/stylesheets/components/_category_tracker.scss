@@ -18,7 +18,7 @@
 }
 
 .category-selection-button {
-  color: $red;
+  color: $sparks-color;
   opacity: 0.7;
   font-weight: 300;
   font-size: 14px;
@@ -38,4 +38,8 @@
 .selected-category {
   margin-left: 8px;
   margin-bottom: 8px;
+  color: $sparks-color;
+  background-color: white;
+  border-color: $sparks-color;
+  border-radius: 15px;
 }

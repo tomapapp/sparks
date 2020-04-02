@@ -1,8 +1,16 @@
 <%= render 'shared/welcomebanner' %>
 
+<%= render 'shared/badge_earned', badge: @user_badge %>
+<%= render 'shared/badge_next', badge: @user_badge %>
+
+
 <div class="container">
   <h2 class="profile-title text-center">You have been on <strong class="red"><%= @datenights.count %></strong>  dates! </h2>
   <% @datenights.each do |datenight| %>
+
+<!-- Adding links to recommendation page -->
+  <a href="../recommendations/<%=datenight.recommendation.id%>">
+
   <div class="index-card-no-shadow">
     <% if datenight.recommendation.photos.attached? %>
 
@@ -50,6 +58,9 @@
       <h5 class="text-break"><strong><%= datenight.recommendation.name %></strong></h5>
     </div>
   </div>
+
+  </a>
+  <!-- Closing link to recommendation page -->
 
   <div class="review-profile">
     <%= render 'shared/add_review',

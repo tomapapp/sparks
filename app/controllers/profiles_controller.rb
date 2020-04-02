@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
   def couple_profile
+    # Returning all the date nights to display
     @datenights = []
     @current_user_datenights = current_user.datenights
     @current_user_datenights.each do |datenight|
@@ -8,5 +9,23 @@ class ProfilesController < ApplicationController
       end
     end
     @datenights
+
+    # Returning the badge
+    @user_badge = user_badge
   end
+
+  private
+
+  def user_badge
+    if current_user.datenights.count == 0
+      user_badge = ["no-badge", "no-badge", "badge-beginner", "Date Night Beginners"]
+    elsif current_user.datenights.count <= 1
+      user_badge = ["badge-beginner", "Date Night Beginners", "badge-pro", "Date Night Pros"]
+    elsif current_user.datenights.count =< 3
+      user_badge = ["badge-pro", "Date Night Pros", "badge-expert", "Date Night Experts"]
+    elsif current_user.datenights.count >= 5
+      user_badge = ["badge-expert", "Date Night Experts", "badge-shaolin", "Date Night Shaolins"]
+    end
+  end
+
 end

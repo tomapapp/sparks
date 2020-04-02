@@ -9,10 +9,10 @@
 <!-- Iterate through reviews to find match -->
   <% datenight.reviews.each do |review| %>
   <% if review.user_id == current_user.id %>
-  <div class="show-review">
-    <div class="show-review-banner">
-      You went on <%= datenight.recommendation.name %> in <%= datenight.time.strftime("%B %Y") %>
-    </div>
+    <div class="show-review">
+      <div class="show-review-banner">
+        You went on <%= datenight.recommendation.name %> in <%= datenight.time.strftime("%B %Y") %>
+      </div>
     <div class="review-element datenight-rating">
       <strong>Your rating:</strong>
       <!-- Iterate through date_ratings to add stars -->

@@ -1,3 +1,23 @@
+.value-prop-element {
+  display: flex;
+}
+
+.value-prop-icon {
+  width: 50px;
+  font-size: 30px;
+}
+
+.value-prop-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.value-prop-subtitle {
+  font-size: 14px;
+  font-weight: lighter;
+}
+
+
 .banner {
   background-size: fit;
   background-repeat: no-repeat;
@@ -60,3 +80,5 @@
   font-size: 32px;
   color: #E8535E;
 }
+
+

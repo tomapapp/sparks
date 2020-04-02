@@ -22,12 +22,14 @@
     <h5 class="font-subtitle text-center">Allow us to see your location to make our recommendations better</h5>
     </div>
 
+
+
     <!-- Think we should have a field next date night & preferred time in user profile? -->
     <%= simple_form_for current_user do |f| %>
       <div class="d-flex justify-content-center flex-column">
         <div class="form-input">
           <%= f.input :next_date_night,
-          label: "YOUR NEXT DATE NIGHT IS ON",
+          label: "YOUR NEXT DATE NIGHT IS ON #{current_user.next_date_night.strftime("%^B %d")}",
           label_html: { class: 'font-form-title' },
           as: :date,
           html5: true
