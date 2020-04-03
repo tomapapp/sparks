@@ -1,5 +1,10 @@
 #map {
   margin-bottom: 24px !important;
+  z-index: 9;
+}
+
+.low-z {
+  z-index: 0;
 }
 
 #map.show-map {
