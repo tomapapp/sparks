@@ -38,7 +38,7 @@
           <% if current_user.datenights.any? { |datenight| datenight.recommendation == @recommendation }  %>
             <% if @reviews.any? { |review| review.user == current_user} %>
               <div id="already-commented">
-                <p class="reco-text pb-2">You have already commented on this datenight</p>
+                <p class="reco-text pb-2">You already reviewed this datenight</p>
               </div>
             <% else %>
               <div id="add-review" >
@@ -58,7 +58,7 @@
               <% if @recommendation.datenights.any? && @reviews.any? %>
                 <%= render 'shared/reviews' %>
               <% else %>
-                <p id="no-reviews">There and no reviews on this datenight yet</p>
+                <p id="no-reviews">There are no reviews on this datenight yet</p>
               <% end %>
           </div>
         </div>

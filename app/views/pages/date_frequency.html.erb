@@ -23,9 +23,10 @@
     <h5 class="font-subtitle text-center">Research shows that going out once every two weeks works like a charm to keep the flame alive!</h4>
   </div>
 
-    <!-- Pick date night - Still need to make it non-checkboxes -->
-    <p class="font-form-title text-center">PICK A DATE NIGHT</p>
-      <%= simple_form_for @user do |f| %>
+  <%= simple_form_for @user do |f| %>
+
+      <!-- Pick day -->
+      <p class="font-form-title text-center">PICK A DATE NIGHT</p>
       <div class="form-input-checkbox">
         <%= f.input :day,
           as: :radio_buttons,
@@ -44,8 +45,9 @@
           wrapper_html: { class: 'first-form' }
         %>
       </div>
+      <!-- Pick day -->
 
-    <!-- Choose your date night frequency - Still need to make it non-checkboxes -->
+    <!-- Choose your date night frequency -->
     <p class="font-form-title text-center">CHOOSE YOUR DATE NIGHT FREQUENCY</p>
       <div class="form-input-checkbox">
           <%= f.input :date_frequency,
@@ -61,9 +63,10 @@
             wrapper_html: { class: 'second-form' }
           %>
       </div>
+      <!-- Choose your date night frequency -->
 
     <!-- Button -->
         <%= f.button :submit, "Get started", class: "main-btn bottom" %>
         <%= hidden_field_tag :next_page, "page 2" %>
-      <% end %>
+    <% end %>
   </div>
