@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
     @review.user = current_user
     if @review.save
       respond_to do |format|
-        format.html { redirect_to recommendation_path(@recommendation) }
+        format.html { redirect_to profiles_couple_profile_path }
         format.js  # <-- will render `app/views/reviews/create.js.erb
       end
     else
