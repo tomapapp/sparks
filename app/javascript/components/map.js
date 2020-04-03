@@ -1,11 +1,13 @@
 const initToggleMap = () => {
-  const mapIcon = document.getElementById("map-icon-container");
-  const mapElement = document.getElementById("map")
-  const nonMapContent = document.getElementById("recommendation-index")
-  if (mapIcon) {
-    mapIcon.addEventListener("click", (event) => {
-      mapElement.classList.toggle("toggled");
-      nonMapContent.classList.toggle("hidden");
+  const trigger = document.getElementById('map-icon-container')
+  if (trigger) {
+    const mapModal = document.querySelector(".custom-map-modal")
+    trigger.addEventListener("click", () => {
+      mapModal.style.top = "0"
+    })
+    const closeModal = document.querySelector(".close-map-modal")
+    closeModal.addEventListener("click", () => {
+      mapModal.style.top = "-100vh"
     })
   }
 }
