@@ -33,6 +33,10 @@ const initMapbox = () => {
     console.log(mapElement.dataset)
     addMarkersToMap(map, markers);
     fitMapToMarkers(map, markers);
+    const togglebtn = document.getElementById("map-icon-container");
+    togglebtn.addEventListener("click", (event) => {
+      map.resize()
+    })
   }
 };
 

@@ -1,10 +1,16 @@
 #map {
-  display: none;
   margin-bottom: 24px !important;
 }
 
 #map.show-map {
-  display: block;
+}
+
+.custom-map-modal{
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: -100vh;
+  transition: 0.5s all;
 }
 
 #map.toggled {

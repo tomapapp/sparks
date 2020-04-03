@@ -27,16 +27,6 @@
     <!-- text -->
   </div>
 
-  <!-- map -->
-  <div
-  id="map"
-  class="index-map"
-  style="width: 100%;
-  height: 1000px"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-  ></div>
-  <!-- map -->
 
   <!-- button -->
   <div class="row d-flex justify-content-center">
@@ -51,3 +41,25 @@
   <%= image_tag "map_icon.png", class: "map-icon", crop: :fill %>
 </div>
 <!-- map toggle icon -->
+
+<!-- map -->
+
+
+<div class="custom-map-modal">
+  <div class="position-relative">
+    <div style="top: 25px; left: 25px; z-index: 2000" class="position-absolute close-map-modal">
+      <i class="far fa-times-circle fa-2x"></i>
+    </div>
+    <div
+    id="map"
+    class="index-map"
+    style="width: 100vw;
+    height: 100vh;
+    overflow: hidden;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+    ></div>
+
+  </div>
+</div>
+<!-- map -->
